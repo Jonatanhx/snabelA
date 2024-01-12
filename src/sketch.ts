@@ -1,4 +1,5 @@
 //---- GLOBAL VARIABLES ----//
+// Har kvar davids mystery music för att visa vart vi kan importera ljud//
 let game: Game;
 let music: {
   mystery: p5.SoundFile;
@@ -9,6 +10,7 @@ let music: {
  * This is a good place to load assets such as
  * sound files, images etc...
  */
+// Har kvar davids mystery music för att visa vart vi kan importera ljud//
 function preload() {
   music = {
     mystery: loadSound("/assets/music/mystery.mp3"),
@@ -21,6 +23,7 @@ function preload() {
  * and save it as a global variable so it can be used
  * in the draw function belows
  */
+// Har kvar davids mystery music för att visa vart vi kan importera ljud//
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60);
