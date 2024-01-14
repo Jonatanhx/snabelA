@@ -9,16 +9,16 @@ class PauseMenu extends Menu {
   private drawDialogBox() {
     push();
     fill("#bcbcbc");
-    translate(-500, -200);
-    rect(width / 2, height / 2, 1000, 500);
+    translate(-350, -250);
+    rect(width / 2, height / 2, 702, 553);
     rectMode(CENTER);
     pop();
   }
   private drawHeading() {
     push();
-    text("PAUSED", height / 2, height / 2 - 60);
+    textSize(100);
+    text("PAUSED", 700, 400);
     fill("black");
-    textSize(30);
     pop();
   }
   private drawButtons() {
@@ -30,8 +30,8 @@ class PauseMenu extends Menu {
   private drawButtonTexts() {
     push();
     fill("black");
-    text("RESUME", 500, height / 2, 60);
-    textSize(100);
+    textSize(30);
+    text("RESUME", 530, 550, 60);
     pop();
   }
 
