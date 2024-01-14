@@ -1,10 +1,17 @@
-class PauseMenu extends Menu {
+class PauseMenu {
   private pauseText: string;
   private resumeButton: string;
   private exitButton: p5.Image;
   private restartButton: p5.Image;
   private centerPosX: number;
   private centerPosY: number;
+  private button1X: number;
+  private button1Y: number;
+
+  constructor() {
+    this.button1X = width * 0.42;
+    this.button1Y = height * 0.5;
+  }
 
   private drawDialogBox() {
     push();
@@ -32,7 +39,7 @@ class PauseMenu extends Menu {
     push();
     fill("white");
     rectMode(CENTER);
-    rect(width * 0.42, height * 0.5, 250, 110);
+    rect(this.button1X, this.button1Y, 250, 110);
     rect(width * 0.58, height * 0.5, 250, 110);
     rect(width * 0.5, height * 0.65, 250, 110);
     pop();
@@ -48,12 +55,19 @@ class PauseMenu extends Menu {
     pop();
   }
 
+  public clicked() {
+    let d = dist(mouseX, mouseY, this.button1X, this.button1Y);
+    if (d < 100) {
+      console.log("CLICKED!!");
+    }
+  }
   public draw() {
     this.drawGreyBackground();
     this.drawDialogBox();
     this.drawHeading();
     this.drawButtons();
     this.drawButtonTexts();
+    this.clicked();
   }
   public update() {}
 }
