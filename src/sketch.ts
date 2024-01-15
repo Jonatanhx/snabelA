@@ -2,7 +2,12 @@
 // Har kvar davids mystery music för att visa vart vi kan importera ljud//
 let game: Game;
 let music: {
-  mystery: p5.SoundFile;
+  backgroundL1: p5.SoundFile;
+  backgroundL2: p5.SoundFile;
+  startMenuMusic: p5.SoundFile;
+};
+let sfx: {
+  gameOver: p5.SoundFile;
 };
 
 /**
@@ -12,9 +17,11 @@ let music: {
  */
 // Har kvar davids mystery music för att visa vart vi kan importera ljud//
 function preload() {
-  music = {
-    mystery: loadSound("/assets/music/mystery.mp3"),
-  };
+  /*   music = {
+    backgroundL1: loadSound("/assets/music/Kitchentheme.mp3"), //placeholder
+    backgroundL2: loadSound("/assets/music/Deserttheme.mp3"), //placerholder
+    startMenuMusic: loadSound("/assets/music/Menutheme.mp3"), //placeholder
+  }; */
 }
 
 /**
@@ -27,7 +34,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60);
-  music.mystery.setVolume(0.8);
+  /*   music.backgroundL1.setVolume(0.8); */
 
   game = new Game();
 }
