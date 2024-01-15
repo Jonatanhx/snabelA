@@ -3,14 +3,20 @@ class PauseMenu {
   private resumeButton: string;
   private exitButton: p5.Image;
   private restartButton: p5.Image;
-  private centerPosX: number;
-  private centerPosY: number;
   private button1X: number;
   private button1Y: number;
+  private buttonHeight: number;
+  private buttonWidth: number;
+  private buttonFontSize: number;
+  private headingFontSize: number;
 
   constructor() {
     this.button1X = width * 0.42;
     this.button1Y = height * 0.5;
+    this.buttonHeight = height * 0.1;
+    this.buttonWidth = width * 0.15;
+    this.buttonFontSize = width * 0.015;
+    this.headingFontSize = width * 0.06;
   }
 
   private drawDialogBox() {
@@ -29,7 +35,7 @@ class PauseMenu {
   }
   private drawHeading() {
     push();
-    textSize(100);
+    textSize(this.headingFontSize);
     textAlign(CENTER);
     text("PAUSED", width * 0.5, height * 0.4);
     fill("black");
@@ -39,15 +45,15 @@ class PauseMenu {
     push();
     fill("white");
     rectMode(CENTER);
-    rect(this.button1X, this.button1Y, 250, 110);
-    rect(width * 0.58, height * 0.5, 250, 110);
-    rect(width * 0.5, height * 0.65, 250, 110);
+    rect(this.button1X, this.button1Y, this.buttonWidth, this.buttonHeight);
+    rect(width * 0.58, height * 0.5, this.buttonWidth, this.buttonHeight);
+    rect(width * 0.5, height * 0.65, this.buttonWidth, this.buttonHeight);
     pop();
   }
   private drawButtonTexts() {
     push();
     fill("black");
-    textSize(30);
+    textSize(this.buttonFontSize);
     textAlign(CENTER);
     text("RESUME", width * 0.42, height * 0.49, 0);
     text("RESTART", width * 0.58, height * 0.49, 0);
