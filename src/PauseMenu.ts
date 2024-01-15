@@ -1,20 +1,18 @@
 class PauseMenu {
-  private pauseText: string;
-  private resumeButton: string;
-  private exitButton: p5.Image;
-  private restartButton: p5.Image;
   private button1X: number;
   private button1Y: number;
   private buttonHeight: number;
   private buttonWidth: number;
   private buttonFontSize: number;
   private headingFontSize: number;
+  private button1Area: number;
 
   constructor() {
     this.button1X = width * 0.42;
     this.button1Y = height * 0.5;
-    this.buttonHeight = height * 0.1;
     this.buttonWidth = width * 0.15;
+    this.buttonHeight = width * 0.065;
+    this.button1Area = (this.buttonWidth * this.buttonHeight) / 20;
     this.buttonFontSize = width * 0.015;
     this.headingFontSize = width * 0.06;
   }
@@ -63,8 +61,9 @@ class PauseMenu {
 
   public clicked() {
     let d = dist(mouseX, mouseY, this.button1X, this.button1Y);
-    if (d < 100) {
-      console.log("CLICKED!!");
+    if (d < this.button1Area) {
+      this.buttonHeight;
+      console.log(this.button1Area);
     }
   }
   public draw() {
