@@ -1,4 +1,4 @@
-class PauseMenu {
+class LevelPickedMenu {
   private button1X: number;
   private button1Y: number;
   private buttonHeight: number;
