@@ -14,14 +14,14 @@ class Game {
 
   // ------------ METODER ------------------
   //
-  public nextLevel() { }
+  public nextLevel() {}
 
-  private muteMain() { }
+  private muteMain() {}
 
-  private muteSfx() { }
+  private muteSfx() {}
 
   //räknar ut ändringar som ska ske i instanser av game
-  public update() { }
+  public update() {}
 
   public draw() {
     background("black");
