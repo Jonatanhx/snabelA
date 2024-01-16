@@ -26,6 +26,7 @@ class Entity {
   }
 
   public draw(): void {
+    //Innehåller just nu player informationen
     push();
     fill("red");
     rect(this.positionX, this.positionY, this.width, this.height);
