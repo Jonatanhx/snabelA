@@ -3,14 +3,12 @@ class Level {
   //attributes
   public id: number;
   private entities: Entity[];
-  private motion: number;
-  private countDown: number;
+  private motion: number; //hastigheten som förflyttar alla entiteter förutom player
   //constructor
   constructor() {
     this.id = 1;
     this.entities = [new Player(50, 50, 50, 50, null as any)];
     this.motion = 2;
-    this.countDown = 2;
   }
 
   // gå igenom alla entiteter i arrayen och rita ut dem
@@ -21,8 +19,6 @@ class Level {
     }
   }
   public update(): void {}
-  private moveWorld(): void {}
+  private moveWorld(): void {} //Olika hastigheter på bakgrund = parallax; flygande objekt = ny hastighet?
   private checkCollision(): void {}
-  private tickCountDown(): void {}
-  /* private playExplodeSound(): void {} */ //Flyttas till checkCollision?
 }
