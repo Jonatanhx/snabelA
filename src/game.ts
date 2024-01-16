@@ -12,13 +12,14 @@ class Game {
     this.levelFactory = new LevelFactory();
   }
 
-  // ------------ METODER ------------------
-  //
+  // ------------ METODER ------------------ //
   public nextLevel() {}
 
   private muteMain() {}
 
   private muteSfx() {}
+
+  public setActiveMenu(menu: Menu) {}
 
   //räknar ut ändringar som ska ske i instanser av game
   public update() {}
