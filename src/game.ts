@@ -24,7 +24,7 @@ class Game {
   public update() {}
 
   public draw() {
-    background("black");
+    /* background("Black"); */ //Borttagen bakgrundsfärg för att se bilden i Sketch
     this.level.draw(); // Rita ut level
   }
 }

@@ -32,7 +32,13 @@ class Entity {
     pop();
   }
 
-  public update(): void {}
+  public update(): void {
+    /*     this.velocityX += 0.1;
+    this.velocityY += 0.1;
+
+    this.positionX += this.velocityX;
+    this.positionY += this.velocityY; */
+  }
   /*   public getWidth(): number {}
   public getHeight(): number {}
   public applyGravity(): number {} */
