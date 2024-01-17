@@ -32,7 +32,6 @@ class Game {
     }
   }
   public draw() {
-    
-      this.gameOver.draw();
-   
+    this.gameOver.draw();
+  }
 }
