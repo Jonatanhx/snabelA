@@ -1,11 +1,8 @@
-class Menu {
-  public backgroundColor: string;
-  private game: Game;
-
-  constructor() {
-    this.backgroundColor = "white";
-    // this.game = new Game();
+abstract class Menu {
+  constructor(game: Game) {
+    this.game = game;
   }
-  private draw() {}
-  private update() {}
+
+  abstract draw(): void;
+  abstract update(): void;
 }

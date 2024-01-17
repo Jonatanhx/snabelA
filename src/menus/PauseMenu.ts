@@ -1,4 +1,4 @@
-class PauseMenu {
+class PauseMenu implements IMenu {
   private button1X: number;
   private button1Y: number;
   private buttonHeight: number;
@@ -12,7 +12,7 @@ class PauseMenu {
     this.button1Y = height * 0.5;
     this.buttonWidth = width * 0.15;
     this.buttonHeight = width * 0.065;
-    this.button1Area = (this.buttonWidth * this.buttonHeight) / 20;
+    this.button1Area = 25;
     this.buttonFontSize = width * 0.015;
     this.headingFontSize = width * 0.06;
   }
@@ -62,11 +62,10 @@ class PauseMenu {
   public clicked() {
     let d = dist(mouseX, mouseY, this.button1X, this.button1Y);
     if (d < this.button1Area) {
-      this.buttonHeight;
-      console.log(this.button1Area);
+      console.log(d);
     }
   }
-  public draw() {
+  public draw(): void {
     this.drawGreyBackground();
     this.drawDialogBox();
     this.drawHeading();
@@ -74,5 +73,5 @@ class PauseMenu {
     this.drawButtonTexts();
     this.clicked();
   }
-  public update() {}
+  public update(): void {}
 }
