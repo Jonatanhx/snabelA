@@ -28,7 +28,6 @@ class Game {
       this.gameOver.update();
     } else {
       // Game update logic ….
-      // Check for game over condition, and if met, set this.gameOver = new GameOver();
     }
   }
   public draw() {
