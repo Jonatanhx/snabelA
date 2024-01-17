@@ -1,6 +1,7 @@
 abstract class Menu {
-  constructor(game: Game) {
-    this.game = game;
+  private backgroundColor: string;
+  constructor(backgroundColor: string) {
+    this.backgroundColor = backgroundColor;
   }
 
   abstract draw(): void;
