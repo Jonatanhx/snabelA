@@ -18,7 +18,10 @@ class Level {
       entity.draw();
     }
   }
-  public update(): void {}
-  private moveWorld(): void {} //Olika hastigheter på bakgrund = parallax; flygande objekt = ny hastighet?
-  private checkCollision(): void {}
+  public update(): void { }
+  private moveWorld(): void { } //Olika hastigheter på bakgrund = parallax; flygande objekt = ny hastighet?
+  private checkCollision(): void { }
 }
+
+
+
