@@ -3,6 +3,7 @@ class Game {
   /*   private activeMenu: Menu; */
   private level: Level;
   private levelFactory: LevelFactory;
+  private gameOver: GameOver | null;
 
   // Här skapar vi instanserna av det vi har definierat.
   constructor() {
@@ -10,6 +11,7 @@ class Game {
     /*  this.activeMenu = new Menu(); */
     this.level = new Level();
     this.levelFactory = new LevelFactory();
+    this.gameOver = null;
   }
 
   // ------------ METODER ------------------
@@ -21,10 +23,20 @@ class Game {
   private muteSfx() {}
 
   //räknar ut ändringar som ska ske i instanser av game
-  public update() {}
-
+  public update() {
+    if (this.gameOver) {
+      this.gameOver.update();
+    } else {
+      // Game update logic ….
+      // Check for game over condition, and if met, set this.gameOver = new GameOver();
+    }
+  }
   public draw() {
-    background("black");
-    this.level.draw(); // Rita ut level
+    if (this.gameOver) {
+      this.gameOver.draw();
+    } else {
+      background("black");
+      this.level.draw();
+    }
   }
 }
