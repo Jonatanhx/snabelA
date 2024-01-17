@@ -1,10 +1,8 @@
 class GameOver implements IMenu {
-  private gameOverText: string;
   private countdown: number;
 
   constructor() {
     this.countdown = 3;
-    this.gameOverText = "YOU DIED";
   }
   //+ draw( ): void
   //+ update( ): void

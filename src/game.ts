@@ -32,11 +32,7 @@ class Game {
     }
   }
   public draw() {
-    if (this.gameOver) {
+    
       this.gameOver.draw();
-    } else {
-      background("black");
-      this.level.draw();
-    }
-  }
+   
 }
