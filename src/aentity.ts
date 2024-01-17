@@ -1,9 +1,9 @@
 class Entity {
   public positionX: number;
   public positionY: number;
-  private width: number;
-  private height: number;
-  private image: p5.Image;
+  public width: number;
+  public height: number;
+  public image: p5.Image;
   public velocityX: number;
   public velocityY: number;
 
@@ -24,22 +24,8 @@ class Entity {
     this.velocityX = velocityX;
     this.velocityY = velocityY;
   }
-
-  public draw(): void {
-    push();
-    fill("red");
-    rect(this.positionX, this.positionY, this.width, this.height);
-    pop();
-  }
-
   public update(): void {
-    /*     this.velocityX += 0.1;
-    this.velocityY += 0.1;
-
-    this.positionX += this.velocityX;
-    this.positionY += this.velocityY; */
+    this.positionX -= 10;
   }
-  /*   public getWidth(): number {}
-  public getHeight(): number {}
-  public applyGravity(): number {} */
+  public draw(): void {}
 }

@@ -1,6 +1,7 @@
 //---- GLOBAL VARIABLES ----//
 // Har kvar davids mystery music för att visa vart vi kan importera ljud//
 let game: Game;
+let entity: Entity;
 let music: {
   backgroundL1: p5.SoundFile;
   backgroundL2: p5.SoundFile;
@@ -32,32 +33,18 @@ function preload() {
     backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
   };
 }
-
-/**
- * Built in setup function in P5
- * This is a good place to create your first class object
- * and save it as a global variable so it can be used
- * in the draw function belows
- */
-// Har kvar davids mystery music för att visa vart vi kan importera ljud//
 function setup() {
+  preload();
   createCanvas(windowWidth, windowHeight);
   frameRate(60);
   /* music.backgroundL1.setVolume(0.8); */
-
   game = new Game();
-  image(backgroundImage.backgroundDesert, 0, 0, width, height); //Gör bakgrund 1 (öken) synlig
-
   /* image(backgroundImage.backgroundKitchen, 0, 0, width, height); */
 
   /*   image(backgroundImage, 0, 0, 0, 0);
    */
 }
-/**
- * Built in draw function in P5
- * This is a good place to call public methods of the object
- * you created in the setup function above
- */
+
 function draw() {
   game.update();
   game.draw();

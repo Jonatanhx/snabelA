@@ -21,7 +21,9 @@ class Game {
   private muteSfx() {}
 
   //räknar ut ändringar som ska ske i instanser av game
-  public update() {}
+  public update() {
+    this.level.update();
+  }
 
   public draw() {
     /* background("Black"); */ //Borttagen bakgrundsfärg för att se bilden i Sketch

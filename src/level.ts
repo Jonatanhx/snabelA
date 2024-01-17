@@ -5,9 +5,24 @@ class Level {
 
   constructor() {
     this.id = 1;
-    this.entities = [new Player(50, 50, 50, 50, null as any)];
+    this.entities = [
+      new Background(
+        1,
+        1,
+        windowWidth,
+        windowHeight,
+        backgroundImage.backgroundDesert
+      ),
+      new Player(50, 50, 50, 50, null as any),
+    ];
   }
 
+  public update() {
+    // Update the position of the player
+    for (const entity of this.entities) {
+      entity.update();
+    }
+  }
   // gå igenom alla entiteter i arrayen och rita ut dem
   public draw() {
     for (const entity of this.entities) {
