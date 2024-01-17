@@ -1,4 +1,4 @@
-class StartMenu extends Menu {
+class StartMenu implements IMenu {
   private readonly descriptionTitle: string; //utanför klassdiagrammet
   private readonly description: string;
   private controlDescTitle: string; //p5.Image; 
@@ -7,10 +7,9 @@ class StartMenu extends Menu {
   /* private playButton: p5.Image; */ //läs om hur p5 knappar funkar
   // ändra till playButton i diagrammet
 
-  constructor(
-    backgroundColor: p5.Color,
-  ) {
-    super(backgroundColor);
+  constructor()
+  {
+    
     this.descriptionTitle = "Description/How to play: ";
     this.description =
       "You are a jalapeno yearning for freedom from this manic prison which seems to change shape when getting further. \n \n Go through the levels by avoiding obstacles with jumping over or on them.";

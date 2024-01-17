@@ -1,9 +1,11 @@
-abstract class Menu {
-    private backgroundColor: p5.Color;
+// <refernce path="menu.ts" />
+interface IMenu {
+    /* private backgroundColor: p5.Color;
 
     constructor(backgroundColor: p5.Color) {
         this.backgroundColor = backgroundColor;
     }
+     */
 
-    public abstract draw(): void; 
+    draw(): void; 
 }
