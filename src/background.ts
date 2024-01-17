@@ -10,3 +10,5 @@ class Background extends Entity {
     super(positionX, positionY, width, height, image, 0, 0); //Super hänvisar till Entity's constructor
   }
 }
+
+
