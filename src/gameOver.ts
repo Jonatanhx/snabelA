@@ -10,7 +10,7 @@ class GameOver implements IMenu {
   //- drawHeading( ):void
   //- drawCountdown( ):void
   public draw(): void {
-    let redColor = color(255, 0, 0, 127); // Red color with 50% opacity (127 out of 255)
+    let redColor = color(191, 32, 38, 127); // Red color with 50% opacity (127 out of 255)
     background(redColor);
     textAlign(CENTER, CENTER);
     textSize(50);
