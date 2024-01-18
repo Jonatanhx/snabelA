@@ -24,8 +24,6 @@ class Entity {
     this.velocityX = velocityX;
     this.velocityY = velocityY;
   }
-  public update(): void {
-    this.positionX -= 10;
-  }
+  public update(): void {}
   public draw(): void {}
 }

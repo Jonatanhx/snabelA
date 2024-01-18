@@ -34,7 +34,6 @@ function preload() {
   };
 }
 function setup() {
-  preload();
   createCanvas(windowWidth, windowHeight);
   frameRate(60);
   /* music.backgroundL1.setVolume(0.8); */
