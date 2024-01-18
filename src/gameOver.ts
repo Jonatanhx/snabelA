@@ -4,11 +4,6 @@ class GameOver implements IMenu {
   constructor() {
     this.countdown = 3;
   }
-  //+ draw( ): void
-  //+ update( ): void
-  //- tickCountDown( ):void
-  //- drawHeading( ):void
-  //- drawCountdown( ):void
   public draw(): void {
     let redColor = color(191, 32, 38, 127); // Red color with 50% opacity (127 out of 255)
     background(redColor);
