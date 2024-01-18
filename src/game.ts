@@ -6,7 +6,6 @@ class Game {
 
   constructor() {
     //Vad ska finnas i början?
-    /*  this.activeMenu = new Menu(); */
     this.level = new Level();
     this.levelFactory = new LevelFactory();
     this.activeMenu = new PauseMenu();
