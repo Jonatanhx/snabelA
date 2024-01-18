@@ -48,38 +48,75 @@ class LevelPickedMenu {
   private drawButtons() {
     push();
     noStroke();
-    // Knapp 1
-    if (
-      this.isMouseOverButton(
-        width * 0.29,
-        height * 0.34,
-        this.buttonWidth,
-        this.buttonHeight
-      )
-    ) {
-      fill("#A6A6A6"); // Detta är hover färgen
-    } else {
-      fill("#D9D9D9"); // Detta är bas färgen, om den musen inte hörs över "knappen"
-    }
-    rectMode(CENTER);
-    rect(width * 0.29, height * 0.34, this.buttonWidth, this.buttonHeight);
 
-    // Knapp 2
-    if (
-      this.isMouseOverButton(
-        width * 0.35,
+    // Loop för att rita knappar
+    for (let i = 0; i < 2; i++) {
+      const buttonX = width * (0.29 + i * 0.06);
+      const isClicked = this.isMouseClickedOnButton(
+        buttonX,
         height * 0.34,
         this.buttonWidth,
         this.buttonHeight
-      )
-    ) {
-      fill("#A6A6A6");
-    } else {
-      fill("#D9D9D9");
+      );
+
+      if (isClicked) {
+        // Gör något när knappen är klickad
+        console.log("Button clicked!");
+      }
+
+      const isHovered = this.isMouseOverButton(
+        buttonX,
+        height * 0.34,
+        this.buttonWidth,
+        this.buttonHeight
+      );
+
+      if (isHovered) {
+        fill("#A6A6A6"); // Hover-färg
+      } else {
+        fill("#D9D9D9"); // Basfärg
+      }
+
+      rectMode(CENTER);
+      rect(buttonX, height * 0.34, this.buttonWidth, this.buttonHeight);
     }
-    rect(width * 0.35, height * 0.34, this.buttonWidth, this.buttonHeight);
 
     pop();
+
+    // push();
+    // noStroke();
+    // // Knapp 1
+    // if (
+    //   this.isMouseOverButton(
+    //     width * 0.29,
+    //     height * 0.34,
+    //     this.buttonWidth,
+    //     this.buttonHeight
+    //   )
+    // ) {
+    //   fill("#A6A6A6"); // Detta är hover färgen
+    // } else {
+    //   fill("#D9D9D9"); // Detta är bas färgen, om den musen inte hörs över "knappen"
+    // }
+    // rectMode(CENTER);
+    // rect(width * 0.29, height * 0.34, this.buttonWidth, this.buttonHeight);
+
+    // // Knapp 2
+    // if (
+    //   this.isMouseOverButton(
+    //     width * 0.35,
+    //     height * 0.34,
+    //     this.buttonWidth,
+    //     this.buttonHeight
+    //   )
+    // ) {
+    //   fill("#A6A6A6");
+    // } else {
+    //   fill("#D9D9D9");
+    // }
+    // rect(width * 0.35, height * 0.34, this.buttonWidth, this.buttonHeight);
+
+    // pop();
 
     // ----------------- Här en loop som loopar igenom alla "knappar", den gör samma sak som koden ovan båda alternativen fungerar. Vad är mest läsbart? -------------------------
 
@@ -116,6 +153,16 @@ class LevelPickedMenu {
       mouseX < x + w / 2 &&
       mouseY > y - h / 2 &&
       mouseY < y + h / 2
+    );
+  }
+
+  private isMouseClickedOnButton(x: number, y: number, w: number, h: number) {
+    return (
+      mouseX > x - w / 2 &&
+      mouseX < x + w / 2 &&
+      mouseY > y - h / 2 &&
+      mouseY < y + h / 2 &&
+      mouseIsPressed
     );
   }
 
