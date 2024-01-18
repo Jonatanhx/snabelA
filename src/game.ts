@@ -1,9 +1,12 @@
 class Game {
   private activeMenu: IMenu;
+  //Lokala variabel och typ definitioner. Game ska innehålla en meny, en level och en fabrik för att skapa nya levlar.
   private level: Level;
   private levelFactory: LevelFactory;
 
   constructor() {
+    //Vad ska finnas i början?
+    /*  this.activeMenu = new Menu(); */
     this.level = new Level();
     this.levelFactory = new LevelFactory();
     this.activeMenu = new PauseMenu();
