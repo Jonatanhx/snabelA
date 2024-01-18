@@ -12,6 +12,7 @@ class Game {
     this.level = new Level();
     this.levelFactory = new LevelFactory();
     this.activeMenu = new StartMenu();
+    
 
   }
 
@@ -26,12 +27,26 @@ class Game {
   }
 
   public update() {
-    // ARROW UP / DOWN ÄR FÖR TEST
-    if (keyCode === UP_ARROW) {
-      this.setActiveMenu(new PauseMenu());
-    }
-    if (keyCode === DOWN_ARROW) {
-      this.setActiveMenu(new GameOverMenu());
+    if (keyIsDown(RIGHT_ARROW)) {
+      if (this.activeMenu instanceof StartMenu) {
+        this.activeMenu = new GameOverMenu();
+      } else if (this.activeMenu instanceof GameOverMenu) {
+        this.activeMenu = new PauseMenu();
+      } else if (this.activeMenu instanceof PauseMenu) {
+        this.activeMenu = new LevelPickerMenu();
+      } else if (this.activeMenu instanceof LevelPickerMenu) {
+        this.activeMenu = new StartMenu();
+      } 
+    } else if (keyIsDown(LEFT_ARROW)) {
+      if (this.activeMenu instanceof StartMenu) {
+        this.activeMenu = new LevelPickerMenu();
+      } else if (this.activeMenu instanceof GameOverMenu) {
+        this.activeMenu = new StartMenu();
+      } else if (this.activeMenu instanceof PauseMenu) {
+        this.activeMenu = new GameOverMenu();
+      } else if (this.activeMenu instanceof LevelPickerMenu) {
+        this.activeMenu = new PauseMenu();
+      }
     }
   }
 
