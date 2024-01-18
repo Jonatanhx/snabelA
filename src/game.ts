@@ -1,5 +1,4 @@
 class Game {
-  private activeMenu: IMenu;
   //Lokala variabel och typ definitioner. Game ska innehålla en meny, en level och en fabrik för att skapa nya levlar.
   /* private activeMenu: Menu; */
   private activeMenu: IMenu; //Polymorfism
@@ -11,11 +10,11 @@ class Game {
     //Vad ska finnas i början?
     this.level = new Level();
     this.levelFactory = new LevelFactory();
-    this.activeMenu = new StartMenu();
+    this.activeMenu = new StartMenu(); // starten av spelet
     
 
   }
-
+  
   public nextLevel() {}
 
   private muteMain() {}
@@ -26,7 +25,7 @@ class Game {
     this.activeMenu = menu;
   }
 
-  public update() {
+  public update() { // en tillfällig lösning för att kunna bläddra mellan menyerna
     if (keyIsDown(RIGHT_ARROW)) {
       if (this.activeMenu instanceof StartMenu) {
         this.activeMenu = new GameOverMenu();

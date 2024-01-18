@@ -1,10 +1,10 @@
 class StartMenu implements IMenu {
-  private readonly descriptionTitle: string; //utanför klassdiagrammet
+  private readonly descriptionTitle: string;
   private readonly description: string;
   private controlDescTitle: string; //p5.Image i uml
   private controlDesc: string; //p5.Image i uml
   private playerPreview: number; //p5.Image i uml
-  private playButton: number; //p5.Image i uml 
+  private playButton: string; //p5.Image i uml 
 
   constructor()
   {
@@ -15,7 +15,7 @@ class StartMenu implements IMenu {
     this.controlDescTitle = "CONTROLS";
     this.controlDesc = "SPACE - JUMP \n ESC -  PAUSE";
     this.playerPreview = width / 5;
-    this.playButton = width / 2;
+    this.playButton = "PLAY";
   }
 
   public draw(): void {
@@ -23,6 +23,7 @@ class StartMenu implements IMenu {
     this.drawControlDesc();
     this.drawPlayerPreview();
     this.drawPlayButton();
+    this.playButtonClicked();
   }
 
   public update(): void {}
@@ -30,7 +31,7 @@ class StartMenu implements IMenu {
   public drawPlayDesc() {
     push();
     textStyle(BOLD);
-    text(this.descriptionTitle, (2 * width) / 3, height / 2);
+    text(this.descriptionTitle, (2 * width) / 3, height / 2); 
     textStyle(NORMAL);
     text(
       this.description,
@@ -66,7 +67,16 @@ class StartMenu implements IMenu {
     fill("black");
     textAlign(CENTER, CENTER);
     textSize(20);
-    text("PLAY", width / 2, height / 2);
+    text(this.playButton, width / 2, height / 2);
     pop();
+  }
+
+  public playButtonClicked() { 
+    let overButton = mouseX > width / 2 - 50 && mouseX < width / 2 - 50 + 100 && mouseY > height / 2 - 25 && mouseY < height / 2 - 25 + 50; // kollar att musen är över play button
+    let buttonClicked = false;
+    // Change button color based on mouse interaction
+    if (overButton && !buttonClicked) {
+      console.log("Sorry, No Level Picker For You!")
+    } 
   }
 }
