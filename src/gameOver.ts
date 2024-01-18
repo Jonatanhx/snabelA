@@ -1,4 +1,4 @@
-class GameOver implements IMenu {
+class GameOverMenu implements IMenu {
   private countdown: number;
 
   constructor() {

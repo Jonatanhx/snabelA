@@ -3,7 +3,7 @@ class Game {
   /*   private activeMenu: Menu; */
   private level: Level;
   private levelFactory: LevelFactory;
-  private gameOver: GameOver;
+  private gameOver: GameOverMenu;
 
   // Här skapar vi instanserna av det vi har definierat.
   constructor() {
@@ -11,7 +11,7 @@ class Game {
     /*  this.activeMenu = new Menu(); */
     this.level = new Level();
     this.levelFactory = new LevelFactory();
-    this.gameOver = new GameOver();
+    this.gameOver = new GameOverMenu();
   }
 
   // ------------ METODER ------------------
