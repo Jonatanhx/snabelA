@@ -1,11 +1,6 @@
 class PauseMenu implements IMenu {
-  private button1X: number;
-  private button1Y: number;
-  private buttonWidth: number;
-  private buttonHeight: number;
   private headingWidth: number;
   private headingHeight: number;
-  private buttonFontSize: number;
   private headingFontSize: number;
 
   private resumeButton: Button;
@@ -13,13 +8,8 @@ class PauseMenu implements IMenu {
   private exitButton: Button;
 
   constructor() {
-    this.button1X = width * 0.42;
-    this.button1Y = height * 0.5;
-    this.buttonWidth = width * 0.15;
-    this.buttonHeight = width * 0.065;
     this.headingWidth = width * 0.5;
     this.headingHeight = height * 0.6;
-    this.buttonFontSize = width * 0.015;
     this.headingFontSize = width * 0.06;
     this.resumeButton = new Button(
       "RESUME",
@@ -57,7 +47,7 @@ class PauseMenu implements IMenu {
 
   private drawGreyBackground() {
     push();
-    fill(224, 224, 224, 10);
+    fill(224, 224, 224, 50);
     rect(0, 0, width, height);
     pop();
   }
@@ -70,23 +60,10 @@ class PauseMenu implements IMenu {
     pop();
   }
 
-  // private drawButtonTexts() {
-  //   push();
-  //   fill("black");
-  //   textSize(this.buttonFontSize);
-  //   textAlign(CENTER, CENTER);
-  //   text("RESUME", width * 0.42, height * 0.5, 0);
-  //   text("RESTART", width * 0.58, height * 0.5, 0);
-  //   text("EXIT", width * 0.5, height * 0.65, 0);
-  //   pop();
-  // }
-
   public draw(): void {
     this.drawGreyBackground();
     this.drawDialogBox();
     this.drawHeading();
-
-    // this.drawButtonTexts();
     this.resumeButton.draw();
     this.restartButton.draw();
     this.exitButton.draw();
@@ -95,8 +72,12 @@ class PauseMenu implements IMenu {
     if (this.resumeButton.update()) {
       console.log("RESUME BUTTON WAS CLICKED, CHANGIN MENU");
     }
-    // if (this.exitButton.update()) {
-    //   console.log("EXIT BUTTON WAS CLICKED, CHANGIN MENU");
-    // }
+    if (this.restartButton.update()) {
+      console.log("RESTART BUTTON WAS CLICKED, CHANGIN MENU");
+    }
+    if (this.exitButton.update()) {
+      console.log("EXIT BUTTON WAS CLICKED, CHANGIN MENU");
+      game.setActiveMenu(new StartMenu());
+    }
   }
 }
