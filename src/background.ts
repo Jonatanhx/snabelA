@@ -26,7 +26,7 @@ class Background extends Entity {
 
   public draw(): void {
     push();
-    image(this.image, this.positionX, this.positionY, this.width, this.height);
+    image(this.image, this.positionX, this.positionY, this.width, this.height); //Överlappar pixlarna som tas bort genom förflyttningen av x-position
     image(
       this.image,
       this.positionX + this.width, //Fyller i loop-effekten
