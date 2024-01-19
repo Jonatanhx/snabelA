@@ -8,6 +8,7 @@ class PauseMenu implements IMenu {
   private buttonFontSize: number;
   private headingFontSize: number;
   private button1Area: number;
+  private resumeButton: Button;
 
   constructor() {
     this.button1X = width * 0.42;
@@ -19,6 +20,7 @@ class PauseMenu implements IMenu {
     this.button1Area = 25;
     this.buttonFontSize = width * 0.015;
     this.headingFontSize = width * 0.06;
+    this.resumeButton = new Button("resume", 200, 200, 100, 100);
   }
 
   private drawDialogBox() {
@@ -63,19 +65,13 @@ class PauseMenu implements IMenu {
     pop();
   }
 
-  public clicked() {
-    let d = dist(mouseX, mouseY, this.button1X, this.button1Y);
-    if (d < this.button1Area) {
-      console.log(d);
-    }
-  }
   public draw(): void {
     this.drawGreyBackground();
     this.drawDialogBox();
     this.drawHeading();
     this.drawButtons();
     this.drawButtonTexts();
-    this.clicked();
+    this.resumeButton.draw();
   }
   public update(): void {}
 }
