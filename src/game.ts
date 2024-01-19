@@ -1,5 +1,4 @@
 class Game {
-  private activeMenu: IMenu;
   //Lokala variabel och typ definitioner. Game ska innehålla en meny, en level och en fabrik för att skapa nya levlar.
   /* private activeMenu: Menu; */
   private activeMenu: IMenu; //Polymorfism
@@ -12,8 +11,6 @@ class Game {
     this.level = new Level();
     this.levelFactory = new LevelFactory();
     this.activeMenu = new StartMenu();
-    
-
   }
 
   public nextLevel() {}
@@ -36,7 +33,7 @@ class Game {
         this.activeMenu = new LevelPickerMenu();
       } else if (this.activeMenu instanceof LevelPickerMenu) {
         this.activeMenu = new StartMenu();
-      } 
+      }
     } else if (keyIsDown(LEFT_ARROW)) {
       if (this.activeMenu instanceof StartMenu) {
         this.activeMenu = new LevelPickerMenu();

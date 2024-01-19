@@ -9,8 +9,11 @@ class Player extends Entity {
   ) {
     super(positionX, positionY, width, height, image, 0, 0);
   }
-
   public update(): void {}
-
-  public explode(): void {}
+  public draw(): void {
+    push();
+    fill("red");
+    rect(this.positionX, this.positionY, this.width, this.height);
+    pop();
+  }
 }
