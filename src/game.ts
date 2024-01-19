@@ -9,7 +9,7 @@ class Game {
     //Vad ska finnas i början?
     this.levelFactory = new LevelFactory();
     this.level = this.levelFactory.generateLevel(1);
-    this.activeMenu = new PauseMenu();
+    this.activeMenu = new StartMenu();
   }
 
   public nextLevel() {}
