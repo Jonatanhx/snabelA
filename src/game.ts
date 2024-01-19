@@ -1,6 +1,5 @@
 class Game {
   //Lokala variabel och typ definitioner. Game ska innehålla en meny, en level och en fabrik för att skapa nya levlar.
-  /* private activeMenu: Menu; */
   private activeMenu: IMenu; //Polymorfism
   private level: Level;
   private levelFactory: LevelFactory;
@@ -8,8 +7,8 @@ class Game {
   // Här skapar vi instanserna av det vi har definierat.
   constructor() {
     //Vad ska finnas i början?
-    this.level = new Level();
     this.levelFactory = new LevelFactory();
+    this.level = this.levelFactory.generateLevel(1);
     this.activeMenu = new StartMenu();
   }
 
