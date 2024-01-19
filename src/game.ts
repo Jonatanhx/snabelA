@@ -47,6 +47,8 @@ class Game {
         this.activeMenu = new PauseMenu();
       }
     }
+
+    this.activeMenu.update();
   }
 
   public draw() {
