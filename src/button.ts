@@ -4,20 +4,31 @@ class Button {
   private y: number;
   private w: number;
   private h: number;
+  private textSize: number;
   private prevMouseIsPressed: boolean;
-
+  /**
+   * Constructor for a complete button, with elements for interaction
+   * @param text Text within button
+   * @param textSize Textsize
+   * @param x X position of button
+   * @param y Y position of button
+   * @param w Width of button
+   * @param h Height of button
+   */
   constructor(
     text: string,
+    textSize: number,
     x: number,
     y: number,
-    buttonwidth: number,
-    buttonHeigth: number
+    w: number,
+    h: number
   ) {
     this.text = text;
+    this.textSize = textSize;
     this.x = x;
     this.y = y;
-    this.w = buttonwidth;
-    this.h = buttonHeigth;
+    this.w = w;
+    this.h = h;
     this.prevMouseIsPressed = false;
   }
 
@@ -50,8 +61,14 @@ class Button {
 
   public draw() {
     push();
-    fill("green");
+    fill("white");
     rect(this.x, this.y, this.w, this.h);
+    pop();
+    push();
+    translate(this.w / width + width * 0.07, this.h / height + height * 0.05);
+    textSize(this.textSize);
+    textAlign(CENTER);
+    text(this.text, this.x, this.y);
     pop();
   }
 }
