@@ -45,7 +45,6 @@ class Game {
       }
     }
 
-    this.level.update(); // Gör bara denna om det inte finns en menu (pausad)
     this.activeMenu.update();
   }
 

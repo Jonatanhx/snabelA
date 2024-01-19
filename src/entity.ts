@@ -1,9 +1,9 @@
 class Entity {
   public positionX: number;
   public positionY: number;
-  private width: number;
-  private height: number;
-  private image: p5.Image;
+  public width: number;
+  public height: number;
+  public image: p5.Image;
   public velocityX: number;
   public velocityY: number;
 
@@ -34,7 +34,4 @@ class Entity {
   }
 
   public update(): void {}
-  /*   public getWidth(): number {}
-  public getHeight(): number {}
-  public applyGravity(): number {} */
 }
