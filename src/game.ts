@@ -35,7 +35,7 @@ class Game {
         this.activeMenu = new LevelPickerMenu();
       } else if (this.activeMenu instanceof LevelPickerMenu) {
         this.activeMenu = new StartMenu();
-      } 
+      }
     } else if (keyIsDown(LEFT_ARROW)) {
       if (this.activeMenu instanceof StartMenu) {
         this.activeMenu = new LevelPickerMenu();
