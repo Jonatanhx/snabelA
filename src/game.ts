@@ -32,18 +32,18 @@ class Game {
       } else if (this.activeMenu instanceof GameOverMenu) {
         this.activeMenu = new PauseMenu();
       } else if (this.activeMenu instanceof PauseMenu) {
-        this.activeMenu = new LevelPickerMenu();
-      } else if (this.activeMenu instanceof LevelPickerMenu) {
+        this.activeMenu = new LevelPickedMenu();
+      } else if (this.activeMenu instanceof LevelPickedMenu) {
         this.activeMenu = new StartMenu();
       }
     } else if (keyIsDown(LEFT_ARROW)) {
       if (this.activeMenu instanceof StartMenu) {
-        this.activeMenu = new LevelPickerMenu();
+        this.activeMenu = new LevelPickedMenu();
       } else if (this.activeMenu instanceof GameOverMenu) {
         this.activeMenu = new StartMenu();
       } else if (this.activeMenu instanceof PauseMenu) {
         this.activeMenu = new GameOverMenu();
-      } else if (this.activeMenu instanceof LevelPickerMenu) {
+      } else if (this.activeMenu instanceof LevelPickedMenu) {
         this.activeMenu = new PauseMenu();
       }
     }
