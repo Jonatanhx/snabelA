@@ -73,5 +73,12 @@ class PauseMenu implements IMenu {
     this.drawButtonTexts();
     this.resumeButton.draw();
   }
-  public update(): void {}
+  public update(): void {
+    if (this.resumeButton.update()) {
+      console.log("RESUME BUTTON WAS CLICKED, CHANGIN MENU");
+    }
+    // if (this.exitButton.update()) {
+    //   console.log("EXIT BUTTON WAS CLICKED, CHANGIN MENU");
+    // }
+  }
 }

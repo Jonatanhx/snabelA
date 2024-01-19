@@ -29,6 +29,8 @@ class Game {
     if (keyCode === DOWN_ARROW) {
       this.setActiveMenu(new GameOverMenu());
     }
+
+    this.activeMenu.update();
   }
 
   public draw() {
