@@ -3,7 +3,6 @@ class Level {
   //attributes
   public id: number;
   private entities: Entity[];
-  private motion: number; //hastigheten som förflyttar alla entiteter förutom player
   //constructor
   constructor() {
     this.id = 1;
@@ -32,7 +31,6 @@ class Level {
       entity.draw();
     }
   }
-  public update(): void {}
   private moveWorld(): void {} //Olika hastigheter på bakgrund = parallax; flygande objekt = ny hastighet?
   private checkCollision(): void {}
 }
