@@ -4,12 +4,16 @@ class Level {
   public id: number;
   private entities: Entity[];
   private motion: number; //hastigheten som förflyttar alla entiteter förutom player
-  //constructor
-  constructor() {
+
+  constructor(entities: Entity[]) {
     this.id = 1;
-    this.entities = [new Player(50, 50, 50, 50, null as any)];
+    this.entities = entities;
     this.motion = 2;
   }
+
+  public update(): void {}
+  private moveWorld(): void {} //Olika hastigheter på bakgrund = parallax; flygande objekt = ny hastighet?
+  private checkCollision(): void {}
 
   // gå igenom alla entiteter i arrayen och rita ut dem
   //functions
@@ -18,10 +22,4 @@ class Level {
       entity.draw();
     }
   }
-  public update(): void { }
-  private moveWorld(): void { } //Olika hastigheter på bakgrund = parallax; flygande objekt = ny hastighet?
-  private checkCollision(): void { }
 }
-
-
-
