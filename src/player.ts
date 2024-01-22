@@ -3,7 +3,7 @@ class Player extends Entity {
   private gravity: number;
   private jumpStrength: number;
   private isJumping: boolean;
-  private groundLevel: number;
+  /* private groundLevel: number; */
 
   public constructor(
     positionX: number,
@@ -14,13 +14,13 @@ class Player extends Entity {
   ) {
     super(positionX, positionY, width, height, image, 0, 0);
     this.gravity = 0.4;
-    this.jumpStrength = -10;
-    this.groundLevel = height * 0.02;
+    this.jumpStrength = -15;
+    /* this.groundLevel = height * 0.02; */
     this.isJumping = false;
   }
 
   public jump() {
-    if (!this.isJumping) {
+    if (this.velocityY === 0) {
       this.velocityY = this.jumpStrength;
       this.isJumping = true;
     }
@@ -28,18 +28,10 @@ class Player extends Entity {
 
   public applyGravity() {
     if (this.isJumping || this.positionY < height - this.height) {
-      this.velocityY += this.gravity; // Apply gravity
-
       // Update the player's position based on velocity
-      this.positionY += this.velocityY;
-
-      // Check if the player has landed on the ground
-      if (this.positionY >= height - this.height) {
-        this.positionY = height - this.height; // Snap to the ground
-        this.isJumping = false;
-        this.velocityY = 0;
-      }
     }
+    this.velocityY += this.gravity; // Apply gravity
+    this.positionY += this.velocityY;
   }
 
   public update(): void {
