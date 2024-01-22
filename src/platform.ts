@@ -1,5 +1,4 @@
-// Player ärver innehållet i Entity.
-class Player extends Entity {
+class Platform extends Entity {
   public constructor(
     positionX: number,
     positionY: number,
@@ -10,21 +9,12 @@ class Player extends Entity {
     super(positionX, positionY, width, height, image, 0, 0);
   }
   public update(): void {
-    if (keyIsDown(32)) {
-      this.positionY -= 10;
-    }
+    this.positionX -= 5;
   }
   public draw(): void {
     push();
-    fill("red");
+    fill("green");
     rect(this.positionX, this.positionY, this.width, this.height);
     pop();
-  }
-
-  public applyGravity() {
-    const currentPos = this.positionY;
-    if (this.positionY > currentPos) {
-      this.positionY += 1;
-    }
   }
 }
