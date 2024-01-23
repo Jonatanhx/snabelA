@@ -43,16 +43,28 @@ class Game {
       } else if (this.activeMenu instanceof LevelPickedMenu) {
         this.activeMenu = new PauseMenu();
       }
-      this.level.update();
+      // this.level.update();
     }
-    this.level.update();
-    this.activeMenu.update();
+    if (this.level.gameState == "gameOver") {
+      this.activeMenu = new GameOverMenu();
+      this.activeMenu.draw();
+    } else if (this.level.gameState == "goalReached") {
+      console.log(this.level.gameState);
+      this.activeMenu = new StartMenu(); // temporärt går den till start
+      this.activeMenu.draw();
+    } else if (this.level.gameState == "paused") {
+      console.log(this.level.gameState);
+      this.activeMenu = new PauseMenu();
+      this.activeMenu.draw();
+    } else {
+      this.level.update();
+      this.activeMenu.update();
+    }
   }
 
   public draw() {
     background("white");
     this.activeMenu.draw();
-    console.log(this.level);
     this.level.draw(); // Rita ut level
   }
 }
