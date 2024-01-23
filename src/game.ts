@@ -9,7 +9,7 @@ class Game {
   constructor() {
     // Vad ska finnas i början?
     this.levelFactory = new LevelFactory();
-    this.level = this.levelFactory.generateLevel(1);
+    this.level = this.levelFactory.generateLevel();
     this.gameActive = false;
     this.activeMenu = new StartMenu();
   }
@@ -27,6 +27,12 @@ class Game {
   public setActiveLevel() {
     this.level = this.levelFactory.generateLevel();
     this.gameActive = true;
+  }
+
+  public setGameActive(boolean: boolean) {
+    this.gameActive = boolean;
+    this.level.gameState = "running";
+    console.log("reseting gamestate");
   }
 
   public update() {
@@ -58,7 +64,7 @@ class Game {
 
   public draw() {
     background("white");
-    if (this.gameActive == true) {
+    if (this.gameActive) {
       this.level.draw(); // Rita ut level
     }
     this.activeMenu.draw();
