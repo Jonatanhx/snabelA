@@ -25,13 +25,9 @@ class Entity {
     this.velocityY = velocityY;
   }
 
-  public draw(): void {
-    //Innehåller just nu player informationen
-    push();
-    fill("red");
-    rect(this.positionX, this.positionY, this.width, this.height);
-    pop();
-  }
+  public draw(): void {}
 
-  public update(): void {}
+  public update(): void {
+    this.positionX -= 5;
+  }
 }

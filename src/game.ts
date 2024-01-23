@@ -1,6 +1,5 @@
 class Game {
   //Lokala variabel och typ definitioner. Game ska innehålla en meny, en level och en fabrik för att skapa nya levlar.
-  /* private activeMenu: Menu; */
   private activeMenu: IMenu; //Polymorfism
   private level: Level;
   private levelFactory: LevelFactory;
@@ -8,11 +7,9 @@ class Game {
   // Här skapar vi instanserna av det vi har definierat.
   constructor() {
     //Vad ska finnas i början?
-    this.level = new Level();
     this.levelFactory = new LevelFactory();
-    this.activeMenu = new StartMenu(); // starten av spelet
-    
-
+    this.level = this.levelFactory.generateLevel();
+    this.activeMenu = new StartMenu();
   }
   
   public nextLevel() {}
@@ -46,14 +43,16 @@ class Game {
       } else if (this.activeMenu instanceof LevelPickedMenu) {
         this.activeMenu = new PauseMenu();
       }
+      this.level.update();
     }
-
+    this.level.update();
     this.activeMenu.update();
   }
 
   public draw() {
     background("white");
-    this.level.draw(); // Rita ut level
     this.activeMenu.draw();
+    console.log(this.level);
+    this.level.draw(); // Rita ut level
   }
 }
