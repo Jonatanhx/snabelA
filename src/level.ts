@@ -3,12 +3,12 @@ class Level {
   //attributes
   public id: number;
   public entities: Entity[];
-  public isGameOver: boolean;
+  public gameState: "running" | "paused" | "gameOver" | "goalReached";
   //constructor
   constructor(entities: Entity[]) {
     this.id = 1;
     this.entities = entities;
-    this.isGameOver = false; //Spelet är inte över
+    this.gameState = "running";
   }
 
   public update() {
@@ -30,6 +30,9 @@ class Level {
   private checkCollision(): void {
     for (const entity1 of this.entities) {
       if (entity1 instanceof Player) {
+        if (entity1.positionY > height) {
+          this.gameState = "gameOver";
+        }
         for (const entity2 of this.entities) {
           if (entity2 instanceof Player) continue; //Player ska inte kunna krocka med Player
 
@@ -63,7 +66,22 @@ class Level {
             top1 < bottom2
           ) {
             console.log("Crash");
-            this.isGameOver = true;
+            this.gameState = "gameOver";
+          }
+          if (
+            entity2 instanceof Goal &&
+            right1 > left2 &&
+            left1 < right2 &&
+            bottom1 > top2 &&
+            top1 < bottom2
+          ) {
+            console.log("GOAL");
+            this.gameState = "goalReached";
+          }
+
+          if (entity2 instanceof Platform && right1 > left2) {
+            // console.log("TOUCHED SIDE OF PLATFORM");
+            // this.gameState = "gameOver";
           }
         }
       }
