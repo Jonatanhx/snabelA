@@ -3,13 +3,15 @@ class Game {
   private activeMenu: IMenu; //Polymorfism
   private level: Level;
   private levelFactory: LevelFactory;
+  private gameActive: boolean;
 
   // Här skapar vi instanserna av det vi har definierat.
   constructor() {
-    //Vad ska finnas i början?
+    // Vad ska finnas i början?
     this.levelFactory = new LevelFactory();
-    this.level = this.levelFactory.generateLevel();
-    this.activeMenu = new LevelPickedMenu();
+    this.level = this.levelFactory.generateLevel(1);
+    this.gameActive = false;
+    this.activeMenu = new StartMenu();
   }
 
   public nextLevel() {}
@@ -22,29 +24,43 @@ class Game {
     this.activeMenu = menu;
   }
 
+  public setActiveLevel() {
+    this.level = this.levelFactory.generateLevel();
+    this.gameActive = true;
+  }
+
   public update() {
-    if (keyCode == 27) {
-      this.setActiveMenu(new PauseMenu());
-    }
-    if (this.level.gameState == "gameOver") {
-      this.setActiveMenu(new GameOverMenu());
-      this.activeMenu.draw();
-    } else if (this.level.gameState == "goalReached") {
-      this.setActiveMenu(new GoalMenu(1));
-      this.activeMenu.draw();
-    } else if (this.level.gameState == "paused") {
-      console.log(this.level.gameState);
-      this.activeMenu = new PauseMenu();
-      this.activeMenu.draw();
+    if (!this.gameActive) {
+      this.activeMenu.update();
     } else {
-      this.level.update();
+      if (keyCode == 27) {
+        this.setActiveMenu(new PauseMenu());
+        this.gameActive = false;
+      }
+      if (this.level.gameState == "gameOver") {
+        this.setActiveMenu(new GameOverMenu());
+        this.activeMenu.draw();
+      } else if (this.level.gameState == "goalReached") {
+        this.setActiveMenu(new GoalMenu(1));
+        this.activeMenu.draw();
+      } else if (this.level.gameState == "paused") {
+        console.log(this.level.gameState);
+        this.activeMenu = new PauseMenu();
+        this.activeMenu.draw();
+      } else {
+        this.level.update();
+      }
+      if (this.gameActive) {
+        this.activeMenu.update();
+      }
     }
-    this.activeMenu.update();
   }
 
   public draw() {
     background("white");
-    this.level.draw(); // Rita ut level
+    if (this.gameActive == true) {
+      this.level.draw(); // Rita ut level
+    }
     this.activeMenu.draw();
   }
 }

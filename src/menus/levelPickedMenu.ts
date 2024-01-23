@@ -61,6 +61,8 @@ class LevelPickedMenu implements IMenu {
   public update(): void {
     if (this.levelButton1.update()) {
       console.log("Level 1 loading");
+      game.setActiveLevel(1);
+      game.setActiveMenu(new EmptyMenu());
     }
     if (this.levelButton2.update()) {
       console.log("Level 2 loading");
