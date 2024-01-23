@@ -45,14 +45,19 @@ class Game {
       }
       this.level.update();
     }
-    this.level.update();
-    this.activeMenu.update();
+    if (this.level.isGameOver == true) {
+      this.activeMenu = new GameOverMenu();
+      this.activeMenu.draw();
+      console.log(this.level.isGameOver);
+    } else {
+      this.level.update();
+      this.activeMenu.update();
+    }
   }
 
   public draw() {
     background("white");
     this.activeMenu.draw();
-    console.log(this.level);
     this.level.draw(); // Rita ut level
   }
 }
