@@ -18,6 +18,7 @@ class LevelFactory {
       [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6],
       [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6],
       [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6],
       [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,6],
       [0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,7,7,7,0,0,0,0,0,0,7,0,0,0,0,6,0,0,0,0,0,0,0,6],
       [0,9,0,0,0,0,0,0,0,7,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,6,0,0,0,0,0,0,0,6],
@@ -30,7 +31,7 @@ class LevelFactory {
     // Gå igenom leveldesignen och skapa alla entiteter
     // motsvarande sifforna på rätt plats
     const entities: Entity[] = [];
-    const blockSize = width * 0.03; // 0.3%;
+    const blockSize = height / this.levelDesign1.length; // 0.3%;
 
     for (let y = 0; y < this.levelDesign1.length; y++) {
       for (let x = 0; x < this.levelDesign1[y].length; x++) {
@@ -39,23 +40,47 @@ class LevelFactory {
 
         if (siffra === 9) {
           entities.push(
-            new Player(x * blockSize, y * blockSize, 50, 50, null as any)
+            new Player(
+              x * blockSize,
+              y * blockSize,
+              blockSize,
+              blockSize,
+              null as any
+            )
           );
         }
         if (siffra === 1) {
           entities.push(
-            new Platform(x * blockSize, y * blockSize, 50, 50, null as any)
+            new Platform(
+              x * blockSize,
+              y * blockSize,
+              blockSize,
+              blockSize,
+              null as any
+            )
           );
         }
 
         if (siffra === 7) {
           entities.push(
-            new Obstacle(x * blockSize, y * blockSize, 50, 50, null as any)
+            new Obstacle(
+              x * blockSize,
+              y * blockSize,
+              blockSize,
+              blockSize,
+              null as any
+            )
           );
         }
         if (siffra === 6) {
           entities.push(
-            new Goal(x * blockSize, y * blockSize, 50, 50, null as any)
+            new Goal(
+              x * blockSize,
+              y * blockSize,
+              blockSize,
+              blockSize,
+              null as any
+            )
           );
         }
       }
