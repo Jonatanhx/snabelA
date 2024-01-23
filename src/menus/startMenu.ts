@@ -1,35 +1,32 @@
 class StartMenu implements IMenu {
   private readonly descriptionTitle: string;
   private readonly description: string;
-  private controlDescTitle: string; //p5.Image i uml
-  private controlDesc: string; //p5.Image i uml
-  private playerPreview: number; //p5.Image i uml
-  private playButton: string; //p5.Image i uml 
+  private controlDescTitle: string;
+  private controlDesc: string; 
+  private playerPreview: number; 
+  private playButton: Button; 
 
   constructor() {
-    this.descriptionTitle = "Description/How to play: ";
+    this.descriptionTitle = "Description/How to Play: ";
     this.description =
       "You are a jalapeno yearning for freedom from this manic prison which seems to change shape when getting further. \n \n Go through the levels by avoiding obstacles with jumping over or on them.";
     this.controlDescTitle = "CONTROLS";
     this.controlDesc = "SPACE - JUMP \n ESC -  PAUSE";
-    this.playerPreview = width / 5;
-    this.playButton = "PLAY";
+    this.playerPreview = width *0.5; 
+    this.playButton = new Button(
+      "PLAY",
+      width * 0.02,
+      width * 0.5 - 50,
+      height * 0.5 - 25,
+      width * 0.15,
+      width * 0.065
+    );
   }
-
-  public draw(): void {
-    this.drawPlayDesc();
-    this.drawControlDesc();
-    /*     this.drawPlayerPreview();*/
-    this.drawPlayButton();
-    this.playButtonClicked();
-  }
-
-  public update(): void {}
 
   public drawPlayDesc() {
     push();
     textStyle(BOLD);
-    text(this.descriptionTitle, (2 * width) / 3, height / 2); 
+    text(this.descriptionTitle, (2 * width) / 3, height / 2);
     textStyle(NORMAL);
     text(
       this.description,
@@ -51,30 +48,21 @@ class StartMenu implements IMenu {
     pop();
   }
 
-  /*   public drawPlayerPreview(): void {
-    push();
-    fill("red");
-    rect(this.playerPreview, height / 2, 50, 50);
-    pop();
-  } */
+  public drawPlayerPreview(): void {
+    
+   }  
 
-  public drawPlayButton() {
-    push();
-    fill("lightgray");
-    rect(width / 2 - 50, height / 2 - 25, 100, 50);
-    fill("black");
-    textAlign(CENTER, CENTER);
-    textSize(20);
-    text(this.playButton, width / 2, height / 2);
-    pop();
+  public draw(): void {
+    this.drawPlayDesc();
+    this.drawControlDesc();
+    this.drawPlayerPreview();
+    this.playButton.draw();
   }
 
-  public playButtonClicked() { 
-    let overButton = mouseX > width / 2 - 50 && mouseX < width / 2 - 50 + 100 && mouseY > height / 2 - 25 && mouseY < height / 2 - 25 + 50; // kollar att musen är över play button
-    let buttonClicked = false;
-    // Change button color based on mouse interaction
-    if (overButton && !buttonClicked) {
-      console.log("Sorry, No Level Picker For You!")
-    } 
+  public update(): void {
+    if (this.playButton.update()) {
+      game.setActiveMenu(new LevelPickedMenu());
+    }
   }
 }
+
