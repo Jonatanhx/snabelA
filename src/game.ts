@@ -9,9 +9,9 @@ class Game {
     //Vad ska finnas i början?
     this.levelFactory = new LevelFactory();
     this.level = this.levelFactory.generateLevel();
-    this.activeMenu = new LevelPickedMenu();
+    this.activeMenu = new StartMenu();
   }
-
+  
   public nextLevel() {}
 
   private muteMain() {}
@@ -22,9 +22,6 @@ class Game {
     this.activeMenu = menu;
   }
 
-  public update() {
-    if (keyCode == 27) {
-      this.setActiveMenu(new PauseMenu());
     }
     if (this.level.gameState == "gameOver") {
       this.setActiveMenu(new GameOverMenu());
