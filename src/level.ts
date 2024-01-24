@@ -67,7 +67,8 @@ class Level {
             top1 < bottom2
           ) {
             console.log("Crash");
-            // gameovermenu
+            // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+            game.setActiveMenu(new GameOverMenu());
           }
           if (
             entity2 instanceof Goal &&
