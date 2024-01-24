@@ -1,5 +1,6 @@
 interface CurrentActiveMenu {
   setActiveMenu(menu?: IMenu): void;
+  restartLevel(): void;
 }
 
 class Game implements CurrentActiveMenu {
@@ -24,6 +25,11 @@ class Game implements CurrentActiveMenu {
 
   public setActiveMenu(menu: IMenu) {
     this.activeMenu = menu;
+  }
+
+  public restartLevel() {
+    this.levelFactory = new LevelFactory();
+    this.level = this.levelFactory.generateLevel();
   }
 
   public update() {

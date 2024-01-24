@@ -29,7 +29,6 @@ class Player extends Entity {
   // Vi behöver ändra så isJumping blir FALSE när gubben landar
   public applyGravity() {
     if (this.isJumping || this.positionY < height - this.height) {
-      console.log(this.isJumping);
     }
     this.velocityY += this.gravity; // Apply gravity
     this.positionY += this.velocityY;

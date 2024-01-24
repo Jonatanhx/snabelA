@@ -66,11 +66,12 @@ class GoalMenu implements IMenu {
   public update(): void {
     if (this.restartButton.update()) {
       console.log("RESTART BUTTON WAS CLICKED, CHANGIN MENU");
-      game.setActiveMenu(new LevelPickedMenu());
+      game.setActiveMenu(new LevelPickedMenu(game));
     }
     if (this.exitButton.update()) {
       console.log("EXIT BUTTON WAS CLICKED, CHANGIN MENU");
-      game.setActiveMenu(new StartMenu());
+      // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+      game.setActiveMenu(new StartMenu(game));
     }
   }
 }
