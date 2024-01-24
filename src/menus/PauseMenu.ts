@@ -7,6 +7,7 @@ class PauseMenu implements IMenu {
   private restartButton: Button;
   private exitButton: Button;
 
+
   constructor() {
     this.headingWidth = width * 0.5;
     this.headingHeight = height * 0.6;
@@ -77,7 +78,7 @@ class PauseMenu implements IMenu {
     }
     if (this.exitButton.update()) {
       console.log("EXIT BUTTON WAS CLICKED, CHANGIN MENU");
-      game.setActiveMenu(new StartMenu());
+      /* game.setActiveMenu(new StartMenu(undefined)); */
     }
   }
 }
