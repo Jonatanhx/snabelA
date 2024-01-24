@@ -6,7 +6,7 @@ class Game {
 
   // Här skapar vi instanserna av det vi har definierat.
   constructor() {
-    // Vad ska finnas i början?
+    //Vad ska finnas i början?
     this.levelFactory = new LevelFactory();
     this.level = this.levelFactory.generateLevel();
     this.activeMenu = new StartMenu();
@@ -22,38 +22,29 @@ class Game {
     this.activeMenu = menu;
   }
 
-  public setActiveLevel() {
-    this.level = this.levelFactory.generateLevel();
-  }
-
-
-
   public update() {
-    
-      if (keyCode == 27) {
-        this.setActiveMenu(new PauseMenu());
-        this.level.gameState == "paused";
-      }
-      if (this.level.gameState == "gameOver") {
-        this.setActiveMenu(new GameOverMenu());
-        this.activeMenu.draw();
-      } else if (this.level.gameState == "goalReached") {
-        this.setActiveMenu(new GoalMenu(1));
-        this.activeMenu.draw();
-      } else if (this.level.gameState == "paused") {
-        this.setActiveMenu(new PauseMenu());
-        this.activeMenu.draw();
-      } else {
-        this.level.update();
-      }
-
-      this.activeMenu.update();
+    if (keyCode == 27) {
+      this.setActiveMenu(new PauseMenu());
     }
+    if (this.level.gameState == "gameOver") {
+      this.setActiveMenu(new GameOverMenu());
+      this.activeMenu.draw();
+    } else if (this.level.gameState == "goalReached") {
+      this.setActiveMenu(new GoalMenu(1));
+      this.activeMenu.draw();
+    } else if (this.level.gameState == "paused") {
+      console.log(this.level.gameState);
+      this.activeMenu = new PauseMenu();
+      this.activeMenu.draw();
+    } else {
+      this.level.update();
+    }
+    this.activeMenu.update();
   }
 
   public draw() {
     background("white");
-      this.level.draw(); // Rita ut level
+    // this.level.draw(); // Rita ut level
     this.activeMenu.draw();
-  
+  }
 }
