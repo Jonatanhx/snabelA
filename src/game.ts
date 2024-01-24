@@ -51,14 +51,13 @@ class Game {
         this.setActiveMenu(new GoalMenu(1));
         this.activeMenu.draw();
       } else if (this.level.gameState == "paused") {
-        console.log(this.level.gameState);
+        this.setActiveMenu(new PauseMenu());
         this.activeMenu.draw();
       } else {
         this.level.update();
       }
-      if (this.gameActive) {
-        this.activeMenu.update();
-      }
+
+      // this.activeMenu.update();
     }
   }
 

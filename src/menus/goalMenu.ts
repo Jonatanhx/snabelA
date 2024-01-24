@@ -57,8 +57,8 @@ class GoalMenu implements IMenu {
     this.drawGreyBackground();
     this.drawDialogBox();
     this.drawHeading();
-    this.restartButton.draw();
     this.exitButton.draw();
+    this.restartButton.draw();
   }
   public update(): void {
     if (this.restartButton.update()) {
