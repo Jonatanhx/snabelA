@@ -3,19 +3,17 @@ class Level {
   //attributes
   public id: number;
   public entities: Entity[];
-  public gameState: "notStarted" |"running" | "paused" | "gameOver" | "goalReached";
+
   //constructor
   constructor(entities: Entity[]) {
     this.id = 1;
     this.entities = entities;
-    this.gameState = "notStarted";
+    // this.gameState = "notStarted";
   }
 
   public update() {
     // Update the position of the player
-    if(this.gameState != "running") {
-      return
-    }
+
     for (const entity of this.entities) {
       entity.update();
     }
@@ -34,7 +32,7 @@ class Level {
     for (const entity1 of this.entities) {
       if (entity1 instanceof Player) {
         if (entity1.positionY > height) {
-          this.gameState = "gameOver";
+          // this.gameState = "gameOver";
         }
         for (const entity2 of this.entities) {
           if (entity2 instanceof Player) continue; //Player ska inte kunna krocka med Player
@@ -69,7 +67,7 @@ class Level {
             top1 < bottom2
           ) {
             console.log("Crash");
-            this.gameState = "gameOver";
+            // gameovermenu
           }
           if (
             entity2 instanceof Goal &&
@@ -78,7 +76,7 @@ class Level {
             bottom1 > top2 &&
             top1 < bottom2
           ) {
-            this.gameState = "goalReached";
+            // this.gameState = "goalReached";
           }
 
           if (entity2 instanceof Platform && right1 > left2) {
@@ -89,7 +87,7 @@ class Level {
       }
     }
   }
-/* 
+  /* 
   public getPlayer() : Entity {
     for(const entity of this.entities) {
       if(entity instanceof Player) {

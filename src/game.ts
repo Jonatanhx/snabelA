@@ -1,6 +1,10 @@
-class Game {
+interface CurrentActiveMenu {
+  setActiveMenu(menu?: IMenu): void;
+}
+
+class Game implements CurrentActiveMenu {
   //Lokala variabel och typ definitioner. Game ska innehålla en meny, en level och en fabrik för att skapa nya levlar.
-  private activeMenu: IMenu; //Polymorfism
+  private activeMenu?: IMenu; //Polymorfism
   private level: Level;
   private levelFactory: LevelFactory;
 
@@ -23,39 +27,25 @@ class Game {
   }
 
   public update() {
-    if (this.level.gameState == "running") {
-      // Game is running
-      if (keyCode === 27) {
-        // Pressed Escape key, pause the game
-        this.level.gameState = "paused";
-        this.setActiveMenu(new PauseMenu());
-      } else {
-        // Update the level if not paused
-        this.level.update();
-      }
-    }
-    if (this.level.gameState == "gameOver") {
-      this.setActiveMenu(new GameOverMenu());
-      this.activeMenu.draw();
-    } else if (this.level.gameState == "goalReached") {
-      this.setActiveMenu(new GoalMenu(1));
-      this.activeMenu.draw();
+    if (this.activeMenu) {
+      this.activeMenu.update();
     } else {
       this.level.update();
+      // Game is running
+      if (keyIsDown(ESCAPE)) {
+        // Pressed Escape key, pause the game
+        this.setActiveMenu(new PauseMenu(game));
+      }
     }
-    this.activeMenu.update();
   }
 
-  public setRunning() {
-    this.level.gameState = "running";
-  }
   public draw() {
     background("white");
 
-    if (this.level.gameState == "running") {
-      this.level.draw(); // Rita ut level
-    } else {
+    if (this.activeMenu) {
       this.activeMenu.draw();
+    } else {
+      this.level.draw(); // Rita ut level
     }
   }
 }

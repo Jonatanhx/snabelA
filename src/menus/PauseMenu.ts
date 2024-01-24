@@ -6,8 +6,10 @@ class PauseMenu implements IMenu {
   private resumeButton: Button;
   private restartButton: Button;
   private exitButton: Button;
+  private game: CurrentActiveMenu;
 
-  constructor() {
+  constructor(game: CurrentActiveMenu) {
+    this.game = game;
     this.headingWidth = width * 0.5;
     this.headingHeight = height * 0.6;
     this.headingFontSize = width * 0.06;
@@ -71,7 +73,7 @@ class PauseMenu implements IMenu {
   public update(): void {
     if (this.resumeButton.update()) {
       console.log("RESUME BUTTON WAS CLICKED, CHANGIN MENU");
-      game.setRunning();
+      this.game.setActiveMenu(undefined);
     }
     if (this.restartButton.update()) {
       console.log("RESTART BUTTON WAS CLICKED, CHANGIN MENU");
