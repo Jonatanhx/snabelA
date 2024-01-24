@@ -23,8 +23,16 @@ class Game {
   }
 
   public update() {
-    if (keyCode == 27) {
-      this.setActiveMenu(new PauseMenu());
+    if (this.level.gameState == "running") {
+      // Game is running
+      if (keyCode == 27) {
+        // Pressed Escape key, pause the game
+        this.level.gameState = "paused";
+        this.setActiveMenu(new PauseMenu());
+      } else {
+        // Update the level if not paused
+        this.level.update();
+      }
     }
     if (this.level.gameState == "gameOver") {
       this.setActiveMenu(new GameOverMenu());
