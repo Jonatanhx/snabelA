@@ -9,7 +9,7 @@ class Game {
     //Vad ska finnas i början?
     this.levelFactory = new LevelFactory();
     this.level = this.levelFactory.generateLevel();
-    this.activeMenu = new LevelPickedMenu();
+    this.activeMenu = new StartMenu(this);
   }
 
   public nextLevel() {}
@@ -34,7 +34,7 @@ class Game {
       this.activeMenu.draw();
     } else if (this.level.gameState == "paused") {
       console.log(this.level.gameState);
-      this.activeMenu = new PauseMenu();
+      /* this.activeMenu = new PauseMenu(1); */
       this.activeMenu.draw();
     } else {
       this.level.update();
@@ -42,9 +42,16 @@ class Game {
     this.activeMenu.update();
   }
 
+  public setRunning() {
+    this.level.gameState = "running";
+  }
   public draw() {
     background("white");
+
+    if (this.level.gameState == "running") {
     this.level.draw(); // Rita ut level
+  } else {
     this.activeMenu.draw();
   }
+}
 }

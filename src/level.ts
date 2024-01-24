@@ -3,16 +3,19 @@ class Level {
   //attributes
   public id: number;
   public entities: Entity[];
-  public gameState: "running" | "paused" | "gameOver" | "goalReached";
+  public gameState: "notStarted" |"running" | "paused" | "gameOver" | "goalReached";
   //constructor
   constructor(entities: Entity[]) {
     this.id = 1;
     this.entities = entities;
-    this.gameState = "running";
+    this.gameState = "notStarted";
   }
 
   public update() {
     // Update the position of the player
+    if(this.gameState != "running") {
+      return
+    }
     for (const entity of this.entities) {
       entity.update();
     }
@@ -86,4 +89,13 @@ class Level {
       }
     }
   }
+/* 
+  public getPlayer() : Entity {
+    for(const entity of this.entities) {
+      if(entity instanceof Player) {
+        return entity;
+      }
+    }
+    return this.entities[0];
+  } */
 }

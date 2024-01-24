@@ -35,7 +35,7 @@ function preload() {
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  frameRate(60);
+  frameRate(2);
   /* music.backgroundL1.setVolume(0.8); */
   game = new Game();
   /* image(backgroundImage.backgroundKitchen, 0, 0, width, height); */
