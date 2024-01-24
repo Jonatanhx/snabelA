@@ -72,6 +72,7 @@ class PauseMenu implements IMenu {
     if (this.resumeButton.update()) {
       console.log("RESUME BUTTON WAS CLICKED, CHANGIN MENU");
       game.setGameActive(true);
+      
     }
     if (this.restartButton.update()) {
       console.log("RESTART BUTTON WAS CLICKED, CHANGIN MENU");

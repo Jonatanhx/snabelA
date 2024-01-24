@@ -21,13 +21,12 @@ class Entity {
     this.width = width;
     this.height = height;
     this.image = image;
-    this.velocityX = velocityX;
+    //set speed of entitytis(except player)
+    this.velocityX = 8;
     this.velocityY = velocityY;
   }
 
   public draw(): void {}
 
-  public update(): void {
-    this.positionX -= 5;
-  }
+  public update(): void {}
 }

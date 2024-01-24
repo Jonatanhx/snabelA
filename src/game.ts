@@ -32,6 +32,7 @@ class Game {
   public setGameActive(boolean: boolean) {
     this.gameActive = boolean;
     this.level.gameState = "running";
+    this.setActiveMenu(new EmptyMenu());
     console.log("reseting gamestate");
   }
 
@@ -51,7 +52,6 @@ class Game {
         this.activeMenu.draw();
       } else if (this.level.gameState == "paused") {
         console.log(this.level.gameState);
-        this.activeMenu = new PauseMenu();
         this.activeMenu.draw();
       } else {
         this.level.update();
