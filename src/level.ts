@@ -78,8 +78,8 @@ class Level {
             this.gameState = "goalReached";
           }
 
-          if (entity2 instanceof Platform && right1 > left2) {
-            // console.log("TOUCHED SIDE OF PLATFORM");
+          if (entity2 instanceof Platform && right1 > left2 && bottom1 < top2) {
+            console.log("TOUCHED SIDE OF PLATFORM");
             // this.gameState = "gameOver";
           }
         }
