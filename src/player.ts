@@ -13,7 +13,7 @@ class Player extends Entity {
     image: p5.Image
   ) {
     super(positionX, positionY, width, height, image, 0, 0);
-    this.gravity = 0.4;
+    this.gravity = 0.5;
     this.jumpStrength = -15;
     /* this.groundLevel = height * 0.02; */
     this.isJumping = false;
@@ -23,12 +23,13 @@ class Player extends Entity {
     if (this.velocityY === 0) {
       this.velocityY = this.jumpStrength;
       this.isJumping = true;
+      //Lägga animering av gubbens hopp här?
     }
   }
-
+  // Vi behöver ändra så isJumping blir FALSE när gubben landar
   public applyGravity() {
     if (this.isJumping || this.positionY < height - this.height) {
-      // Update the player's position based on velocity
+      console.log(this.isJumping);
     }
     this.velocityY += this.gravity; // Apply gravity
     this.positionY += this.velocityY;

@@ -48,7 +48,7 @@ class LevelPickedMenu implements IMenu {
     push();
     textSize(this.headingFontSize);
     textAlign(CENTER, CENTER);
-    text("Level Picked", width * 0.5, height * 0.3);
+    text("Level Picker", width * 0.5, height * 0.3);
     fill("black");
     pop();
   }

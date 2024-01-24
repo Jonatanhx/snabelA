@@ -6,7 +6,10 @@ class GoalMenu implements IMenu {
 
   private restartButton: Button;
   private exitButton: Button;
-
+  /**
+   *
+   * @param level What level is completed, 1,2,3 etc....
+   */
   constructor(level: number) {
     this.headingWidth = width * 0.5;
     this.headingHeight = height * 0.6;

@@ -32,7 +32,8 @@ class Level {
     for (const entity1 of this.entities) {
       if (entity1 instanceof Player) {
         if (entity1.positionY > height) {
-          // this.gameState = "gameOver";
+          // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+          game.setActiveMenu(new GameOverMenu());
         }
         for (const entity2 of this.entities) {
           if (entity2 instanceof Player) continue; //Player ska inte kunna krocka med Player
@@ -66,7 +67,7 @@ class Level {
             bottom1 > top2 &&
             top1 < bottom2
           ) {
-            console.log("Crash");
+            console.log("Crash with obstacle");
             // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
             game.setActiveMenu(new GameOverMenu());
           }
@@ -77,12 +78,18 @@ class Level {
             bottom1 > top2 &&
             top1 < bottom2
           ) {
-            // this.gameState = "goalReached";
+            // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+            game.setActiveMenu(new GoalMenu(1));
           }
-
-          if (entity2 instanceof Platform && right1 > left2) {
-            // console.log("TOUCHED SIDE OF PLATFORM");
-            // this.gameState = "gameOver";
+          // KROCK PÅ VÄNSTER SIDA AV PLATFORM
+          if (right1 > left2 && right1 < left2 + 5) {
+            if (
+              (top1 < bottom2 && top1 > top2) ||
+              (bottom1 > top2 && bottom1 < bottom2)
+            ) {
+              console.log("TOUCHED SIDE OF PLATFORM");
+              game.setActiveMenu(new GameOverMenu());
+            }
           }
         }
       }
