@@ -23,34 +23,14 @@ class Game {
   }
 
   public update() {
-    if (keyIsDown(RIGHT_ARROW)) {
-      if (this.activeMenu instanceof StartMenu) {
-        this.activeMenu = new GameOverMenu();
-      } else if (this.activeMenu instanceof GameOverMenu) {
-        this.activeMenu = new PauseMenu();
-      } else if (this.activeMenu instanceof PauseMenu) {
-        this.activeMenu = new LevelPickedMenu();
-      } else if (this.activeMenu instanceof LevelPickedMenu) {
-        this.activeMenu = new StartMenu();
-      }
-    } else if (keyIsDown(LEFT_ARROW)) {
-      if (this.activeMenu instanceof StartMenu) {
-        this.activeMenu = new LevelPickedMenu();
-      } else if (this.activeMenu instanceof GameOverMenu) {
-        this.activeMenu = new StartMenu();
-      } else if (this.activeMenu instanceof PauseMenu) {
-        this.activeMenu = new GameOverMenu();
-      } else if (this.activeMenu instanceof LevelPickedMenu) {
-        this.activeMenu = new PauseMenu();
-      }
-      // this.level.update();
+    if (keyCode == 27) {
+      this.setActiveMenu(new PauseMenu());
     }
     if (this.level.gameState == "gameOver") {
-      this.activeMenu = new GameOverMenu();
+      this.setActiveMenu(new GameOverMenu());
       this.activeMenu.draw();
     } else if (this.level.gameState == "goalReached") {
-      console.log(this.level.gameState);
-      this.activeMenu = new StartMenu(); // temporärt går den till start
+      this.setActiveMenu(new GoalMenu(1));
       this.activeMenu.draw();
     } else if (this.level.gameState == "paused") {
       console.log(this.level.gameState);
@@ -58,13 +38,13 @@ class Game {
       this.activeMenu.draw();
     } else {
       this.level.update();
-      this.activeMenu.update();
     }
+    this.activeMenu.update();
   }
 
   public draw() {
     background("white");
-    this.activeMenu.draw();
     this.level.draw(); // Rita ut level
+    this.activeMenu.draw();
   }
 }

@@ -75,7 +75,6 @@ class Level {
             bottom1 > top2 &&
             top1 < bottom2
           ) {
-            console.log("GOAL");
             this.gameState = "goalReached";
           }
 
