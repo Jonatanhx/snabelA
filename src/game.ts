@@ -25,7 +25,7 @@ class Game {
   public update() {
     if (this.level.gameState == "running") {
       // Game is running
-      if (keyCode == 27) {
+      if (keyCode === 27) {
         // Pressed Escape key, pause the game
         this.level.gameState = "paused";
         this.setActiveMenu(new PauseMenu());
@@ -39,10 +39,6 @@ class Game {
       this.activeMenu.draw();
     } else if (this.level.gameState == "goalReached") {
       this.setActiveMenu(new GoalMenu(1));
-      this.activeMenu.draw();
-    } else if (this.level.gameState == "paused") {
-      console.log(this.level.gameState);
-      /* this.activeMenu = new PauseMenu(1); */
       this.activeMenu.draw();
     } else {
       this.level.update();
