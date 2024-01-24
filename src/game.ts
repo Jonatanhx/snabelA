@@ -11,7 +11,7 @@ class Game {
     this.level = this.levelFactory.generateLevel();
     this.activeMenu = new StartMenu(this);
   }
-
+  
   public nextLevel() {}
 
   private muteMain() {}
@@ -21,6 +21,7 @@ class Game {
   public setActiveMenu(menu: IMenu) {
     this.activeMenu = menu;
   }
+
 
   public update() {
     if (this.level.gameState == "running") {
@@ -33,6 +34,7 @@ class Game {
         // Update the level if not paused
         this.level.update();
       }
+
     }
     if (this.level.gameState == "gameOver") {
       this.setActiveMenu(new GameOverMenu());

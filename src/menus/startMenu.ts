@@ -1,5 +1,5 @@
 class StartMenu implements IMenu {
-  private readonly descriptionTitle: string; //utanför klassdiagrammet
+  private readonly descriptionTitle: string;
   private readonly description: string;
   private controlDescTitle: string;
   private controlDesc: string; 
@@ -64,6 +64,6 @@ class StartMenu implements IMenu {
   public update(): void {
     if (this.playButton.update()) {
       game.setActiveMenu(new LevelPickedMenu(game));
-    }
   }
 }
+

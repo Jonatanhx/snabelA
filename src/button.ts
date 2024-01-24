@@ -4,6 +4,7 @@ class Button {
   private y: number;
   private w: number;
   private h: number;
+  private conrnerRadius: number;
   private textSize: number;
   private prevMouseIsPressed: boolean;
   private fill: string;
@@ -16,6 +17,7 @@ class Button {
    * @param y Y position of button
    * @param w Width of button
    * @param h Height of button
+   * @param conrnerRadius radius to round the button
    */
   constructor(
     text: string,
@@ -33,6 +35,7 @@ class Button {
     this.h = h;
     this.prevMouseIsPressed = false;
     this.fill = "#D9D9D9";
+    this.conrnerRadius = 5;
   }
 
   /**
@@ -86,7 +89,7 @@ class Button {
   public draw() {
     push();
     fill(this.fill);
-    rect(this.x, this.y, this.w, this.h);
+    rect(this.x, this.y, this.w, this.h, this.conrnerRadius);
     pop();
     push();
     textSize(this.textSize);
