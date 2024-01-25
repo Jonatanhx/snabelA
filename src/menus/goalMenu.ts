@@ -6,7 +6,10 @@ class GoalMenu implements IMenu {
 
   private restartButton: Button;
   private exitButton: Button;
-
+  /**
+   *
+   * @param level What level is completed, 1,2,3 etc....
+   */
   constructor(level: number) {
     this.headingWidth = width * 0.5;
     this.headingHeight = height * 0.6;
@@ -63,11 +66,14 @@ class GoalMenu implements IMenu {
   public update(): void {
     if (this.restartButton.update()) {
       console.log("RESTART BUTTON WAS CLICKED, CHANGIN MENU");
-      game.setActiveMenu(new LevelPickedMenu());
+      // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+      game.restartLevel();
+      game.setActiveMenu(undefined);
     }
     if (this.exitButton.update()) {
       console.log("EXIT BUTTON WAS CLICKED, CHANGIN MENU");
-      game.setActiveMenu(new StartMenu());
+      // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+      game.setActiveMenu(new StartMenu(game));
     }
   }
 }

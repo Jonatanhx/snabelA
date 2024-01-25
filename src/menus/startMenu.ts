@@ -2,18 +2,18 @@ class StartMenu implements IMenu {
   private readonly descriptionTitle: string;
   private readonly description: string;
   private controlDescTitle: string;
-  private controlDesc: string; 
-  private playerPreview: number; 
-  private playButton: Button; 
-  private game: Game;
+  private controlDesc: string;
+  private playerPreview: number;
+  private playButton: Button;
+  private game: CurrentActiveMenu;
 
-  constructor(game: Game) {
+  constructor(game: CurrentActiveMenu) {
     this.descriptionTitle = "Description/How to Play: ";
     this.description =
       "You are a jalapeno yearning for freedom from this manic prison which seems to change shape when getting further. \n \n Go through the levels by avoiding obstacles with jumping over or on them.";
     this.controlDescTitle = "CONTROLS";
     this.controlDesc = "SPACE - JUMP \n ESC -  PAUSE";
-    this.playerPreview = width *0.5; 
+    this.playerPreview = width * 0.5;
     this.playButton = new Button(
       "PLAY",
       width * 0.02,
@@ -50,9 +50,7 @@ class StartMenu implements IMenu {
     pop();
   }
 
-  public drawPlayerPreview(): void {
-    
-   }  
+  public drawPlayerPreview(): void {}
 
   public draw(): void {
     this.drawPlayDesc();
@@ -63,7 +61,7 @@ class StartMenu implements IMenu {
 
   public update(): void {
     if (this.playButton.update()) {
-      game.setActiveMenu(new LevelPickedMenu(game));
+      this.game.setActiveMenu(new LevelPickedMenu(this.game));
+    }
   }
 }
-

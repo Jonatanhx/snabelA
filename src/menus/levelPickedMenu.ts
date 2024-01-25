@@ -5,9 +5,10 @@ class LevelPickedMenu implements IMenu {
 
   private levelButton1: Button;
   private levelButton2: Button;
-  private game: Game;
+  private game: CurrentActiveMenu;
 
-  constructor(game: Game) {
+  constructor(game: CurrentActiveMenu) {
+    this.game = game;
     this.headingWidth = width * 0.5;
     this.headingHeight = height * 0.6;
     this.headingFontSize = width * 0.04;
@@ -27,7 +28,6 @@ class LevelPickedMenu implements IMenu {
       width * 0.07,
       width * 0.06
     );
-    this.game = game;
   }
 
   private drawDialogBox() {
@@ -48,7 +48,7 @@ class LevelPickedMenu implements IMenu {
     push();
     textSize(this.headingFontSize);
     textAlign(CENTER, CENTER);
-    text("Level Picked", width * 0.5, height * 0.3);
+    text("Level Picker", width * 0.5, height * 0.3);
     fill("black");
     pop();
   }
@@ -63,7 +63,7 @@ class LevelPickedMenu implements IMenu {
   public update(): void {
     if (this.levelButton1.update()) {
       console.log("Level 1 loading");
-      this.game.setRunning();
+      this.game.setActiveMenu(undefined);
     }
     if (this.levelButton2.update()) {
       console.log("Level 2 loading");
