@@ -13,7 +13,13 @@ class Platform extends Entity {
   }
   public draw(): void {
     push();
-    image(entityImages.platformImg, this.positionX, this.positionY);
+    image(
+      entityImages.platformImg,
+      this.positionX,
+      this.positionY,
+      this.width + 2,
+      this.height
+    );
     // fill("green");
     // rect(this.positionX, this.positionY, this.width, this.height);
     pop();
