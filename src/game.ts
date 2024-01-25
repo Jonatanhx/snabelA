@@ -8,15 +8,20 @@ class Game implements CurrentActiveMenu {
   private activeMenu?: IMenu; //Polymorfism
   private level: Level;
   private levelFactory: LevelFactory;
+  private sound: Sound;
 
   // Här skapar vi instanserna av det vi har definierat.
   constructor() {
     //Vad ska finnas i början?
+    this.sound = new Sound();
     this.levelFactory = new LevelFactory();
     this.level = this.levelFactory.generateLevel();
     this.activeMenu = new StartMenu(this);
   }
 
+  public playExplosion() {
+    this.sound.playExplodeSound();
+  }
   public nextLevel() {}
 
   private muteMain() {}
