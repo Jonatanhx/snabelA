@@ -12,6 +12,9 @@ let backgroundImage: {
   backgroundDesert: p5.Image;
   backgroundKitchen: p5.Image;
 };
+let startImage: {
+  playerPreview: p5.Image;
+};
 let sfx: {
   gameOver: p5.SoundFile;
 };
@@ -32,6 +35,9 @@ function preload() {
     backgroundDesert: loadImage("/assets/images/bakgrund1.png"), //variabler som håller våra bilder
     backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
   };
+  startImage ={
+     playerPreview: loadImage("/assets/images/startImg.png")
+  }
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
