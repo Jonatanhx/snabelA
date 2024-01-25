@@ -3,19 +3,17 @@ class Level {
   //attributes
   public id: number;
   public entities: Entity[];
-  public gameState: "notStarted" |"running" | "paused" | "gameOver" | "goalReached";
+
   //constructor
   constructor(entities: Entity[]) {
     this.id = 1;
     this.entities = entities;
-    this.gameState = "notStarted";
+    // this.gameState = "notStarted";
   }
 
   public update() {
     // Update the position of the player
-    if(this.gameState != "running") {
-      return
-    }
+
     for (const entity of this.entities) {
       entity.update();
     }
@@ -34,7 +32,8 @@ class Level {
     for (const entity1 of this.entities) {
       if (entity1 instanceof Player) {
         if (entity1.positionY > height) {
-          this.gameState = "gameOver";
+          // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+          game.setActiveMenu(new GameOverMenu(game));
         }
         for (const entity2 of this.entities) {
           if (entity2 instanceof Player) continue; //Player ska inte kunna krocka med Player
@@ -68,8 +67,9 @@ class Level {
             bottom1 > top2 &&
             top1 < bottom2
           ) {
-            console.log("Crash");
-            this.gameState = "gameOver";
+            console.log("Crash with obstacle");
+            // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+            game.setActiveMenu(new GameOverMenu(game));
           }
           if (
             entity2 instanceof Goal &&
@@ -78,18 +78,29 @@ class Level {
             bottom1 > top2 &&
             top1 < bottom2
           ) {
-            this.gameState = "goalReached";
+            // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+            game.setActiveMenu(new GoalMenu(1));
           }
-
-          if (entity2 instanceof Platform && right1 > left2) {
-            // console.log("TOUCHED SIDE OF PLATFORM");
-            // this.gameState = "gameOver";
+          // KROCK PÅ VÄNSTER SIDA AV PLATFORM
+          if (
+            entity2 instanceof Platform &&
+            right1 > left2 &&
+            right1 < left2 + 5
+          ) {
+            if (
+              (top1 < bottom2 && top1 > top2) ||
+              (bottom1 > top2 && bottom1 < bottom2)
+            ) {
+              console.log("TOUCHED SIDE OF PLATFORM");
+              // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+              game.setActiveMenu(new GameOverMenu(game));
+            }
           }
         }
       }
     }
   }
-/* 
+  /* 
   public getPlayer() : Entity {
     for(const entity of this.entities) {
       if(entity instanceof Player) {

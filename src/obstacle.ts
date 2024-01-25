@@ -10,7 +10,7 @@ class Obstacle extends Entity {
     super(positionX, positionY, width, height, image, 0, 0);
   }
   public update(): void {
-    this.positionX -= 5;
+    this.positionX -= this.velocityX;
   }
   public draw(): void {
     push();

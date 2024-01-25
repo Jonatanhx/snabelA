@@ -1,10 +1,12 @@
 class GameOverMenu implements IMenu {
   private countdown: number;
   private gameOverText: string;
+  private game: CurrentActiveMenu;
 
-  constructor() {
-    this.countdown = 3;
+  constructor(game: CurrentActiveMenu) {
+    this.countdown = 1;
     this.gameOverText = "You Died";
+    this.game = game;
   }
   private drawHeading() {
     let redColor = color(191, 32, 38, 127); // Red color with 50% opacity (127 out of 255)
@@ -24,6 +26,12 @@ class GameOverMenu implements IMenu {
     //is checking whether the current frame count is a multiple of 60
     if (frameCount % 60 === 0 && this.countdown > 0) {
       this.countdown--;
+      setTimeout(() => {
+        // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+        game.restartLevel();
+        game.setActiveMenu(undefined);
+        console.log("restarting elvel");
+      }, 1000);
     }
   }
 
