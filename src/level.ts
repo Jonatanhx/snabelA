@@ -82,12 +82,17 @@ class Level {
             game.setActiveMenu(new GoalMenu(1));
           }
           // KROCK PÅ VÄNSTER SIDA AV PLATFORM
-          if (right1 > left2 && right1 < left2 + 5) {
+          if (
+            entity2 instanceof Platform &&
+            right1 > left2 &&
+            right1 < left2 + 5
+          ) {
             if (
               (top1 < bottom2 && top1 > top2) ||
               (bottom1 > top2 && bottom1 < bottom2)
             ) {
               console.log("TOUCHED SIDE OF PLATFORM");
+              // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
               game.setActiveMenu(new GameOverMenu(game));
             }
           }
