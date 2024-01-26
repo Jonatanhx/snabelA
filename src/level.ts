@@ -1,24 +1,21 @@
 // Level ansvarar för att rita ut alla entiteterna och förflytta dem, deussotm kollar den kollision.
 class Level {
-  //attributes
   public id: number;
   public entities: Entity[];
 
-  //constructor
   constructor(entities: Entity[]) {
     this.id = 1;
     this.entities = entities;
-    // this.gameState = "notStarted";
   }
 
   public update() {
     // Update the position of the player
-
     for (const entity of this.entities) {
       entity.update();
     }
     this.checkCollision();
   }
+
   // gå igenom alla entiteter i arrayen och rita ut dem
   //functions
   public draw(): void {
@@ -100,13 +97,4 @@ class Level {
       }
     }
   }
-  /* 
-  public getPlayer() : Entity {
-    for(const entity of this.entities) {
-      if(entity instanceof Player) {
-        return entity;
-      }
-    }
-    return this.entities[0];
-  } */
 }
