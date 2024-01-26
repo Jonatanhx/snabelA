@@ -15,8 +15,14 @@ let backgroundImage: {
 let progrees: {
   progressbar: p5.Image;
 }
+let startImage: {
+  playerPreview: p5.Image;
+};
 let sfx: {
   gameOver: p5.SoundFile;
+};
+let goalImage: {
+  goal: p5.Image;
 };
 
 /**
@@ -39,6 +45,12 @@ function preload() {
     progressbar: loadImage("assets/images/progressbar.svg"),
   }
 
+  startImage = {
+    playerPreview: loadImage("/assets/images/startImg.png"),
+  };
+  goalImage = {
+    goal: loadImage("/assets/images/goal.png"),
+  };
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
