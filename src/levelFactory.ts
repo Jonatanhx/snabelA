@@ -1,6 +1,10 @@
 class LevelFactory {
   private levelDesign1: number[][];
 
+  // DI - Dependency Injection
+  // Constructor Injection
+  // Method Injection
+
   constructor() {
     // h = number, w = number (behöver defineras)
     // 0 = nothing
@@ -16,7 +20,7 @@ class LevelFactory {
     // prettier-ignore
     this.levelDesign1 = [
       [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -30,7 +34,7 @@ class LevelFactory {
     ];
   }
 
-  public generateLevel(): Level {
+  public generateLevel(game: CurrentActiveMenu): Level {
     //Lägg till parameter för att skilja vilken nivå
     // Gå igenom leveldesignen och skapa alla entiteter
     // motsvarande sifforna på rätt plats
@@ -42,12 +46,17 @@ class LevelFactory {
         const siffra = this.levelDesign1[y][x]; // Hämta siffran från nivådesignen på´dens aktuella positionen
         //PLAYER
         if (siffra === 9) {
+          const ratio = 2;
+          //STYRA HUR STOR JALAMAN ÄR
+          const width = blockSize * 0.81;
+          const height = width * ratio;
+          const additionalHeigth = height - blockSize;
           entities.push(
             new Player(
               x * blockSize,
-              y * blockSize,
-              blockSize,
-              blockSize,
+              y * blockSize - additionalHeigth,
+              width,
+              height,
               null as any
             )
           );
@@ -126,7 +135,7 @@ class LevelFactory {
       }
     }
 
-    return new Level(entities);
+    return new Level(game, entities);
   }
 }
 

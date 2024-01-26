@@ -14,8 +14,8 @@ class Game implements CurrentActiveMenu {
   constructor() {
     //Vad ska finnas i början?
     this.sound = new Sound();
-    this.levelFactory = new LevelFactory();
-    this.level = this.levelFactory.generateLevel();
+    this.levelFactory = new LevelFactory(); // Contstuctor Dependecy injection
+    this.level = this.levelFactory.generateLevel(this); // Method Depenecy injection
     this.activeMenu = new StartMenu(this);
   }
 
@@ -34,7 +34,7 @@ class Game implements CurrentActiveMenu {
 
   public restartLevel() {
     this.levelFactory = new LevelFactory();
-    this.level = this.levelFactory.generateLevel();
+    this.level = this.levelFactory.generateLevel(this);
   }
 
   public update() {
@@ -51,7 +51,7 @@ class Game implements CurrentActiveMenu {
   }
 
   public draw() {
-    background("white");
+    background("black");
 
     if (this.activeMenu) {
       this.activeMenu.draw();

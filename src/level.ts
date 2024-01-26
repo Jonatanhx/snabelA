@@ -3,8 +3,10 @@ class Level {
   public id: number;
   public entities: Entity[];
   public sound: Isound;
+  private game: CurrentActiveMenu;
 
-  constructor(entities: Entity[]) {
+  constructor(game: CurrentActiveMenu, entities: Entity[]) {
+    this.game = game;
     this.sound = new Sound();
     this.id = 1;
     this.entities = entities;
@@ -33,7 +35,7 @@ class Level {
         if (entity1.positionY > height) {
           // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
           // RAMLAR AV BANAN
-          game.setActiveMenu(new GameOverMenu(game));
+          this.game.setActiveMenu(new GameOverMenu(this.game));
         }
         for (const entity2 of this.entities) {
           if (entity2 instanceof Player) continue; //Player ska inte kunna krocka med Player
@@ -57,7 +59,7 @@ class Level {
             bottom1 > top2 &&
             top1 < bottom2
           ) {
-            entity1.positionY = entity2.positionY - entity2.height; //Player kan kollidera
+            entity1.positionY = entity2.positionY - entity1.height; //Player kan kollidera
             entity1.velocityY = 0; //om positiv = kan ej hoppa, om negativ = hoppar hela tiden
           }
           if (
@@ -69,7 +71,7 @@ class Level {
           ) {
             console.log("Crash with obstacle");
             // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
-            game.setActiveMenu(new GameOverMenu(game));
+            this.game.setActiveMenu(new GameOverMenu(this.game));
             this.sound.playExplodeSound();
           }
           if (
@@ -80,7 +82,7 @@ class Level {
             top1 < bottom2
           ) {
             // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
-            game.setActiveMenu(new GoalMenu(1));
+            this.game.setActiveMenu(new GoalMenu(this.game, 1));
           }
           // KROCK PÅ VÄNSTER SIDA AV PLATFORM
           if (
@@ -94,8 +96,10 @@ class Level {
             ) {
               console.log("TOUCHED SIDE OF PLATFORM");
               // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
-              game.playExplosion();
-              game.setActiveMenu(new GameOverMenu(game));
+              // new Sound().playExplodeSound();
+              // music.startMenuMusic.play();
+              // this.game.playExplosion();
+              this.game.setActiveMenu(new GameOverMenu(this.game));
             }
           }
         }
