@@ -10,13 +10,25 @@ let music: {
   backgroundL2: p5.SoundFile;
   startMenuMusic: p5.SoundFile;
 };
+let playerAnimation :{
+  playerAnimation: p5.Image[]
+}
 let backgroundImage: {
   //våra bilder är p5 images
   backgroundDesert: p5.Image;
   backgroundKitchen: p5.Image;
 };
+let progrees: {
+  progressbar: p5.Image;
+}
+let startImage: {
+  playerPreview: p5.Image;
+};
 let sfx: {
   explodeSound: p5.SoundFile;
+};
+let goalImage: {
+  goal: p5.Image;
 };
 
 /**
@@ -26,6 +38,19 @@ let sfx: {
  */
 // Har kvar davids mystery music för att visa vart vi kan importera ljud//
 function preload() {
+  playerAnimation ={
+    playerAnimation:[
+      loadImage("/assets/images/character/Jalapeno1.svg"),
+      loadImage("/assets/images/character/Jalapeno2.svg"),
+      loadImage("/assets/images/character/Jalapeno3.svg"),
+      loadImage("/assets/images/character/Jalapeno4.svg"),
+      loadImage("/assets/images/character/Jalapeno5.svg"),
+      loadImage("/assets/images/character/Jalapeno6.svg"),
+      loadImage("/assets/images/character/Jalapeno7.svg"),
+      loadImage("/assets/images/character/Jalapeno8.svg"),
+      loadImage("/assets/images/character/Jalapeno9.svg")
+    ]
+  }
   /*  music = {
     backgroundL1: loadSound("/assets/music/Kitchentheme.mp3"), //placeholder
     backgroundL2: loadSound("/assets/music/Deserttheme.mp3"), //placerholder
@@ -43,7 +68,18 @@ function preload() {
     backgroundDesert: loadImage("/assets/images/bakgrund1.png"), //variabler som håller våra bilder
     backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
   };
+  progrees = {
+    progressbar: loadImage("assets/images/progressbar.svg"),
+  }
+
+  startImage = {
+    playerPreview: loadImage("/assets/images/startImg.png"),
+  };
+  goalImage = {
+    goal: loadImage("/assets/images/goal.png"),
+  };
 }
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60);

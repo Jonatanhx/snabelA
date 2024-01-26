@@ -16,11 +16,12 @@ class ProgressBar extends Entity {
   public draw(): void {
     this.drawStroke();
     this.drawProgressBarFill();
+    image(progrees.progressbar, this.positionX, this.positionY, 350, 95);
   }
   private drawStroke() {
     push();
-    stroke("black");
-    rect(this.positionX, this.positionY, this.width, this.height);
+    stroke("transparent");
+    rect(this.positionX, this.positionY, 350, 90);
     pop();
   }
   private drawProgressBarFill() {
