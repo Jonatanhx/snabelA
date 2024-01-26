@@ -2,8 +2,10 @@
 class Level {
   public id: number;
   public entities: Entity[];
+  public sound: Isound;
 
   constructor(entities: Entity[]) {
+    this.sound = new Sound();
     this.id = 1;
     this.entities = entities;
   }
@@ -30,6 +32,7 @@ class Level {
       if (entity1 instanceof Player) {
         if (entity1.positionY > height) {
           // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+          // RAMLAR AV BANAN
           game.setActiveMenu(new GameOverMenu(game));
         }
         for (const entity2 of this.entities) {
@@ -67,6 +70,7 @@ class Level {
             console.log("Crash with obstacle");
             // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
             game.setActiveMenu(new GameOverMenu(game));
+            this.sound.playExplodeSound();
           }
           if (
             entity2 instanceof Goal &&
@@ -90,6 +94,7 @@ class Level {
             ) {
               console.log("TOUCHED SIDE OF PLATFORM");
               // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+              game.playExplosion();
               game.setActiveMenu(new GameOverMenu(game));
             }
           }

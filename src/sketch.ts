@@ -2,6 +2,9 @@
 // Har kvar davids mystery music för att visa vart vi kan importera ljud//
 let game: Game;
 let entity: Entity;
+let entityImages: {
+  platformImg: p5.Image;
+};
 let music: {
   backgroundL1: p5.SoundFile;
   backgroundL2: p5.SoundFile;
@@ -22,7 +25,7 @@ let startImage: {
   playerPreview: p5.Image;
 };
 let sfx: {
-  gameOver: p5.SoundFile;
+  explodeSound: p5.SoundFile;
 };
 let goalImage: {
   goal: p5.Image;
@@ -53,6 +56,14 @@ function preload() {
     backgroundL2: loadSound("/assets/music/Deserttheme.mp3"), //placerholder
     startMenuMusic: loadSound("/assets/music/Menutheme.mp3"), //placeholder
   }; */
+  entityImages = {
+    platformImg: loadImage("/assets/images/block2.png"),
+  };
+  sfx = {
+    explodeSound: loadSound("/assets/SFX/explosion.wav"),
+    // explodeSound: loadSound("/assets/music/mystery.mp3"),
+  };
+
   backgroundImage = {
     backgroundDesert: loadImage("/assets/images/bakgrund1.png"), //variabler som håller våra bilder
     backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
@@ -73,6 +84,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60);
   /* music.backgroundL1.setVolume(0.8); */
+  sfx.explodeSound.setVolume(0.1);
   game = new Game();
   /* image(backgroundImage.backgroundKitchen, 0, 0, width, height); */
 
