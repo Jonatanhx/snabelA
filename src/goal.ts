@@ -13,8 +13,15 @@ class Goal extends Entity {
   }
   public draw(): void {
     push();
-    fill("blue");
-    rect(this.positionX, this.positionY, this.width, this.height);
+    image(
+      goalImage.goal,
+      this.positionX,
+      this.positionY,
+      this.width + 2,
+      this.height
+    );
+    // fill("blue");
+    // rect(this.positionX, this.positionY, this.width, this.height);
     pop();
   }
 }
