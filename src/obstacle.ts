@@ -14,8 +14,15 @@ class Obstacle extends Entity {
   }
   public draw(): void {
     push();
-    fill("yellow");
-    rect(this.positionX, this.positionY, this.width, this.height);
+    image(
+      entityImages.obstacleImg,
+      this.positionX,
+      this.positionY,
+      this.width,
+      this.height
+    );
+    // fill("yellow");
+    // rect(this.positionX, this.positionY, this.width, this.height);
     pop();
   }
 }
