@@ -1,5 +1,5 @@
 interface CurrentActiveMenu {
-  setActiveMenu(menu?: IMenu): void;
+  setActiveMenu(menu?: IMenu, levelId?: number): void;
   restartLevel(): void;
 }
 
@@ -15,7 +15,7 @@ class Game implements CurrentActiveMenu {
     //Vad ska finnas i början?
     this.sound = new Sound();
     this.levelFactory = new LevelFactory(); // Contstuctor Dependecy injection
-    this.level = this.levelFactory.generateLevel(this); // Method Depenecy injection
+    this.level = this.levelFactory.generateLevel(1, this); // Method Depenecy injection
     this.activeMenu = new StartMenu(this);
   }
 
@@ -28,13 +28,15 @@ class Game implements CurrentActiveMenu {
 
   private muteSfx() {}
 
-  public setActiveMenu(menu: IMenu) {
+  public setActiveMenu(menu: IMenu, levelId?: number) {
     this.activeMenu = menu;
+    if (levelId) {
+      this.level = this.levelFactory.generateLevel(levelId, this);
+    }
   }
 
   public restartLevel() {
-    this.levelFactory = new LevelFactory();
-    this.level = this.levelFactory.generateLevel(this);
+    this.level = this.levelFactory.generateLevel(this.level.id, this);
   }
 
   public update() {

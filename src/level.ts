@@ -5,10 +5,10 @@ class Level {
   public sound: Isound;
   private game: CurrentActiveMenu;
 
-  constructor(game: CurrentActiveMenu, entities: Entity[]) {
+  constructor(id: number, game: CurrentActiveMenu, entities: Entity[]) {
+    this.id = id;
     this.game = game;
     this.sound = new Sound();
-    this.id = 1;
     this.entities = entities;
   }
 
