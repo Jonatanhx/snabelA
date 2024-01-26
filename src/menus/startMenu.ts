@@ -3,7 +3,8 @@ class StartMenu implements IMenu {
   private readonly description: string;
   private controlDescTitle: string;
   private controlDesc: string;
-  private playerPreview: number;
+  private playerPreview: p5.Image;
+  private playerPreviewWidth: number; // to set the desired image width
   private playButton: Button;
   private game: CurrentActiveMenu;
 
@@ -13,12 +14,13 @@ class StartMenu implements IMenu {
       "You are a jalapeno yearning for freedom from this manic prison which seems to change shape when getting further. \n \n Go through the levels by avoiding obstacles with jumping over or on them.";
     this.controlDescTitle = "CONTROLS";
     this.controlDesc = "SPACE - JUMP \n ESC -  PAUSE";
-    this.playerPreview = width * 0.5;
+    this.playerPreview = startImage.playerPreview;
+    this.playerPreviewWidth = 175; 
     this.playButton = new Button(
       "PLAY",
       width * 0.02,
-      width * 0.5 - 50,
-      height * 0.5 - 25,
+      width * 0.4,
+      height * 0.4,
       width * 0.15,
       width * 0.065
     );
@@ -28,14 +30,16 @@ class StartMenu implements IMenu {
   public drawPlayDesc() {
     push();
     textStyle(BOLD);
-    text(this.descriptionTitle, (2 * width) / 3, height / 2);
+    textSize(height * 0.03);
+    text(this.descriptionTitle, (2 * width) / 3, height * 0.4);
+    textSize(height * 0.02);
     textStyle(NORMAL);
     text(
       this.description,
       (2 * width) / 3,
-      height / 1.9,
-      width / 4,
-      height / 5
+      height * 0.42,
+      width * 0.25,
+      height *0.2
     );
     pop();
   }
@@ -43,14 +47,27 @@ class StartMenu implements IMenu {
   public drawControlDesc() {
     push();
     textStyle(BOLD);
+    textSize(height * 0.03);
     textAlign(CENTER);
-    text(this.controlDescTitle, width / 2, (2 * height) / 2.9);
+    text(this.controlDescTitle, width * 0.47, (2 * height) * 0.35);
     textStyle(NORMAL);
-    text(this.controlDesc, width / 2, (2 * height) / 2.8);
+    textSize(height * 0.02);
+    text(this.controlDesc, width * 0.47, (2 * height) * 0.37);
     pop();
   }
 
-  public drawPlayerPreview(): void {}
+  public drawPlayerPreview(): void {
+    push();
+    /* find out the ratio of the image size and set a new image size 
+        setting the desired width of the image */
+    const aspectRatio = this.playerPreview.width / this.playerPreview.height;
+    const playerPreviewHeight = this.playerPreviewWidth / aspectRatio;
+    this.playerPreview.resize(this.playerPreviewWidth, playerPreviewHeight);
+
+    // Draw the player image 
+    image(this.playerPreview, width * 0.2, height * 0.5 - this.playerPreview.height / 2);
+    pop();
+  }
 
   public draw(): void {
     this.drawPlayDesc();
