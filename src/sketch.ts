@@ -12,6 +12,9 @@ let backgroundImage: {
   backgroundDesert: p5.Image;
   backgroundKitchen: p5.Image;
 };
+let progrees: {
+  progressbar: p5.Image;
+}
 let sfx: {
   gameOver: p5.SoundFile;
 };
@@ -32,6 +35,10 @@ function preload() {
     backgroundDesert: loadImage("/assets/images/bakgrund1.png"), //variabler som håller våra bilder
     backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
   };
+  progrees = {
+    progressbar: loadImage("assets/images/progressbar.svg"),
+  }
+
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
