@@ -83,6 +83,7 @@ class Level {
               // REAKTION - VINST
               this.game.setActiveMenu(new GoalMenu(this.game, 1));
             }
+            if (entity2 instanceof ProgressBar) continue;
           }
         }
       }

@@ -4,15 +4,16 @@ let game: Game;
 let entity: Entity;
 let entityImages: {
   platformImg: p5.Image;
+  obstacleImg: p5.Image;
 };
 let music: {
   backgroundL1: p5.SoundFile;
   backgroundL2: p5.SoundFile;
   startMenuMusic: p5.SoundFile;
 };
-let playerAnimation :{
-  playerAnimation: p5.Image[]
-}
+let playerAnimation: {
+  playerAnimation: p5.Image[];
+};
 let backgroundImage: {
   //våra bilder är p5 images
   backgroundDesert: p5.Image;
@@ -20,7 +21,7 @@ let backgroundImage: {
 };
 let progrees: {
   progressbar: p5.Image;
-}
+};
 let startImage: {
   playerPreview: p5.Image;
 };
@@ -38,8 +39,8 @@ let goalImage: {
  */
 // Har kvar davids mystery music för att visa vart vi kan importera ljud//
 function preload() {
-  playerAnimation ={
-    playerAnimation:[
+  playerAnimation = {
+    playerAnimation: [
       loadImage("/assets/images/character/Jalapeno1.svg"),
       loadImage("/assets/images/character/Jalapeno2.svg"),
       loadImage("/assets/images/character/Jalapeno3.svg"),
@@ -48,9 +49,9 @@ function preload() {
       loadImage("/assets/images/character/Jalapeno6.svg"),
       loadImage("/assets/images/character/Jalapeno7.svg"),
       loadImage("/assets/images/character/Jalapeno8.svg"),
-      loadImage("/assets/images/character/Jalapeno9.svg")
-    ]
-  }
+      loadImage("/assets/images/character/Jalapeno9.svg"),
+    ],
+  };
   /*  music = {
     backgroundL1: loadSound("/assets/music/Kitchentheme.mp3"), //placeholder
     backgroundL2: loadSound("/assets/music/Deserttheme.mp3"), //placerholder
@@ -58,6 +59,7 @@ function preload() {
   }; */
   entityImages = {
     platformImg: loadImage("/assets/images/block2.png"),
+    obstacleImg: loadImage("/assets/images/box.png"),
   };
   sfx = {
     explodeSound: loadSound("/assets/SFX/explosion.wav"),
@@ -70,7 +72,7 @@ function preload() {
   };
   progrees = {
     progressbar: loadImage("assets/images/progressbar.svg"),
-  }
+  };
 
   startImage = {
     playerPreview: loadImage("/assets/images/startImg.png"),
