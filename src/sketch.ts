@@ -15,6 +15,9 @@ let backgroundImage: {
   backgroundDesert: p5.Image;
   backgroundKitchen: p5.Image;
 };
+let progrees: {
+  progressbar: p5.Image;
+}
 let startImage: {
   playerPreview: p5.Image;
 };
@@ -54,6 +57,10 @@ function preload() {
     backgroundDesert: loadImage("/assets/images/bakgrund1.png"), //variabler som håller våra bilder
     backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
   };
+  progrees = {
+    progressbar: loadImage("assets/images/progressbar.svg"),
+  }
+
   startImage = {
     playerPreview: loadImage("/assets/images/startImg.png"),
   };
