@@ -18,6 +18,9 @@ let startImage: {
 let sfx: {
   gameOver: p5.SoundFile;
 };
+let goalImage: {
+  goal: p5.Image;
+};
 
 /**
  * Built in preload function in P5
@@ -35,9 +38,12 @@ function preload() {
     backgroundDesert: loadImage("/assets/images/bakgrund1.png"), //variabler som håller våra bilder
     backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
   };
-  startImage ={
-     playerPreview: loadImage("/assets/images/startImg.png")
-  }
+  startImage = {
+    playerPreview: loadImage("/assets/images/startImg.png"),
+  };
+  goalImage = {
+    goal: loadImage("/assets/images/goal.png"),
+  };
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
