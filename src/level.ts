@@ -59,47 +59,29 @@ class Level {
             bottom1 > top2 &&
             top1 < bottom2
           ) {
-            entity1.positionY = entity2.positionY - entity1.height; //Player kan kollidera
-            entity1.velocityY = 0; //om positiv = kan ej hoppa, om negativ = hoppar hela tiden
-          }
-          if (
-            entity2 instanceof Obstacle &&
-            right1 > left2 &&
-            left1 < right2 &&
-            bottom1 > top2 &&
-            top1 < bottom2
-          ) {
-            console.log("Crash with obstacle");
-            // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
-            this.game.setActiveMenu(new GameOverMenu(this.game));
-            this.sound.playExplodeSound();
-          }
-          if (
-            entity2 instanceof Goal &&
-            right1 > left2 &&
-            left1 < right2 &&
-            bottom1 > top2 &&
-            top1 < bottom2
-          ) {
-            // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
-            this.game.setActiveMenu(new GoalMenu(this.game, 1));
-          }
-          // KROCK PÅ VÄNSTER SIDA AV PLATFORM
-          if (
-            entity2 instanceof Platform &&
-            right1 > left2 &&
-            right1 < left2 + 5
-          ) {
-            if (
-              (top1 < bottom2 && top1 > top2) ||
-              (bottom1 > top2 && bottom1 < bottom2)
-            ) {
-              console.log("TOUCHED SIDE OF PLATFORM");
-              // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
-              // new Sound().playExplodeSound();
-              // music.startMenuMusic.play();
-              // this.game.playExplosion();
+            if (entity2 instanceof Platform) {
+              //LIGGER NEDAN KOD TEMPORÄRT, SKALL INTE FLYTTAS UPP HELA TIDEN
+              entity1.positionY = entity2.positionY - entity1.height; //Player kan kollidera
+              entity1.velocityY = 0; //om positiv = kan ej hoppa, om negativ = hoppar hela tiden
+              // REAKTION - UP eller FÖRLUST
+              if ("springer in i blocket") {
+                // new Sound().playExplodeSound();
+                // // music.startMenuMusic.play();
+                // // this.game.playExplosion();
+                // this.game.setActiveMenu(new GameOverMenu(this.game));
+              } else {
+                // entity1.positionY = entity2.positionY - entity1.height; //Player kan kollidera
+                // entity1.velocityY = 0; //om positiv = kan ej hoppa, om negativ = hoppar hela tiden
+              }
+            }
+            if (entity2 instanceof Obstacle) {
+              // REAKTION - FÖRLUST
               this.game.setActiveMenu(new GameOverMenu(this.game));
+              this.sound.playExplodeSound();
+            }
+            if (entity2 instanceof Goal) {
+              // REAKTION - VINST
+              this.game.setActiveMenu(new GoalMenu(this.game, 1));
             }
           }
         }
