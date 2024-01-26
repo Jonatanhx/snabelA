@@ -7,6 +7,9 @@ let music: {
   backgroundL2: p5.SoundFile;
   startMenuMusic: p5.SoundFile;
 };
+let playerAnimation :{
+  playerAnimation: p5.Image[]
+}
 let backgroundImage: {
   //våra bilder är p5 images
   backgroundDesert: p5.Image;
@@ -23,6 +26,19 @@ let sfx: {
  */
 // Har kvar davids mystery music för att visa vart vi kan importera ljud//
 function preload() {
+  playerAnimation ={
+    playerAnimation:[
+      loadImage("/assets/images/character/Jalapeno1.svg"),
+      loadImage("/assets/images/character/Jalapeno2.svg"),
+      loadImage("/assets/images/character/Jalapeno3.svg"),
+      loadImage("/assets/images/character/Jalapeno4.svg"),
+      loadImage("/assets/images/character/Jalapeno5.svg"),
+      loadImage("/assets/images/character/Jalapeno6.svg"),
+      loadImage("/assets/images/character/Jalapeno7.svg"),
+      loadImage("/assets/images/character/Jalapeno8.svg"),
+      loadImage("/assets/images/character/Jalapeno9.svg")
+    ]
+  }
   /*  music = {
     backgroundL1: loadSound("/assets/music/Kitchentheme.mp3"), //placeholder
     backgroundL2: loadSound("/assets/music/Deserttheme.mp3"), //placerholder
@@ -33,6 +49,7 @@ function preload() {
     backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
   };
 }
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60);
