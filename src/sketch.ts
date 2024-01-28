@@ -62,7 +62,7 @@ function preload() {
     startMenuMusic: loadSound("/assets/music/Menutheme.mp3"), //placeholder
   }; */
   entityImages = {
-    platformImg: loadImage("/assets/images/block2.png"),
+    platformImg: loadImage("/assets/images/ground.png"),
     obstacleImg: loadImage("/assets/images/box.png"),
   };
   sfx = {
