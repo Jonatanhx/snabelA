@@ -53,7 +53,8 @@ class Game implements CurrentActiveMenu {
   }
 
   public draw() {
-    background("white");
+    myBackground.update();
+    myBackground.draw();
 
     if (this.activeMenu) {
       this.activeMenu.draw();

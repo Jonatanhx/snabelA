@@ -14,11 +14,14 @@ let music: {
 let playerAnimation: {
   playerAnimation: p5.Image[];
 };
-let backgroundImage: {
-  //våra bilder är p5 images
-  backgroundDesert: p5.Image;
-  backgroundKitchen: p5.Image;
-};
+// let backgroundImage: {
+//   //våra bilder är p5 images
+//   backgroundDesert: p5.Image;
+//   backgroundKitchen: p5.Image;
+// };
+
+// Declare backgroundImages array
+let backgroundImages: p5.Image[];
 let progrees: {
   progressbar: p5.Image;
 };
@@ -31,6 +34,7 @@ let sfx: {
 let goalImage: {
   goal: p5.Image;
 };
+let myBackground: Background;
 
 /**
  * Built in preload function in P5
@@ -66,10 +70,16 @@ function preload() {
     // explodeSound: loadSound("/assets/music/mystery.mp3"),
   };
 
-  backgroundImage = {
-    backgroundDesert: loadImage("/assets/images/bakgrund1.png"), //variabler som håller våra bilder
-    backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
-  };
+  backgroundImages = [
+    //{
+    // backgroundDesert: loadImage("/assets/images/bakgrund1.png"), //variabler som håller våra bilder
+    // backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
+    loadImage("assets/images/BG/mainback.png"),
+    loadImage("assets/images/BG/secondbg.png"),
+    loadImage("assets/images/BG/firstbg.png"),
+
+    //
+  ];
   progrees = {
     progressbar: loadImage("assets/images/progressbar.svg"),
   };
@@ -92,9 +102,17 @@ function setup() {
 
   /*   image(backgroundImage, 0, 0, 0, 0);
    */
+  // Set up the parallax background
+  myBackground = new Background(0, 0, width, height, backgroundImages);
 }
 
 function draw() {
+  // Clear the background
+
+  // Draw the parallax background
+  myBackground.update();
+  myBackground.draw();
+
   game.update();
   game.draw();
 }
