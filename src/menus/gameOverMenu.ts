@@ -38,8 +38,8 @@ class GameOverMenu implements IMenu {
       this.countdown--;
       setTimeout(() => {
         // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
-        game.restartLevel();
-        game.setActiveMenu(undefined);
+        this.game.restartLevel();
+        this.game.setActiveMenu(undefined);
         console.log("restarting elvel");
       }, 1000);
     }

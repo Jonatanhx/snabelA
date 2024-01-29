@@ -4,6 +4,7 @@ let game: Game;
 let entity: Entity;
 let entityImages: {
   platformImg: p5.Image;
+  obstacleImg: p5.Image;
 };
 let music: {
   backgroundL1: p5.SoundFile;
@@ -11,8 +12,9 @@ let music: {
   startMenuMusic: p5.SoundFile;
 };
 let playerAnimation: {
-  playerAnimation: p5.Image[]
-}
+  playerAnimation: p5.Image[];
+};
+
 let backgroundImage: {
   //våra bilder är p5 images
   backgroundDesert: p5.Image;
@@ -20,7 +22,7 @@ let backgroundImage: {
 };
 let progrees: {
   progressbar: p5.Image;
-}
+};
 let startImage: {
   playerPreview: p5.Image;
 };
@@ -48,9 +50,9 @@ function preload() {
       loadImage("/assets/images/character/Jalapeno6.svg"),
       loadImage("/assets/images/character/Jalapeno7.svg"),
       loadImage("/assets/images/character/Jalapeno8.svg"),
-      loadImage("/assets/images/character/Jalapeno9.svg")
-    ]
-  }
+      loadImage("/assets/images/character/Jalapeno9.svg"),
+    ],
+  };
   /*  music = {
     backgroundL1: loadSound("/assets/music/Kitchentheme.mp3"), //placeholder
     backgroundL2: loadSound("/assets/music/Deserttheme.mp3"), //placerholder
@@ -58,6 +60,7 @@ function preload() {
   }; */
   entityImages = {
     platformImg: loadImage("/assets/images/block2.png"),
+    obstacleImg: loadImage("/assets/images/box.png"),
   };
   sfx = {
     explodeSound: loadSound("/assets/SFX/explosion.wav"),
@@ -70,7 +73,7 @@ function preload() {
   };
   progrees = {
     progressbar: loadImage("assets/images/progressbar.png"),
-  }
+  };
 
   startImage = {
     playerPreview: loadImage("/assets/images/startImg.png"),
