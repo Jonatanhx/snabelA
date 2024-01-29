@@ -17,12 +17,13 @@ class StartMenu implements IMenu {
     this.playerPreview = startImage.playerPreview;
     this.playerPreviewWidth = 175; 
     this.playButton = new Button(
+      menuImage.buttonImg,
       "PLAY",
-      width * 0.02,
+      22,
       width * 0.4,
       height * 0.4,
       width * 0.15,
-      width * 0.065
+      width * 0.065,
     );
     this.game = game;
   }

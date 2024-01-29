@@ -1,13 +1,15 @@
 class Button {
-  private text: string;
+  /* private text: string; */
+  private buttonImg: p5.Image;
+  private buttonText: string;
+  private textSize: number;
   private x: number;
   private y: number;
   private w: number;
   private h: number;
-  private conrnerRadius: number;
-  private textSize: number;
+  /* private conrnerRadius: number; */
   private prevMouseIsPressed: boolean;
-  private fill: string;
+  /* private fill: string; */
   /**
    * Constructor for a complete button, with elements for interaction.
    * (Remember responsive calculation)
@@ -20,22 +22,26 @@ class Button {
    * @param conrnerRadius radius to round the button
    */
   constructor(
-    text: string,
+    /* text: string, */
+    buttonImg: p5.Image,
+    buttonText: string,
     textSize: number,
     x: number,
     y: number,
     w: number,
     h: number
   ) {
-    this.text = text;
+    /* this.text = text; */
+    this.buttonImg = buttonImg;
+    this.buttonText = buttonText;
     this.textSize = textSize;
     this.x = x;
     this.y = y;
     this.w = w;
     this.h = h;
     this.prevMouseIsPressed = false;
-    this.fill = "#D9D9D9";
-    this.conrnerRadius = 5;
+    /* this.fill = "#D9D9D9"; */
+    /* this.conrnerRadius = 5; */
   }
 
   /**
@@ -66,9 +72,9 @@ class Button {
    */
   public hover() {
     if (this.contains(mouseX, mouseY)) {
-      this.fill = "#D9D9D9";
+      /* this.fill = "#D9D9D9"; */
     } else {
-      this.fill = "#fff";
+      /* this.fill = "#fff"; */
     }
   }
 
@@ -88,13 +94,17 @@ class Button {
 
   public draw() {
     push();
-    fill(this.fill);
-    rect(this.x, this.y, this.w, this.h, this.conrnerRadius);
+    /* fill(this.fill); */
+    /* rect(this.x, this.y, this.w, this.h, this.conrnerRadius); */
+    image(this.buttonImg, this.x, this.y, this.w, this.h);
     pop();
+    
     push();
     textSize(this.textSize);
     textAlign(CENTER, CENTER);
-    text(this.text, this.x + this.w / 2, this.y + this.h / 2);
+    fill("black");
+    text(this.buttonText, this.x + this.w / 2, this.y + this.h / 2);
+    /* text(this.text, this.x + this.w / 2, this.y + this.h / 2); */
     pop();
   }
 }
