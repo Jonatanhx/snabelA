@@ -10,7 +10,7 @@ let music: {
   backgroundL2: p5.SoundFile;
   startMenuMusic: p5.SoundFile;
 };
-let playerAnimation :{
+let playerAnimation: {
   playerAnimation: p5.Image[]
 }
 let backgroundImage: {
@@ -38,8 +38,8 @@ let goalImage: {
  */
 // Har kvar davids mystery music för att visa vart vi kan importera ljud//
 function preload() {
-  playerAnimation ={
-    playerAnimation:[
+  playerAnimation = {
+    playerAnimation: [
       loadImage("/assets/images/character/Jalapeno1.svg"),
       loadImage("/assets/images/character/Jalapeno2.svg"),
       loadImage("/assets/images/character/Jalapeno3.svg"),
@@ -69,7 +69,7 @@ function preload() {
     backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
   };
   progrees = {
-    progressbar: loadImage("assets/images/progressbar.svg"),
+    progressbar: loadImage("assets/images/progressbar.png"),
   }
 
   startImage = {
