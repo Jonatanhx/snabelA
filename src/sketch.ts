@@ -78,7 +78,7 @@ function preload() {
     playerPreview: loadImage("/assets/images/startImg.png"),
   };
   goalImage = {
-    goal: loadImage("/assets/images/goal.png"),
+    goal: loadImage("/assets/images/pinata.png"),
   };
 }
 
