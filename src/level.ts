@@ -61,7 +61,7 @@ class Level {
           ) {
             if (entity2 instanceof Platform) {
               // Vänster sida check PIXEL PERFEKT FEL??????
-              if (right1 > left2 && left1 < left2) {
+              if (right1 > left2 && left1 < left2 && bottom1) {
                 console.log("SLOG VÄNSTER");
                 this.game.setActiveMenu(new GameOverMenu(this.game));
               }
