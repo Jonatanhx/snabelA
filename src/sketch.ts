@@ -5,6 +5,7 @@ let entity: Entity;
 let entityImages: {
   platformImg: p5.Image;
   obstacleImg: p5.Image;
+  //pJumpImg: p5.Image;
 };
 let music: {
   backgroundL1: p5.SoundFile;
@@ -63,6 +64,7 @@ function preload() {
   entityImages = {
     platformImg: loadImage("/assets/images/ground.png"),
     obstacleImg: loadImage("/assets/images/box.png"),
+    // pJumpImg: loadImage("/assets/images/platform/platformjump.png"),
   };
   sfx = {
     explodeSound: loadSound("/assets/SFX/explosion.wav"),
@@ -84,7 +86,7 @@ function preload() {
   };
 
   startImage = {
-    playerPreview: loadImage("/assets/images/startImg.png"),
+    playerPreview: loadImage("/assets/images/character/jalapenodemo.png"),
   };
   goalImage = {
     goal: loadImage("/assets/images/character/pinatagoal.png"),
@@ -106,6 +108,7 @@ function setup() {
 
 function draw() {
   // Clear the background
+  background(255);
 
   game.update();
   game.draw();

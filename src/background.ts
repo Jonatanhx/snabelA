@@ -11,9 +11,9 @@ class Background {
     /* this.imageLoop = 2; // Adjust this value based on how much of the image you want to add back */
     this.images = backgroundImages;
     this.positionX = [0, 0, 0];
-    this.parallaxSpeeds = [0.01, 0.05, 0.9]; //närmast fortare och längst bort långsamt
-    this.heights = [height * 0.5, height * 0.3, height * 0.5];
-    this.positionY = [height * 0, height * 0.7, height * 0.5];
+    this.parallaxSpeeds = [0.05, 0.07, 0.5]; //närmast fortare och längst bort långsamt
+    this.heights = [height * 1, height * 0.6, height * 0.5];
+    this.positionY = [height * 0, height * 0.6, height * 0.6];
   }
 
   public update(): void {
