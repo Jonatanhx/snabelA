@@ -14,6 +14,7 @@ class LevelPickedMenu implements IMenu {
     this.headingHeight = height * 0.6;
     this.headingFontSize = width * 0.04;
     this.levelButton1 = new Button(
+      menuImage.buttonImg,
       "1",
       width * 0.02,
       width * 0.3,
@@ -22,6 +23,7 @@ class LevelPickedMenu implements IMenu {
       width * 0.06
     );
     this.levelButton2 = new Button(
+      menuImage.buttonImg,
       "2",
       width * 0.02,
       width * 0.4,
@@ -30,6 +32,7 @@ class LevelPickedMenu implements IMenu {
       width * 0.06
     );
     this.levelButton3 = new Button(
+      menuImage.buttonImg,
       "3",
       width * 0.02,
       width * 0.5,
