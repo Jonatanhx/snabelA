@@ -25,9 +25,7 @@ class Player extends Entity {
     
     this.currentImageIndex = 0;
     this.frameCounter = 0;
-    this.framesPerImage = 3;
-    // this.playerAnimation = playerAnimation;
-    // this.currentAnimationFrame = 0;
+    this.framesPerImage = 15;
   }
 
   public jump() {
