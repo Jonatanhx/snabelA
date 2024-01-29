@@ -60,18 +60,19 @@ class Level {
             top1 < bottom2
           ) {
             if (entity2 instanceof Platform) {
-              //LIGGER NEDAN KOD TEMPORÄRT, SKALL INTE FLYTTAS UPP HELA TIDEN
-              entity1.positionY = entity2.positionY - entity1.height; //Player kan kollidera
-              entity1.velocityY = 0; //om positiv = kan ej hoppa, om negativ = hoppar hela tiden
-              // REAKTION - UP eller FÖRLUST
-              if ("springer in i blocket") {
-                // new Sound().playExplodeSound();
-                // // music.startMenuMusic.play();
-                // // this.game.playExplosion();
-                // this.game.setActiveMenu(new GameOverMenu(this.game));
+              // Vänster sida check PIXEL PERFEKT FEL??????
+              if (right1 > left2 && left1 < left2) {
+                console.log("SLOG VÄNSTER");
+                this.game.setActiveMenu(new GameOverMenu(this.game));
+              }
+              // Slår i bottem av platofrm
+              else if (top1 < bottom2 && bottom1 > bottom2) {
+                console.log("SLOG BOTTEN PLATFORM");
+                this.game.setActiveMenu(new GameOverMenu(this.game));
               } else {
-                // entity1.positionY = entity2.positionY - entity1.height; //Player kan kollidera
-                // entity1.velocityY = 0; //om positiv = kan ej hoppa, om negativ = hoppar hela tiden
+                // Stå på platform
+                entity1.positionY = entity2.positionY - entity1.height;
+                entity1.velocityY = 0;
               }
             }
             if (entity2 instanceof Obstacle) {
