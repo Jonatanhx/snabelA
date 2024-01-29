@@ -3,17 +3,20 @@ class GoalMenu implements IMenu {
   private headingHeight: number;
   private headingFontSize: number;
   private level: number;
-
+  private game: CurrentActiveMenu;
   private restartButton: Button;
   private exitButton: Button;
   /**
    *
    * @param level What level is completed, 1,2,3 etc....
    */
-  constructor(level: number) {
+
+  constructor(game: CurrentActiveMenu, level: number) {
+    this.game = game;
     this.headingWidth = width * 0.5;
     this.headingHeight = height * 0.6;
     this.headingFontSize = width * 0.02;
+
     this.level = level;
     this.restartButton = new Button(
       "RESTART",
@@ -56,24 +59,25 @@ class GoalMenu implements IMenu {
     pop();
   }
 
+  public update(): void {
+    if (this.restartButton.update()) {
+      console.log("RESTART BUTTON WAS CLICKED, CHANGIN MENU");
+      // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+      this.game.restartLevel();
+      this.game.setActiveMenu(undefined);
+    }
+    if (this.exitButton.update()) {
+      console.log("EXIT BUTTON WAS CLICKED, CHANGIN MENU");
+      // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+      this.game.setActiveMenu(new StartMenu(this.game));
+    }
+  }
+
   public draw(): void {
     this.drawGreyBackground();
     this.drawDialogBox();
     this.drawHeading();
     this.restartButton.draw();
     this.exitButton.draw();
-  }
-  public update(): void {
-    if (this.restartButton.update()) {
-      console.log("RESTART BUTTON WAS CLICKED, CHANGIN MENU");
-      // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
-      game.restartLevel();
-      game.setActiveMenu(undefined);
-    }
-    if (this.exitButton.update()) {
-      console.log("EXIT BUTTON WAS CLICKED, CHANGIN MENU");
-      // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
-      game.setActiveMenu(new StartMenu(game));
-    }
   }
 }
