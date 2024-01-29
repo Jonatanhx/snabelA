@@ -25,6 +25,9 @@ let progrees: {
 let startImage: {
   playerPreview: p5.Image;
 };
+let menuImage: {
+  buttonImg: p5.Image;
+};
 let sfx: {
   explodeSound: p5.SoundFile;
 };
@@ -70,8 +73,15 @@ function preload() {
     backgroundDesert: loadImage("/assets/images/bakgrund1.png"), //variabler som håller våra bilder
     backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
   };
+
   progrees = {
     progressbar: loadImage("assets/images/progressbar.svg"),
+  }
+  startImage = {
+     playerPreview: loadImage("/assets/images/startImg.png")
+  };
+  menuImage = {
+    buttonImg: loadImage("/assets/images/button.png")
   };
 
   startImage = {
