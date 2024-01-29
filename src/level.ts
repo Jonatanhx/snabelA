@@ -51,8 +51,8 @@ class Level {
           const bottom1 = entity1.positionY + entity1.height;
           const bottom2 = entity2.positionY + entity2.height;
 
-          //1.Kontrollera ifall entiteterna överlappar 2.Reagera på kollisionen
-
+          // 1. Kontrollera ifall entiteterna överlappar
+          // 2. Reagera sedan på kollisionen
           if (
             right1 > left2 &&
             left1 < right2 &&
@@ -61,13 +61,10 @@ class Level {
           ) {
             if (entity2 instanceof Platform) {
               // Vänster sida check PIXEL PERFEKT FEL??????
-              if (right1 > left2 && left1 < left2 && bottom1) {
-                console.log("SLOG VÄNSTER");
-                this.game.setActiveMenu(new GameOverMenu(this.game));
-              }
-              // Slår i bottem av platofrm
-              else if (top1 < bottom2 && bottom1 > bottom2) {
-                console.log("SLOG BOTTEN PLATFORM");
+              const deltaX = right1 - left2;
+              const deltaY = bottom1 - top2;
+              if (deltaX < deltaY) {
+                console.log("SLOG I VÄNSTER ELLER UNDER");
                 this.game.setActiveMenu(new GameOverMenu(this.game));
               } else {
                 // Stå på platform

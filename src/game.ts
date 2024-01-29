@@ -16,8 +16,7 @@ class Game implements CurrentActiveMenu {
     this.sound = new Sound();
     this.levelFactory = new LevelFactory(); // Contstuctor Dependecy injection
     this.level = this.levelFactory.generateLevel(1, this); // Method Depenecy injection
-    // this.activeMenu = new StartMenu(this);
-    this.activeMenu = undefined;
+    this.activeMenu = new StartMenu(this);
   }
 
   public playExplosion() {
