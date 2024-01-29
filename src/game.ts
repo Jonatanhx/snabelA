@@ -9,6 +9,8 @@ class Game implements CurrentActiveMenu {
   private level: Level;
   private levelFactory: LevelFactory;
   private sound: Sound;
+  private background: Background;
+  // private backgroundLayers: Background[];
 
   // Här skapar vi instanserna av det vi har definierat.
   constructor() {
@@ -17,6 +19,7 @@ class Game implements CurrentActiveMenu {
     this.levelFactory = new LevelFactory(); // Contstuctor Dependecy injection
     this.level = this.levelFactory.generateLevel(1, this); // Method Depenecy injection
     this.activeMenu = new StartMenu(this);
+    this.background = new Background();
   }
 
   public playExplosion() {
@@ -40,6 +43,8 @@ class Game implements CurrentActiveMenu {
   }
 
   public update() {
+    this.background.update();
+
     if (this.activeMenu) {
       this.activeMenu.update();
     } else {
@@ -53,8 +58,7 @@ class Game implements CurrentActiveMenu {
   }
 
   public draw() {
-    myBackground.update();
-    myBackground.draw();
+    this.background.draw();
 
     if (this.activeMenu) {
       this.activeMenu.draw();

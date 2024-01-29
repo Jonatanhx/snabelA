@@ -34,7 +34,6 @@ let sfx: {
 let goalImage: {
   goal: p5.Image;
 };
-let myBackground: Background;
 
 /**
  * Built in preload function in P5
@@ -103,15 +102,10 @@ function setup() {
   /*   image(backgroundImage, 0, 0, 0, 0);
    */
   // Set up the parallax background
-  myBackground = new Background(0, 0, width, height, backgroundImages);
 }
 
 function draw() {
   // Clear the background
-
-  // Draw the parallax background
-  myBackground.update();
-  myBackground.draw();
 
   game.update();
   game.draw();
