@@ -68,13 +68,11 @@ function preload() {
   };
   sfx = {
     explodeSound: loadSound("/assets/SFX/explosion.wav"),
-    // explodeSound: loadSound("/assets/music/mystery.mp3"),
   };
 
   backgroundImages = [
     //{
     // backgroundDesert: loadImage("/assets/images/bakgrund1.png"), //variabler som håller våra bilder
-    // backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
     loadImage("assets/images/BG/mainback.png"),
     loadImage("assets/images/BG/secondbg.png"),
     loadImage("assets/images/BG/firstbg.png"),
@@ -99,11 +97,6 @@ function setup() {
   /* music.backgroundL1.setVolume(0.8); */
   sfx.explodeSound.setVolume(0.1);
   game = new Game();
-  /* image(backgroundImage.backgroundKitchen, 0, 0, width, height); */
-
-  /*   image(backgroundImage, 0, 0, 0, 0);
-   */
-  // Set up the parallax background
 }
 
 function draw() {
