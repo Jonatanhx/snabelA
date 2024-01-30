@@ -26,15 +26,11 @@ let backgroundImages: p5.Image[];
 let progrees: {
   progressbar: p5.Image;
 };
-let startImage: {
-  playerPreview: p5.Image;
-};
 let menuImage: {
+  playerPreview: p5.Image;
   buttonImg: p5.Image;
+  menuBackground: p5.Image;
 };
-let countdownImg: {
-  countImg: p5.Image;
-}
 let sfx: {
   explodeSound: p5.SoundFile;
 };
@@ -101,15 +97,11 @@ function preload() {
   progrees = {
     progressbar: loadImage("assets/images/progressbar.svg"),
   }
-  startImage = {
-     playerPreview: loadImage("/assets/images/menuImg/playerImg.png")
-  };
   menuImage = {
-    buttonImg: loadImage("/assets/images/menuImg/button.png")
+    playerPreview: loadImage("/assets/images/menuImg/playerImg.png"),
+    buttonImg: loadImage("/assets/images/menuImg/button.png"),
+    menuBackground: loadImage("/assets/images/menuImg/menuBackground.png")
   };
-  countdownImg = {
-    countImg:loadImage("/assets/images/menuImg/smallButton.png")
-  }
   goalImage = {
     goal: loadImage("/assets/images/pinata.png"),
   };

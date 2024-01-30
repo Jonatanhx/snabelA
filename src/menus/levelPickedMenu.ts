@@ -17,7 +17,7 @@ class LevelPickedMenu implements IMenu {
       menuImage.buttonImg,
       "1",
       width * 0.02,
-      width * 0.3,
+      width * 0.36,
       height * 0.357,
       width * 0.07,
       width * 0.06
@@ -26,7 +26,7 @@ class LevelPickedMenu implements IMenu {
       menuImage.buttonImg,
       "2",
       width * 0.02,
-      width * 0.4,
+      width * 0.46,
       height * 0.357,
       width * 0.07,
       width * 0.06
@@ -35,7 +35,7 @@ class LevelPickedMenu implements IMenu {
       menuImage.buttonImg,
       "3",
       width * 0.02,
-      width * 0.5,
+      width * 0.56,
       height * 0.357,
       width * 0.07,
       width * 0.06
@@ -46,7 +46,8 @@ class LevelPickedMenu implements IMenu {
     push();
     fill("#D9D9D9");
     rectMode(CENTER);
-    rect(width * 0.5, height * 0.5, this.headingWidth, this.headingHeight);
+    image(menuImage.menuBackground, width * 0.25, height * 0.2, this.headingWidth, this.headingHeight);
+    /* rect(width * 0.5, height * 0.5, this.headingWidth, this.headingHeight); */
     pop();
   }
 

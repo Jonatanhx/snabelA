@@ -15,7 +15,7 @@ class GoalMenu implements IMenu {
     this.game = game;
     this.headingWidth = width * 0.5;
     this.headingHeight = height * 0.6;
-    this.headingFontSize = width * 0.02;
+    this.headingFontSize = width * 0.03;
 
     this.level = level;
     this.restartButton = new Button(
@@ -42,7 +42,8 @@ class GoalMenu implements IMenu {
     push();
     fill("#D9D9D9");
     rectMode(CENTER);
-    rect(width * 0.5, height * 0.5, this.headingWidth, this.headingHeight);
+    image(menuImage.menuBackground, width * 0.25, height * 0.22, this.headingWidth, this.headingHeight);
+    /* rect(width * 0.5, height * 0.5, this.headingWidth, this.headingHeight); */
     pop();
   }
 

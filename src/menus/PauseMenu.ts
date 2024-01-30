@@ -16,7 +16,7 @@ class PauseMenu implements IMenu {
     this.game = game;
     this.headingWidth = width * 0.5;
     this.headingHeight = height * 0.6;
-    this.headingFontSize = width * 0.06;
+    this.headingFontSize = width * 0.04;
     this.resumeButton = new Button(
       menuImage.buttonImg,
       "RESUME",
@@ -50,7 +50,8 @@ class PauseMenu implements IMenu {
     push();
     fill("#D9D9D9");
     rectMode(CENTER);
-    rect(width * 0.5, height * 0.5, this.headingWidth, this.headingHeight);
+    image(menuImage.menuBackground, width * 0.25, height * 0.2, this.headingWidth, this.headingHeight);
+    /* rect(width * 0.5, height * 0.5, this.headingWidth, this.headingHeight );*/
     pop();
   }
 
@@ -58,6 +59,7 @@ class PauseMenu implements IMenu {
     push();
     fill(224, 224, 224, 50);
     rect(0, 0, width, height);
+    
     pop();
   }
   private drawHeading() {
@@ -77,7 +79,7 @@ class PauseMenu implements IMenu {
     this.restartButton.draw();
     this.exitButton.draw();
     // when hover over button, appears hand 
-    if (this.restartButton.contains(mouseX, mouseY) || this.restartButton.contains(mouseX, mouseY) || this.exitButton.contains(mouseX, mouseY)) {
+    if (this.resumeButton.contains(mouseX, mouseY) || this.restartButton.contains(mouseX, mouseY) || this.exitButton.contains(mouseX, mouseY)) {
       cursor(HAND);
     } else {
       cursor(ARROW);

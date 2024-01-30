@@ -14,7 +14,7 @@ class StartMenu implements IMenu {
       "You are a jalapeno yearning for freedom from this manic prison which seems to change shape when getting further. \n \n Go through the levels by avoiding obstacles with jumping over or on them.";
     this.controlDescTitle = "CONTROLS";
     this.controlDesc = "SPACE - JUMP \n ESC -  PAUSE";
-    this.playerPreview = startImage.playerPreview;
+    this.playerPreview = menuImage.playerPreview;
     this.playerPreviewWidth = 175; 
     this.playButton = new Button(
       menuImage.buttonImg,
