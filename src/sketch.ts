@@ -15,6 +15,7 @@ let playerAnimation: {
   playerAnimation: p5.Image[];
 };
 
+
 let backgroundImage: {
   //våra bilder är p5 images
   backgroundDesert: p5.Image;
