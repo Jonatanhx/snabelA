@@ -5,6 +5,7 @@ let entity: Entity;
 let entityImages: {
   platformImg: p5.Image;
   obstacleImg: p5.Image;
+  //pJumpImg: p5.Image;
 };
 let music: {
   backgroundL1: p5.SoundFile;
@@ -14,11 +15,14 @@ let music: {
 let playerAnimation: {
   playerAnimation: p5.Image[];
 };
-let backgroundImage: {
-  //våra bilder är p5 images
-  backgroundDesert: p5.Image;
-  backgroundKitchen: p5.Image;
-};
+// let backgroundImage: {
+//   //våra bilder är p5 images
+//   backgroundDesert: p5.Image;
+//   backgroundKitchen: p5.Image;
+// };
+
+// Declare backgroundImages array
+let backgroundImages: p5.Image[];
 let progrees: {
   progressbar: p5.Image;
 };
@@ -69,24 +73,31 @@ function preload() {
     startMenuMusic: loadSound("/assets/music/Menutheme.mp3"), //placeholder
   }; */
   entityImages = {
-    platformImg: loadImage("/assets/images/block2.png"),
+    platformImg: loadImage("/assets/images/ground.png"),
     obstacleImg: loadImage("/assets/images/box.png"),
+    // pJumpImg: loadImage("/assets/images/platform/platformjump.png"),
   };
   sfx = {
     explodeSound: loadSound("/assets/SFX/explosion.wav"),
     // explodeSound: loadSound("/assets/music/mystery.mp3"),
   };
 
-  backgroundImage = {
-    backgroundDesert: loadImage("/assets/images/bakgrund1.png"), //variabler som håller våra bilder
-    backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
-  };
+  backgroundImages = [
+    //{
+    // backgroundDesert: loadImage("/assets/images/bakgrund1.png"), //variabler som håller våra bilder
+    // backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
+    loadImage("assets/images/BG/mainback.png"),
+    loadImage("assets/images/BG/secondbg.png"),
+    loadImage("assets/images/BG/firstbg.png"),
+
+    //
+  ];
   progrees = {
     progressbar: loadImage("assets/images/progressbar.svg"),
   };
 
   startImage = {
-    playerPreview: loadImage("/assets/images/startImg.png"),
+    playerPreview: loadImage("/assets/images/character/jalapenodemo.png"),
   };
   goalImage = {
     goal: loadImage("/assets/images/pinata.png"),
@@ -103,9 +114,13 @@ function setup() {
 
   /*   image(backgroundImage, 0, 0, 0, 0);
    */
+  // Set up the parallax background
 }
 
 function draw() {
+  // Clear the background
+  background(255);
+
   game.update();
   game.draw();
 }

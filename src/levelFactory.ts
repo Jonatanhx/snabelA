@@ -140,6 +140,19 @@ class LevelFactory {
             )
           );
         }
+        //jumping platform
+
+        // if (siffra === 3) {
+        //   entities.push(
+        //     new Platform(
+        //       x * blockSize,
+        //       y * blockSize,
+        //       blockSize * 3,
+        //       blockSize,
+        //       null as any
+        //     )
+        //   );
+        // }
         // GOAL
         if (siffra === 6) {
           entities.push(
