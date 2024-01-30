@@ -71,13 +71,9 @@ function preload() {
   };
 
   backgroundImages = [
-    //{
-    // backgroundDesert: loadImage("/assets/images/bakgrund1.png"), //variabler som håller våra bilder
     loadImage("assets/images/BG/mainback.png"),
     loadImage("assets/images/BG/secondbg.png"),
     loadImage("assets/images/BG/firstbg.png"),
-
-    //
   ];
   progrees = {
     progressbar: loadImage("assets/images/progressbar.svg"),
