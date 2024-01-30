@@ -22,7 +22,7 @@ class PauseMenu implements IMenu {
       "RESUME",
       width * 0.02,
       width * 0.345,
-      height * 0.457,
+      height * 0.4,
       width * 0.15,
       width * 0.065
     );
@@ -31,7 +31,7 @@ class PauseMenu implements IMenu {
       "RESTART",
       width * 0.02,
       width * 0.505,
-      height * 0.457,
+      height * 0.4,
       width * 0.15,
       width * 0.065
     );
@@ -40,7 +40,7 @@ class PauseMenu implements IMenu {
       "EXIT",
       width * 0.02,
       width * 0.425,
-      height * 0.607,
+      height * 0.55,
       width * 0.15,
       width * 0.065
     );
@@ -66,7 +66,7 @@ class PauseMenu implements IMenu {
     push();
     textSize(this.headingFontSize);
     textAlign(CENTER, CENTER);
-    text("PAUSED", width * 0.5, height * 0.35);
+    text("PAUSED", width * 0.5, height * 0.3);
     fill("black");
     pop();
   }

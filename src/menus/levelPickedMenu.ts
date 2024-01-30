@@ -18,7 +18,7 @@ class LevelPickedMenu implements IMenu {
       "1",
       width * 0.02,
       width * 0.36,
-      height * 0.357,
+      height * 0.4,
       width * 0.07,
       width * 0.06
     );
@@ -27,7 +27,7 @@ class LevelPickedMenu implements IMenu {
       "2",
       width * 0.02,
       width * 0.46,
-      height * 0.357,
+      height * 0.4,
       width * 0.07,
       width * 0.06
     );
@@ -36,7 +36,7 @@ class LevelPickedMenu implements IMenu {
       "3",
       width * 0.02,
       width * 0.56,
-      height * 0.357,
+      height * 0.4,
       width * 0.07,
       width * 0.06
     );
