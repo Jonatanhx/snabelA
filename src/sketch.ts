@@ -93,7 +93,7 @@ function preload() {
     //
   ];
   progrees = {
-    progressbar: loadImage("assets/images/progressbar.png"),
+    progressbar: loadImage("assets/images/progressbar.png"), // ändrat till PNG
   };
 
   startImage = {
