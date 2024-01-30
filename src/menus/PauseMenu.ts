@@ -18,6 +18,7 @@ class PauseMenu implements IMenu {
     this.headingHeight = height * 0.6;
     this.headingFontSize = width * 0.06;
     this.resumeButton = new Button(
+      menuImage.buttonImg,
       "RESUME",
       width * 0.02,
       width * 0.345,
@@ -26,6 +27,7 @@ class PauseMenu implements IMenu {
       width * 0.065
     );
     this.restartButton = new Button(
+      menuImage.buttonImg,
       "RESTART",
       width * 0.02,
       width * 0.505,
@@ -34,6 +36,7 @@ class PauseMenu implements IMenu {
       width * 0.065
     );
     this.exitButton = new Button(
+      menuImage.buttonImg,
       "EXIT",
       width * 0.02,
       width * 0.425,

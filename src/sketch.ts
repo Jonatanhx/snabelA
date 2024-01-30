@@ -32,6 +32,9 @@ let startImage: {
 let menuImage: {
   buttonImg: p5.Image;
 };
+let countdownImg: {
+  countImg: p5.Image;
+}
 let sfx: {
   explodeSound: p5.SoundFile;
 };
@@ -99,15 +102,14 @@ function preload() {
     progressbar: loadImage("assets/images/progressbar.svg"),
   }
   startImage = {
-     playerPreview: loadImage("/assets/images/startImg.png")
+     playerPreview: loadImage("/assets/images/menuImg/playerImg.png")
   };
   menuImage = {
-    buttonImg: loadImage("/assets/images/button.png")
+    buttonImg: loadImage("/assets/images/menuImg/button.png")
   };
-
-  startImage = {
-    playerPreview: loadImage("/assets/images/character/jalapenodemo.png"),
-  };
+  countdownImg = {
+    countImg:loadImage("/assets/images/menuImg/smallButton.png")
+  }
   goalImage = {
     goal: loadImage("/assets/images/pinata.png"),
   };
