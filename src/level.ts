@@ -27,8 +27,10 @@ class Level {
       entity.draw();
     }
   }
-
+  // BEHÖVER VI DENNA???//
   private moveWorld(): void {} //Olika hastigheter på bakgrund = parallax; flygande objekt = ny hastighet?
+  // BEHÖVER VI DENNA???//
+
   private checkCollision(): void {
     for (const entity1 of this.entities) {
       if (entity1 instanceof Player) {
