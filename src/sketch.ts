@@ -45,15 +45,26 @@ let goalImage: {
 function preload() {
   playerAnimation = {
     playerAnimation: [
-      loadImage("/assets/images/character/Jalapeno1.svg"),
-      loadImage("/assets/images/character/Jalapeno2.svg"),
-      loadImage("/assets/images/character/Jalapeno3.svg"),
-      loadImage("/assets/images/character/Jalapeno4.svg"),
-      loadImage("/assets/images/character/Jalapeno5.svg"),
-      loadImage("/assets/images/character/Jalapeno6.svg"),
-      loadImage("/assets/images/character/Jalapeno7.svg"),
-      loadImage("/assets/images/character/Jalapeno8.svg"),
-      loadImage("/assets/images/character/Jalapeno9.svg"),
+      loadImage("/assets/images/character/jalapeno_2.svg"), //removed the first image here because of a "jump" in design, i will leave it in folder in case
+      loadImage("/assets/images/character/jalapeno_2.svg"),
+      loadImage("/assets/images/character/jalapeno_3.svg"),
+      loadImage("/assets/images/character/jalapeno_3.svg"),
+      loadImage("/assets/images/character/jalapeno_4.svg"),
+      loadImage("/assets/images/character/jalapeno_5.svg"),
+      loadImage("/assets/images/character/jalapeno_5.svg"),
+      loadImage("/assets/images/character/jalapeno_6.svg"),
+      loadImage("/assets/images/character/jalapeno_6.svg"),
+      loadImage("/assets/images/character/jalapeno_7.svg"),
+      loadImage("/assets/images/character/jalapeno_8.svg"),
+      loadImage("/assets/images/character/jalapeno_9.svg"),
+      loadImage("/assets/images/character/jalapeno_10.svg"),
+      loadImage("/assets/images/character/jalapeno_11.svg"),
+      loadImage("/assets/images/character/jalapeno_12.svg"),
+      loadImage("/assets/images/character/jalapeno_13.svg"),
+      loadImage("/assets/images/character/jalapeno_13.svg"),
+      loadImage("/assets/images/character/jalapeno_14.svg"),
+      loadImage("/assets/images/character/jalapeno_15.svg"),
+      loadImage("/assets/images/character/jalapeno_16.svg"),
     ],
   };
   /*  music = {
@@ -83,7 +94,7 @@ function preload() {
     playerPreview: loadImage("/assets/images/character/jalapenodemo.png"),
   };
   goalImage = {
-    goal: loadImage("/assets/images/character/pinatagoal.png"),
+    goal: loadImage("/assets/images/pinata.png"),
   };
 }
 

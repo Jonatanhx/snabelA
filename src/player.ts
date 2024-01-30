@@ -1,5 +1,6 @@
 // Player ärver innehållet i Entity.
 /// <reference path="entity.ts"/>
+/// <reference path="entity.ts"/>
 class Player extends Entity {
   private gravity: number;
   private jumpStrength: number;
@@ -18,28 +19,27 @@ class Player extends Entity {
     width: number,
     height: number,
     image: p5.Image
+    image: p5.Image
   ) {
     super(positionX, positionY, width, height, image, 0, 0); //ändrade till animation temporärt men frågan är om man ska lägga kvar image och denna vid sidan av?
     this.gravity = 0.5;
     this.jumpStrength = -15;
     this.isJumping = false;
 
+
     this.currentImageIndex = 0;
     this.frameCounter = 0;
-    this.framesPerImage = 3;
-    // this.playerAnimation = playerAnimation;
-    // this.currentAnimationFrame = 0;
+    this.framesPerImage = 17;
   }
 
   public jump() {
     if (this.velocityY === 0) {
       this.velocityY = this.jumpStrength;
       this.isJumping = true;
-      //Lägga animering av gubbens hopp här?
     }
   }
   public applyGravity() {
-    this.velocityY += this.gravity; // Apply gravity
+    this.velocityY += this.gravity;
     this.positionY += this.velocityY;
   }
   public update(): void {
@@ -62,10 +62,10 @@ class Player extends Entity {
   public draw(): void {
     push();
     stroke(255, 0, 0);
+    stroke(255, 0, 0);
     strokeWeight(4);
-    // fill("red");
-    // rect(this.positionX, this.positionY, this.width, this.height);
     image(
+      playerAnimation.playerAnimation[this.currentImageIndex],
       playerAnimation.playerAnimation[this.currentImageIndex],
       this.positionX,
       this.positionY,

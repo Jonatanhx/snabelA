@@ -1,24 +1,66 @@
 <html>
+  <head>
+    <style>
+      html,
+      body,
+      canvas {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        background: black;
+      }
+      .loadingclass {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: solid 1px red;
+        height: 100%;
+      }
+      .imgClass {
+        color: white;
+        text-align: center;
+        margin: 0 auto;
+        animation-name: rotation;
+        -webkit-animation: spin 4s linear infinite;
+        -moz-animation: spin 4s linear infinite;
+        animation: spin 4s linear infinite;
+      }
+      .loadingclass img {
+        width: 100px;
+        /* rotate: 90deg; */
+      }
+      @-moz-keyframes spin {
+        100% {
+          -moz-transform: rotate(360deg);
+        }
+      }
+      @-webkit-keyframes spin {
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+      @keyframes spin {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
 
-<head>
-  <style>
-    html,
-    body,
-    canvas {
-      height: 100%;
-      width: 100%;
-      margin: 0;
-      background: black;
-    }
-  </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/addons/p5.sound.js"></script>
+    <script src="build/bundle.js"></script>
+  </head>
 
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/addons/p5.sound.js"></script>
-  <script src="build/bundle.js"></script>
-</head>
-
-<body>
-  <!-- Code injected via JavaScript -->
-</body>
-
+  <body>
+    <!-- Code injected via JavaScript -->
+    <div>
+      <div id="p5_loading" class="loadingclass">
+        <div class="imgClass">
+          <img src="./assets/images/character/jalapenostart.png" alt="" />
+          <section>LOADING....</section>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
