@@ -25,6 +25,16 @@ class Game implements CurrentActiveMenu {
   public playExplosion() {
     this.sound.playExplodeSound();
   }
+
+  //Spela ljudet när aktiva menyn är unidentified (spelet är aktivt), spela inte musiken när meny är aktiv
+  public playBgLoop() {
+    if (!this.activeMenu && !this.sound.backgroundLoop.isPlaying()) {
+      this.sound.playBackgroundLoop();
+    } else if (this.activeMenu && this.sound.backgroundLoop.isPlaying()) {
+      this.sound.backgroundLoop.stop();
+    }
+  }
+
   public nextLevel() {}
 
   private muteMain() {}
@@ -54,6 +64,7 @@ class Game implements CurrentActiveMenu {
         // Pressed Escape key, pause the game
         this.setActiveMenu(new PauseMenu(game));
       }
+      this.playBgLoop();
     }
   }
 
