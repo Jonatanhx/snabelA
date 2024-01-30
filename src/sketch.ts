@@ -41,7 +41,7 @@ let goalImage: {
 function preload() {
   playerAnimation = {
     playerAnimation: [
-      loadImage("/assets/images/character/jalapeno_2.svg"),
+      loadImage("/assets/images/character/jalapeno_2.svg"), //removed the first image here because of a "jump" in design, i will leave it in folder in case
       loadImage("/assets/images/character/jalapeno_2.svg"),
       loadImage("/assets/images/character/jalapeno_3.svg"),
       loadImage("/assets/images/character/jalapeno_3.svg"),
