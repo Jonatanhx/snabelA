@@ -31,9 +31,7 @@ class Background {
   }
   public draw(): void {
     push();
-    // Draw the background layers based on parallax speeds
     for (let i = 0; i < this.images.length; i++) {
-      // mainback.png layer - full screen with a slight overlap
       const x = this.positionX[i];
       const y = this.positionY[i];
       image(this.images[i], x, y, width, this.heights[i]);
