@@ -16,7 +16,7 @@ class ProgressBar extends Entity {
   public draw(): void {
     this.drawStroke();
     this.drawProgressBarFill();
-    image(progrees.progressbar, this.positionX, this.positionY, 350, 95);
+    image(progressBar.progressbar, this.positionX, this.positionY, 350, 95);
   }
   private drawStroke() {
     push();
