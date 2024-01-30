@@ -1,4 +1,5 @@
 // Player ärver innehållet i Entity.
+/// <reference path="entity.ts"/>
 class Player extends Entity {
   private gravity: number;
   private jumpStrength: number;
