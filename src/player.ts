@@ -22,7 +22,7 @@ class Player extends Entity {
 
     this.currentImageIndex = 0;
     this.frameCounter = 0;
-    this.framesPerImage = 3;
+    this.framesPerImage = 17;
   }
 
   public jump() {
