@@ -19,6 +19,7 @@ class GoalMenu implements IMenu {
 
     this.level = level;
     this.restartButton = new Button(
+      menuImage.buttonImg,
       "RESTART",
       width * 0.02,
       width * 0.345,
@@ -27,6 +28,7 @@ class GoalMenu implements IMenu {
       width * 0.065
     );
     this.exitButton = new Button(
+      menuImage.buttonImg,
       "EXIT",
       width * 0.02,
       width * 0.505,
@@ -79,5 +81,11 @@ class GoalMenu implements IMenu {
     this.drawHeading();
     this.restartButton.draw();
     this.exitButton.draw();
+    // when hover over button, appears hand 
+    if (this.restartButton.contains(mouseX, mouseY) || this.exitButton.contains(mouseX, mouseY) ) {
+      cursor(HAND);
+    } else {
+      cursor(ARROW);
+    }
   }
 }

@@ -76,6 +76,12 @@ class PauseMenu implements IMenu {
     this.resumeButton.draw();
     this.restartButton.draw();
     this.exitButton.draw();
+    // when hover over button, appears hand 
+    if (this.restartButton.contains(mouseX, mouseY) || this.restartButton.contains(mouseX, mouseY) || this.exitButton.contains(mouseX, mouseY)) {
+      cursor(HAND);
+    } else {
+      cursor(ARROW);
+    }
   }
   public update(): void {
     if (this.resumeButton.update()) {

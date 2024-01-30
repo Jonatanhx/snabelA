@@ -42,6 +42,12 @@ class StartMenu implements IMenu {
       width * 0.25,
       height *0.2
     );
+    // when hover over button, appears hand 
+    if (this.playButton.contains(mouseX, mouseY)) {
+      cursor(HAND);
+    } else {
+      cursor(ARROW);
+    }
     pop();
   }
 

@@ -1,5 +1,4 @@
 class Button {
-  /* private text: string; */
   private buttonImg: p5.Image;
   private buttonText: string;
   private textSize: number;
@@ -7,22 +6,20 @@ class Button {
   private y: number;
   private w: number;
   private h: number;
-  /* private conrnerRadius: number; */
   private prevMouseIsPressed: boolean;
-  /* private fill: string; */
+
   /**
    * Constructor for a complete button, with elements for interaction.
    * (Remember responsive calculation)
-   * @param text Text within button
+   * @param buttonImg image for button
+   * @param buttonText Text over button
    * @param textSize Textsize
    * @param x X position of button
    * @param y Y position of button
    * @param w Width of button
    * @param h Height of button
-   * @param conrnerRadius radius to round the button
    */
   constructor(
-    /* text: string, */
     buttonImg: p5.Image,
     buttonText: string,
     textSize: number,
@@ -31,7 +28,6 @@ class Button {
     w: number,
     h: number
   ) {
-    /* this.text = text; */
     this.buttonImg = buttonImg;
     this.buttonText = buttonText;
     this.textSize = textSize;
@@ -50,7 +46,7 @@ class Button {
    * @param y preferably mouseY
    * @returns
    */
-  private contains(x: number, y: number) {
+  public contains(x: number, y: number) {
     return (
       this.x <= x && x <= this.x + this.w && this.y <= y && y <= this.y + this.h
     );
@@ -70,13 +66,13 @@ class Button {
    * Method to check if mouse is hovering over instance of button and adds hover-color.
    * combination with contains function
    */
-  public hover() {
+  /* public hover() {   //Denna används inte längre och finns inuti menyerna istället
     if (this.contains(mouseX, mouseY)) {
-      /* this.fill = "#D9D9D9"; */
+      this.fill = "#D9D9D9";
     } else {
-      /* this.fill = "#fff"; */
+      this.fill = "#fff"; 
     }
-  }
+  } */
 
   public update() {
     // Eftersom p5 har uppdaterat mouseIsPressed inför den nya framen
@@ -84,7 +80,7 @@ class Button {
     // om man precis trycke eller släppte knappen.
     // console.log(this.prevMouseIsPressed);
     // console.log(mouseIsPressed);
-    this.hover();
+    // this.hover();
     const wasClicked = this.clicked();
 
     // spara nuvarande tillstånd
