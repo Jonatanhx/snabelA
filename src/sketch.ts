@@ -8,9 +8,7 @@ let entityImages: {
   //pJumpImg: p5.Image;
 };
 let music: {
-  backgroundL1: p5.SoundFile;
-  backgroundL2: p5.SoundFile;
-  startMenuMusic: p5.SoundFile;
+  backgroundLoop: p5.SoundFile;
 };
 let playerAnimation: {
   playerAnimation: p5.Image[];
@@ -67,11 +65,9 @@ function preload() {
       loadImage("/assets/images/character/jalapeno_16.svg"),
     ],
   };
-  /*  music = {
-    backgroundL1: loadSound("/assets/music/Kitchentheme.mp3"), //placeholder
-    backgroundL2: loadSound("/assets/music/Deserttheme.mp3"), //placerholder
-    startMenuMusic: loadSound("/assets/music/Menutheme.mp3"), //placeholder
-  }; */
+  music = {
+    backgroundLoop: loadSound("/assets/music/MariachiAltFaster.mp3"),
+  };
   entityImages = {
     platformImg: loadImage("/assets/images/ground.png"),
     obstacleImg: loadImage("/assets/images/box.png"),
@@ -109,6 +105,8 @@ function setup() {
   frameRate(60);
   /* music.backgroundL1.setVolume(0.8); */
   sfx.explodeSound.setVolume(0.1);
+  music.backgroundLoop.setVolume(0.1);
+
   game = new Game();
   /* image(backgroundImage.backgroundKitchen, 0, 0, width, height); */
 
