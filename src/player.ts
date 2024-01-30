@@ -19,13 +19,11 @@ class Player extends Entity {
     width: number,
     height: number,
     image: p5.Image
-    image: p5.Image
   ) {
     super(positionX, positionY, width, height, image, 0, 0); //ändrade till animation temporärt men frågan är om man ska lägga kvar image och denna vid sidan av?
     this.gravity = 0.5;
     this.jumpStrength = -15;
     this.isJumping = false;
-
 
     this.currentImageIndex = 0;
     this.frameCounter = 0;
@@ -65,7 +63,6 @@ class Player extends Entity {
     stroke(255, 0, 0);
     strokeWeight(4);
     image(
-      playerAnimation.playerAnimation[this.currentImageIndex],
       playerAnimation.playerAnimation[this.currentImageIndex],
       this.positionX,
       this.positionY,
