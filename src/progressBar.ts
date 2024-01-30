@@ -27,7 +27,7 @@ class ProgressBar extends Entity {
     rect(350, 75, this.fillWidth, 70, this.borderRadius);
     pop();
   }
-
+  // test
   public update(): void {
     if (this.fillWidth < this.width) {
       this.fillWidth += 0.945;
