@@ -9,7 +9,7 @@ class ProgressBar extends Entity {
     height: number,
     image: p5.Image
   ) {
-    super(positionX, positionY, width, height, image, 0, 0);
+    super(positionX, positionY, width, height, image, 0);
     this.fillWidth = 0;
   }
 

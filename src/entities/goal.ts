@@ -6,7 +6,7 @@ class Goal extends Entity {
     height: number,
     image: p5.Image
   ) {
-    super(positionX, positionY, width, height, image, 0, 0);
+    super(positionX, positionY, width, height, image, 0);
   }
   public update(): void {
     this.positionX -= this.velocityX;
@@ -17,11 +17,9 @@ class Goal extends Entity {
       goalImage.goal,
       this.positionX,
       this.positionY,
-      this.width + 2,
+      this.width,
       this.height
     );
-    // fill("blue");
-    // rect(this.positionX, this.positionY, this.width, this.height);
     pop();
   }
 }

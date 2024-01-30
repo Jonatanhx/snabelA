@@ -6,7 +6,7 @@ class Platform extends Entity {
     height: number,
     image: p5.Image
   ) {
-    super(positionX, positionY, width, height, image, 0, 0);
+    super(positionX, positionY, width, height, image, 0);
   }
   public update(): void {
     this.positionX -= this.velocityX;
@@ -20,8 +20,6 @@ class Platform extends Entity {
       this.width + 2,
       this.height
     );
-    // fill("green");
-    // rect(this.positionX, this.positionY, this.width, this.height);
     pop();
   }
 }

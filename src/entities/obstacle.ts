@@ -7,7 +7,7 @@ class Obstacle extends Entity {
     height: number,
     image: p5.Image
   ) {
-    super(positionX, positionY, width, height, image, 0, 0);
+    super(positionX, positionY, width, height, image, 0);
   }
   public update(): void {
     this.positionX -= this.velocityX;
@@ -21,8 +21,6 @@ class Obstacle extends Entity {
       this.width,
       this.height
     );
-    // fill("yellow");
-    // rect(this.positionX, this.positionY, this.width, this.height);
     pop();
   }
 }
