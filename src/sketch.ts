@@ -42,10 +42,13 @@ function preload() {
   playerAnimation = {
     playerAnimation: [
       loadImage("/assets/images/character/jalapeno_2.svg"),
-      loadImage("/assets/images/character/jalapeno_1.svg"),
+      loadImage("/assets/images/character/jalapeno_2.svg"),
+      loadImage("/assets/images/character/jalapeno_3.svg"),
       loadImage("/assets/images/character/jalapeno_3.svg"),
       loadImage("/assets/images/character/jalapeno_4.svg"),
       loadImage("/assets/images/character/jalapeno_5.svg"),
+      loadImage("/assets/images/character/jalapeno_5.svg"),
+      loadImage("/assets/images/character/jalapeno_6.svg"),
       loadImage("/assets/images/character/jalapeno_6.svg"),
       loadImage("/assets/images/character/jalapeno_7.svg"),
       loadImage("/assets/images/character/jalapeno_8.svg"),
@@ -53,6 +56,7 @@ function preload() {
       loadImage("/assets/images/character/jalapeno_10.svg"),
       loadImage("/assets/images/character/jalapeno_11.svg"),
       loadImage("/assets/images/character/jalapeno_12.svg"),
+      loadImage("/assets/images/character/jalapeno_13.svg"),
       loadImage("/assets/images/character/jalapeno_13.svg"),
       loadImage("/assets/images/character/jalapeno_14.svg"),
       loadImage("/assets/images/character/jalapeno_15.svg"),
