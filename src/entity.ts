@@ -21,7 +21,7 @@ class Entity {
     this.width = width;
     this.height = height;
     this.image = image;
-    this.velocityX = 7;
+    this.velocityX = 10;
     this.velocityY = velocityY;
   }
 
