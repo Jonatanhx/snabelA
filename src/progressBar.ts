@@ -1,6 +1,7 @@
 /// <reference path="entity.ts"/>
 class ProgressBar extends Entity {
   private fillWidth: number;
+  private borderRadius: number;
 
   public constructor(
     positionX: number,
@@ -11,29 +12,27 @@ class ProgressBar extends Entity {
   ) {
     super(positionX, positionY, 350, height, image, 0, 0);
     this.fillWidth = 0;
+    this.borderRadius = 10;
+
   }
 
   public draw(): void {
-    this.drawStroke();
     this.drawProgressBarFill();
     image(progrees.progressbar, this.positionX, this.positionY, 350, 95);
   }
-  private drawStroke() {
-    push();
-    stroke("transparent");
-    rect(this.positionX, this.positionY, 350, 90);
-    pop();
-  }
+
   private drawProgressBarFill() {
     push();
-    fill("Orange");
-    rect(this.positionX, this.positionY, this.fillWidth, this.height);
+    fill("orange");
+    rect(350, 75, this.fillWidth, 70, this.borderRadius);
     pop();
   }
 
   public update(): void {
     if (this.fillWidth < this.width) {
-      this.fillWidth += 0.745;
+      this.fillWidth += 0.945;
     }
   }
 }
+
+
