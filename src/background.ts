@@ -37,7 +37,7 @@ class Background {
       const x = this.positionX[i];
       const y = this.positionY[i];
       image(this.images[i], x, y, width, this.heights[i]);
-      image(this.images[i], x + width, y, width, this.heights[i]);
+      image(this.images[i], x + width - 1, y, width, this.heights[i]); //-1 in X param for overlapp, remove gap when loop.
     }
 
     pop();
