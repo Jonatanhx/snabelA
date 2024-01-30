@@ -5,6 +5,7 @@ let entity: Entity;
 let entityImages: {
   platformImg: p5.Image;
   obstacleImg: p5.Image;
+  //pJumpImg: p5.Image;
 };
 let music: {
   backgroundL1: p5.SoundFile;
@@ -14,13 +15,14 @@ let music: {
 let playerAnimation: {
   playerAnimation: p5.Image[];
 };
+// let backgroundImage: {
+//   //våra bilder är p5 images
+//   backgroundDesert: p5.Image;
+//   backgroundKitchen: p5.Image;
+// };
 
-
-let backgroundImage: {
-  //våra bilder är p5 images
-  backgroundDesert: p5.Image;
-  backgroundKitchen: p5.Image;
-};
+// Declare backgroundImages array
+let backgroundImages: p5.Image[];
 let progrees: {
   progressbar: p5.Image;
 };
@@ -43,15 +45,26 @@ let goalImage: {
 function preload() {
   playerAnimation = {
     playerAnimation: [
-      loadImage("/assets/images/character/Jalapeno1.svg"),
-      loadImage("/assets/images/character/Jalapeno2.svg"),
-      loadImage("/assets/images/character/Jalapeno3.svg"),
-      loadImage("/assets/images/character/Jalapeno4.svg"),
-      loadImage("/assets/images/character/Jalapeno5.svg"),
-      loadImage("/assets/images/character/Jalapeno6.svg"),
-      loadImage("/assets/images/character/Jalapeno7.svg"),
-      loadImage("/assets/images/character/Jalapeno8.svg"),
-      loadImage("/assets/images/character/Jalapeno9.svg"),
+      loadImage("/assets/images/character/jalapeno_2.svg"), //removed the first image here because of a "jump" in design, i will leave it in folder in case
+      loadImage("/assets/images/character/jalapeno_2.svg"),
+      loadImage("/assets/images/character/jalapeno_3.svg"),
+      loadImage("/assets/images/character/jalapeno_3.svg"),
+      loadImage("/assets/images/character/jalapeno_4.svg"),
+      loadImage("/assets/images/character/jalapeno_5.svg"),
+      loadImage("/assets/images/character/jalapeno_5.svg"),
+      loadImage("/assets/images/character/jalapeno_6.svg"),
+      loadImage("/assets/images/character/jalapeno_6.svg"),
+      loadImage("/assets/images/character/jalapeno_7.svg"),
+      loadImage("/assets/images/character/jalapeno_8.svg"),
+      loadImage("/assets/images/character/jalapeno_9.svg"),
+      loadImage("/assets/images/character/jalapeno_10.svg"),
+      loadImage("/assets/images/character/jalapeno_11.svg"),
+      loadImage("/assets/images/character/jalapeno_12.svg"),
+      loadImage("/assets/images/character/jalapeno_13.svg"),
+      loadImage("/assets/images/character/jalapeno_13.svg"),
+      loadImage("/assets/images/character/jalapeno_14.svg"),
+      loadImage("/assets/images/character/jalapeno_15.svg"),
+      loadImage("/assets/images/character/jalapeno_16.svg"),
     ],
   };
   /*  music = {
@@ -60,27 +73,34 @@ function preload() {
     startMenuMusic: loadSound("/assets/music/Menutheme.mp3"), //placeholder
   }; */
   entityImages = {
-    platformImg: loadImage("/assets/images/block2.png"),
+    platformImg: loadImage("/assets/images/ground.png"),
     obstacleImg: loadImage("/assets/images/box.png"),
+    // pJumpImg: loadImage("/assets/images/platform/platformjump.png"),
   };
   sfx = {
     explodeSound: loadSound("/assets/SFX/explosion.wav"),
     // explodeSound: loadSound("/assets/music/mystery.mp3"),
   };
 
-  backgroundImage = {
-    backgroundDesert: loadImage("/assets/images/bakgrund1.png"), //variabler som håller våra bilder
-    backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
-  };
+  backgroundImages = [
+    //{
+    // backgroundDesert: loadImage("/assets/images/bakgrund1.png"), //variabler som håller våra bilder
+    // backgroundKitchen: loadImage("/assets/images/kitchenbackground.png"),
+    loadImage("assets/images/BG/mainback.png"),
+    loadImage("assets/images/BG/secondbg.png"),
+    loadImage("assets/images/BG/firstbg.png"),
+
+    //
+  ];
   progrees = {
     progressbar: loadImage("assets/images/progressbar.png"),
   };
 
   startImage = {
-    playerPreview: loadImage("/assets/images/startImg.png"),
+    playerPreview: loadImage("/assets/images/character/jalapenodemo.png"),
   };
   goalImage = {
-    goal: loadImage("/assets/images/goal.png"),
+    goal: loadImage("/assets/images/pinata.png"),
   };
 }
 
@@ -94,9 +114,13 @@ function setup() {
 
   /*   image(backgroundImage, 0, 0, 0, 0);
    */
+  // Set up the parallax background
 }
 
 function draw() {
+  // Clear the background
+  background(255);
+
   game.update();
   game.draw();
 }
