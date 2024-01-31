@@ -14,28 +14,40 @@ class LevelPickedMenu implements IMenu {
     this.headingHeight = height * 0.6;
     this.headingFontSize = width * 0.04;
     this.levelButton1 = new Button(
+      menuImage.buttonImg,
       "1",
       width * 0.02,
-      width * 0.3,
-      height * 0.357,
+      width * 0.36,
+      height * 0.4,
       width * 0.07,
-      width * 0.06
+      width * 0.06,
+      color("white"),
+      color("black"),
+      3
     );
     this.levelButton2 = new Button(
+      menuImage.buttonImg,
       "2",
       width * 0.02,
-      width * 0.4,
-      height * 0.357,
+      width * 0.46,
+      height * 0.4,
       width * 0.07,
-      width * 0.06
+      width * 0.06,
+      color("white"),
+      color("black"),
+      3
     );
     this.levelButton3 = new Button(
+      menuImage.buttonImg,
       "3",
       width * 0.02,
-      width * 0.5,
-      height * 0.357,
+      width * 0.56,
+      height * 0.4,
       width * 0.07,
-      width * 0.06
+      width * 0.06,
+      color("white"),
+      color("black"),
+      3
     );
   }
 
@@ -43,7 +55,8 @@ class LevelPickedMenu implements IMenu {
     push();
     fill("#D9D9D9");
     rectMode(CENTER);
-    rect(width * 0.5, height * 0.5, this.headingWidth, this.headingHeight);
+    image(menuImage.menuBackground, width * 0.25, height * 0.2, this.headingWidth, this.headingHeight);
+    /* rect(width * 0.5, height * 0.5, this.headingWidth, this.headingHeight); */
     pop();
   }
 
@@ -56,6 +69,9 @@ class LevelPickedMenu implements IMenu {
   private drawHeading() {
     push();
     textSize(this.headingFontSize);
+    stroke("black");
+    strokeWeight(3);
+    fill("white");
     textAlign(CENTER, CENTER);
     text("Level Picker", width * 0.5, height * 0.3);
     fill("black");
@@ -69,6 +85,12 @@ class LevelPickedMenu implements IMenu {
     this.levelButton1.draw();
     this.levelButton2.draw();
     this.levelButton3.draw();
+    // when hover over button, appears hand 
+    if (this.levelButton1.contains(mouseX, mouseY) || this.levelButton2.contains(mouseX, mouseY) || this.levelButton3.contains(mouseX, mouseY)) {
+      cursor(HAND);
+    } else {
+      cursor(ARROW);
+    }
   }
   public update(): void {
     if (this.levelButton1.update()) {

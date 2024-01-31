@@ -1,41 +1,53 @@
 class Button {
-  private text: string;
+  private buttonImg: p5.Image;
+  private buttonText: string;
+  private textSize: number;
   private x: number;
   private y: number;
   private w: number;
   private h: number;
-  private conrnerRadius: number;
-  private textSize: number;
+  private textColor: p5.Color;
+  private strokeColor: p5.Color;
+  private strokeWeightValue: number; 
   private prevMouseIsPressed: boolean;
-  private fill: string;
+
   /**
    * Constructor for a complete button, with elements for interaction.
    * (Remember responsive calculation)
-   * @param text Text within button
+   * @param buttonImg image for button
+   * @param buttonText Text over button
    * @param textSize Textsize
    * @param x X position of button
    * @param y Y position of button
    * @param w Width of button
    * @param h Height of button
-   * @param conrnerRadius radius to round the button
+   * @param textColor color of text over button
+   * @param strokeColor Stroke color
+   * @param strokeWeightValue Stroke weight
    */
   constructor(
-    text: string,
+    buttonImg: p5.Image,
+    buttonText: string,
     textSize: number,
     x: number,
     y: number,
     w: number,
-    h: number
+    h: number,
+    textColor: p5.Color,
+    strokeColor: p5.Color,
+    strokeWeightValue: number
   ) {
-    this.text = text;
+    this.buttonImg = buttonImg;
+    this.buttonText = buttonText;
     this.textSize = textSize;
     this.x = x;
     this.y = y;
     this.w = w;
     this.h = h;
+    this.textColor = textColor;
+    this.strokeColor = strokeColor;
+    this.strokeWeightValue = strokeWeightValue;
     this.prevMouseIsPressed = false;
-    this.fill = "#D9D9D9";
-    this.conrnerRadius = 5;
   }
 
   /**
@@ -44,7 +56,7 @@ class Button {
    * @param y preferably mouseY
    * @returns
    */
-  private contains(x: number, y: number) {
+  public contains(x: number, y: number) {
     return (
       this.x <= x && x <= this.x + this.w && this.y <= y && y <= this.y + this.h
     );
@@ -64,13 +76,13 @@ class Button {
    * Method to check if mouse is hovering over instance of button and adds hover-color.
    * combination with contains function
    */
-  public hover() {
+  /* public hover() {              //Denna används inte längre och finns inuti menyerna istället
     if (this.contains(mouseX, mouseY)) {
       this.fill = "#D9D9D9";
     } else {
-      this.fill = "#fff";
+      this.fill = "#fff"; 
     }
-  }
+  } */
 
   public update() {
     // Eftersom p5 har uppdaterat mouseIsPressed inför den nya framen
@@ -78,7 +90,7 @@ class Button {
     // om man precis trycke eller släppte knappen.
     // console.log(this.prevMouseIsPressed);
     // console.log(mouseIsPressed);
-    this.hover();
+    // this.hover();
     const wasClicked = this.clicked();
 
     // spara nuvarande tillstånd
@@ -88,13 +100,16 @@ class Button {
 
   public draw() {
     push();
-    fill(this.fill);
-    rect(this.x, this.y, this.w, this.h, this.conrnerRadius);
+    image(this.buttonImg, this.x, this.y, this.w, this.h);
     pop();
+    
     push();
     textSize(this.textSize);
     textAlign(CENTER, CENTER);
-    text(this.text, this.x + this.w / 2, this.y + this.h / 2);
+    fill(this.textColor);
+    stroke(this.strokeColor);
+    strokeWeight(this.strokeWeightValue);
+    text(this.buttonText, this.x + this.w / 2, this.y + this.h / 2);
     pop();
   }
 }

@@ -16,8 +16,10 @@ let playerAnimation: {
 let progressBar: {
   progressbar: p5.Image;
 };
-let startImage: {
+let menuImage: {
   playerPreview: p5.Image;
+  buttonImg: p5.Image;
+  menuBackground: p5.Image;
 };
 let sfx: {
   explodeSound: p5.SoundFile;
@@ -61,10 +63,6 @@ function preload() {
     backgroundLoop: loadSound("/assets/music/MariachiAltFaster.mp3"),
   };
 
-  startImage = {
-    playerPreview: loadImage("/assets/images/character/jalapenodemo.png"),
-  };
-
   entityImages = {
     platformImg: loadImage("/assets/images/platform/platform_block1.png"),
     obstacleImg: loadImage("/assets/images/obstacle/obstacle_box1.png"),
@@ -82,8 +80,12 @@ function preload() {
 
   progressBar = {
     progressbar: loadImage("assets/images/progressbar.svg"),
+  }
+  menuImage = {
+    playerPreview: loadImage("/assets/images/menuImg/playerImg.png"),
+    buttonImg: loadImage("/assets/images/menuImg/button.png"),
+    menuBackground: loadImage("/assets/images/menuImg/menuBackground.png")
   };
-
   goalImage = {
     goal: loadImage("/assets/images/pinata.png"),
   };
