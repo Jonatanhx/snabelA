@@ -91,7 +91,7 @@ function preload() {
   ];
 
   progressBar = {
-    progressbar: loadImage("assets/images/progressBar.png"),
+    progressbar: loadImage("assets/images/progressBar/progressBar.png"),
   };
 
   menuImage = {
@@ -100,7 +100,7 @@ function preload() {
     menuBackground: loadImage("/assets/images/menuImg/menuBackground.png"),
   };
   goalImage = {
-    goal: loadImage("/assets/images/pinata.png"),
+    goal: loadImage("/assets/images/goal/pinata.png"),
   };
 }
 
