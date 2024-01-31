@@ -69,7 +69,10 @@ class Level {
             bottom1 > top2 &&
             top1 < bottom2
           ) {
-            if (entity2 instanceof Platform) {
+            if (
+              entity2 instanceof PlatformTop ||
+              entity2 instanceof PlatformBottom
+            ) {
               // Vänster sida check PIXEL PERFEKT FEL??????
               const deltaX = right1 - left2;
               const deltaY = bottom1 - top2;

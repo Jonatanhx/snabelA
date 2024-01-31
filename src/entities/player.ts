@@ -16,12 +16,12 @@ class Player extends Entity {
   ) {
     super(positionX, positionY, width, height, image, 0);
     this.gravity = 0.65;
-    this.jumpStrength = -14;
+    this.jumpStrength = -18;
     this.isJumping = false;
 
     this.currentImageIndex = 0;
     this.frameCounter = 0;
-    this.framesPerImage = 6;
+    this.framesPerImage = 7;
   }
   /** Makes player jump */
   public jump() {

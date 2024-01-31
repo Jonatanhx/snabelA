@@ -1,4 +1,4 @@
-class Platform extends Entity {
+class PlatformBottom extends Entity {
   public constructor(
     positionX: number,
     positionY: number,
@@ -14,7 +14,7 @@ class Platform extends Entity {
   public draw(): void {
     push();
     image(
-      entityImages.platformImg,
+      entityImages.platformBottomImg,
       this.positionX,
       this.positionY,
       this.width + 2,

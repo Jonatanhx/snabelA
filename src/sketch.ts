@@ -3,7 +3,8 @@ let game: Game;
 let entity: Entity;
 let backgroundImages: p5.Image[];
 let entityImages: {
-  platformImg: p5.Image;
+  platformTopImg: p5.Image;
+  platformBottomImg: p5.Image;
   obstacleImg: p5.Image;
 };
 let music: {
@@ -34,7 +35,7 @@ let goalImage: {
 function preload() {
   playerAnimation = {
     playerAnimation: [
-      loadImage("/assets/images/character/jalapeno_1.svg"), //removed the first image here because of a "jump" in design, i will leave it in folder in case
+      loadImage("/assets/images/character/jalapeno_2.svg"), //removed the first image here because of a "jump" in design, i will leave it in folder in case
       loadImage("/assets/images/character/jalapeno_2.svg"),
       loadImage("/assets/images/character/jalapeno_3.svg"),
       loadImage("/assets/images/character/jalapeno_3.svg"),
@@ -66,7 +67,8 @@ function preload() {
   };
 
   entityImages = {
-    platformImg: loadImage("/assets/images/platform/platform_block1.png"),
+    platformTopImg: loadImage("/assets/images/platform/platform_block1.png"),
+    platformBottomImg: loadImage("/assets/images/platform/platform_block2.png"),
     obstacleImg: loadImage("/assets/images/obstacle/obstacle_box1.png"),
   };
 
