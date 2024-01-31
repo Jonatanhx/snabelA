@@ -68,6 +68,15 @@ class StartMenu implements IMenu {
     pop();
   }
 
+  private drawTitle() {
+    push();
+    textFont(font.gameFont2);
+    textSize(150);
+    textAlign(CENTER, CENTER);
+    text("El Jalapeno", width * 0.5, height * 0.105);
+    pop();
+  }
+
   public drawPlayerPreview(): void {
     push();
     /* find out the ratio of the image size and set a new image size 
@@ -85,10 +94,18 @@ class StartMenu implements IMenu {
     pop();
   }
 
+  private drawAvoidImg() {
+    push();
+    image(menuImage.avoidImg, width * 0.6, height * 0.7);
+    pop();
+  }
+
   public draw(): void {
     this.drawPlayDesc();
     this.drawControlDesc();
     this.drawPlayerPreview();
+    this.drawTitle();
+    this.drawAvoidImg();
     this.playButton.draw();
   }
 
