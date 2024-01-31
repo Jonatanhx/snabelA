@@ -1,4 +1,3 @@
-// Player ärver innehållet i Entity.
 class Player extends Entity {
   private gravity: number;
   private jumpStrength: number;
@@ -15,22 +14,23 @@ class Player extends Entity {
     height: number,
     image: p5.Image
   ) {
-    super(positionX, positionY, width, height, image, 0, 0); //ändrade till animation temporärt men frågan är om man ska lägga kvar image och denna vid sidan av?
-    this.gravity = 0.5;
-    this.jumpStrength = -15;
+    super(positionX, positionY, width, height, image, 0);
+    this.gravity = 0.65;
+    this.jumpStrength = -14;
     this.isJumping = false;
 
     this.currentImageIndex = 0;
     this.frameCounter = 0;
-    this.framesPerImage = 17;
+    this.framesPerImage = 6;
   }
-
+  /** Makes player jump */
   public jump() {
     if (this.velocityY === 0) {
       this.velocityY = this.jumpStrength;
       this.isJumping = true;
     }
   }
+  /** Makes sure player is pulled down to the ground */
   public applyGravity() {
     this.velocityY += this.gravity;
     this.positionY += this.velocityY;

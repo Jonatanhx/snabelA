@@ -13,7 +13,6 @@ class Entity {
     width: number,
     height: number,
     image: p5.Image,
-    velocityX: number,
     velocityY: number
   ) {
     this.positionX = positionX;
@@ -21,13 +20,11 @@ class Entity {
     this.width = width;
     this.height = height;
     this.image = image;
-    this.velocityX = 7;
+    this.velocityX = 10;
     this.velocityY = velocityY;
   }
 
   public draw(): void {}
 
-  public update(): void {
-    this.positionX -= 5;
-  }
+  public update(): void {}
 }

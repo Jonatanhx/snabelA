@@ -87,16 +87,13 @@ class PauseMenu implements IMenu {
   }
   public update(): void {
     if (this.resumeButton.update()) {
-      console.log("RESUME BUTTON WAS CLICKED, CHANGIN MENU");
       this.game.setActiveMenu(undefined);
     }
     if (this.restartButton.update()) {
-      console.log("RESTART BUTTON WAS CLICKED, CHANGIN MENU");
       this.game.setActiveMenu(undefined);
       this.game.restartLevel();
     }
     if (this.exitButton.update()) {
-      console.log("EXIT BUTTON WAS CLICKED, CHANGIN MENU");
       this.game.setActiveMenu(new StartMenu(this.game));
     }
   }

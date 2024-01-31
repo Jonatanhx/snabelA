@@ -14,7 +14,7 @@ class GameOverMenu implements IMenu {
   }
   private drawHeading() {
     push();
-    let redColor = color(191, 32, 38, 127); // Red color with 50% opacity (127 out of 255)
+    let redColor = color(191, 32, 38, 127);
     background(redColor);
     pop();
   }
