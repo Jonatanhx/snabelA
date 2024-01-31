@@ -66,11 +66,8 @@ class LevelFactory {
 
   public generateLevel(id: number, game: CurrentActiveMenu): Level {
     const levelDesign = this.levelDesigns[id - 1];
-    //Lägg till parameter för att skilja vilken nivå
-    // Gå igenom leveldesignen och skapa alla entiteter
-    // motsvarande sifforna på rätt plats
     const entities: Entity[] = [];
-    const blockSize = height / levelDesign.length; // 0.3%;
+    const blockSize = height / levelDesign.length;
 
     for (let y = 0; y < levelDesign.length; y++) {
       for (let x = 0; x < levelDesign[y].length; x++) {
@@ -182,7 +179,3 @@ class LevelFactory {
     return new Level(id, game, entities);
   }
 }
-
-// interface IlevelFactory {
-//   generateLevel(): Level;
-// }

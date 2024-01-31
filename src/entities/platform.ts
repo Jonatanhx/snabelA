@@ -1,4 +1,4 @@
-class Goal extends Entity {
+class Platform extends Entity {
   public constructor(
     positionX: number,
     positionY: number,
@@ -6,7 +6,7 @@ class Goal extends Entity {
     height: number,
     image: p5.Image
   ) {
-    super(positionX, positionY, width, height, image, 0, 0);
+    super(positionX, positionY, width, height, image, 0);
   }
   public update(): void {
     this.positionX -= this.velocityX;
@@ -14,14 +14,12 @@ class Goal extends Entity {
   public draw(): void {
     push();
     image(
-      goalImage.goal,
+      entityImages.platformImg,
       this.positionX,
       this.positionY,
       this.width + 2,
       this.height
     );
-    // fill("blue");
-    // rect(this.positionX, this.positionY, this.width, this.height);
     pop();
   }
 }
