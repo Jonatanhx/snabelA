@@ -4,23 +4,15 @@ class Level {
   public entities: Entity[];
   public sound: Isound;
   private game: CurrentActiveMenu;
-  private progressBar: ProgressBar;
 
-  constructor(
-    id: number,
-    game: CurrentActiveMenu,
-    entities: Entity[],
-    progressBar: ProgressBar
-  ) {
+  constructor(id: number, game: CurrentActiveMenu, entities: Entity[]) {
     this.id = id;
     this.game = game;
     this.sound = new Sound();
     this.entities = entities;
-    this.progressBar = progressBar;
   }
 
   public update() {
-    this.progressBar.update();
     // Update the position of the player
     for (const entity of this.entities) {
       entity.update();
@@ -31,7 +23,6 @@ class Level {
   // gå igenom alla entiteter i arrayen och rita ut dem
   //functions
   public draw(): void {
-    this.progressBar.draw();
     for (const entity of this.entities) {
       entity.draw();
     }
