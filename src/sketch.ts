@@ -73,7 +73,7 @@ function preload() {
     startMenuMusic: loadSound("/assets/music/Menutheme.mp3"), //placeholder
   }; */
   entityImages = {
-    platformImg: loadImage("/assets/images/ground.png"),
+    platformImg: loadImage("/assets/images/platform/plattformbrun.png"),
     obstacleImg: loadImage("/assets/images/box.png"),
     // pJumpImg: loadImage("/assets/images/platform/platformjump.png"),
   };
