@@ -18,7 +18,7 @@ class Platform extends Entity {
       this.positionX,
       this.positionY,
       this.width + 2,
-      this.height
+      this.height + 2
     );
     pop();
   }
