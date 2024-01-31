@@ -9,14 +9,14 @@ class ProgressBar extends Entity {
     height: number,
     image: p5.Image
   ) {
-    super(positionX, positionY, width, height, image, 0, 0);
+    super(positionX, positionY, width, height, image, 0);
     this.fillWidth = 0;
   }
 
   public draw(): void {
     this.drawStroke();
     this.drawProgressBarFill();
-    image(progrees.progressbar, this.positionX, this.positionY, 350, 95);
+    image(progressBar.progressbar, this.positionX, this.positionY, 350, 95);
   }
   private drawStroke() {
     push();

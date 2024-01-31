@@ -1,4 +1,5 @@
-class Platform extends Entity {
+// Player ärver innehållet i Entity.
+class Obstacle extends Entity {
   public constructor(
     positionX: number,
     positionY: number,
@@ -6,7 +7,7 @@ class Platform extends Entity {
     height: number,
     image: p5.Image
   ) {
-    super(positionX, positionY, width, height, image, 0, 0);
+    super(positionX, positionY, width, height, image, 0);
   }
   public update(): void {
     this.positionX -= this.velocityX;
@@ -14,14 +15,12 @@ class Platform extends Entity {
   public draw(): void {
     push();
     image(
-      entityImages.platformImg,
+      entityImages.obstacleImg,
       this.positionX,
       this.positionY,
-      this.width + 2,
+      this.width,
       this.height
     );
-    // fill("green");
-    // rect(this.positionX, this.positionY, this.width, this.height);
     pop();
   }
 }

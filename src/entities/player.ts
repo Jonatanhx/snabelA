@@ -1,5 +1,8 @@
+<<<<<<< HEAD:src/player.ts
 // Player ärver innehållet i Entity.
 /// <reference path="entity.ts"/>
+=======
+>>>>>>> 2505cfee1062102e7f98a383cd30f87aea98a315:src/entities/player.ts
 class Player extends Entity {
   private gravity: number;
   private jumpStrength: number;
@@ -16,7 +19,7 @@ class Player extends Entity {
     height: number,
     image: p5.Image
   ) {
-    super(positionX, positionY, width, height, image, 0, 0); //ändrade till animation temporärt men frågan är om man ska lägga kvar image och denna vid sidan av?
+    super(positionX, positionY, width, height, image, 0);
     this.gravity = 0.5;
     this.jumpStrength = -15;
     this.isJumping = false;
@@ -25,13 +28,14 @@ class Player extends Entity {
     this.frameCounter = 0;
     this.framesPerImage = 17;
   }
-
+  /** Makes player jump */
   public jump() {
     if (this.velocityY === 0) {
       this.velocityY = this.jumpStrength;
       this.isJumping = true;
     }
   }
+  /** Makes sure player is pulled down to the ground */
   public applyGravity() {
     this.velocityY += this.gravity;
     this.positionY += this.velocityY;
