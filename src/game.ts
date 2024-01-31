@@ -80,6 +80,6 @@ class Game implements CurrentActiveMenu {
   }
 
   private drawFps() {
-    text("FPS" + frameRate(), 10, 10);
+    text("FPS  " + Math.round(frameRate()), 10, 10);
   }
 }

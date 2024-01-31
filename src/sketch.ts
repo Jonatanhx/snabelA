@@ -5,7 +5,11 @@ let backgroundImages: p5.Image[];
 let entityImages: {
   platformTopImg: p5.Image;
   platformBottomImg: p5.Image;
-  obstacleImg: p5.Image;
+  obstacleImgBox: p5.Image;
+  obstacleImgCactusLow: p5.Image;
+  obstacleImgCactusMedium: p5.Image;
+  obstacleImgCactusHigh: p5.Image;
+  obstacleImgRoot: p5.Image;
 };
 let music: {
   backgroundLoop: p5.SoundFile;
@@ -67,7 +71,13 @@ function preload() {
   entityImages = {
     platformTopImg: loadImage("/assets/images/platform/platform_block1.png"),
     platformBottomImg: loadImage("/assets/images/platform/platform_block2.png"),
-    obstacleImg: loadImage("/assets/images/obstacle/obstacle_box1.png"),
+    obstacleImgCactusLow: loadImage("/assets/images/obstacle/cactuslow.png"),
+    obstacleImgCactusMedium: loadImage(
+      "/assets/images/obstacle/cactusmedium.png"
+    ),
+    obstacleImgCactusHigh: loadImage("/assets/images/obstacle/cactushigh.png"),
+    obstacleImgBox: loadImage("/assets/images/obstacle/obstacle_box1.png"),
+    obstacleImgRoot: loadImage("/assets/images/obstacle/rootLow.png"),
   };
 
   sfx = {
@@ -81,12 +91,13 @@ function preload() {
   ];
 
   progressBar = {
-    progressbar: loadImage("assets/images/progressbar.svg"),
-  }
+    progressbar: loadImage("assets/images/progressBar.png"),
+  };
+
   menuImage = {
     playerPreview: loadImage("/assets/images/menuImg/playerImg.png"),
     buttonImg: loadImage("/assets/images/menuImg/button.png"),
-    menuBackground: loadImage("/assets/images/menuImg/menuBackground.png")
+    menuBackground: loadImage("/assets/images/menuImg/menuBackground.png"),
   };
   goalImage = {
     goal: loadImage("/assets/images/pinata.png"),

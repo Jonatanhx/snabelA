@@ -10,9 +10,9 @@ class LevelFactory {
     // 0 = nothing
     // 1 = platform - block 1w (Går att hoppa på),
     // 2 = platform - block 2w
-    // 3 = obstacle - kaktus
-    // 4 = obstacle - kaktus
-    // 5 = obstacle - kaktus
+    // 3 = obstacle - Cactus low
+    // 4 = obstacle - Cactus medium
+    // 5 = obstacle - Cactus high
     // 6 = obstacle - rötter
     // 7 = obstacle - box 1w 2h (hinder 1)
     // 8 = player 1w 2h
@@ -30,7 +30,7 @@ class LevelFactory {
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6],
         [0,8,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,7,0,0,0,0,0,7,0,0,0,0,0,7,0,0,0,0,0,7,0,0,0,0,0,0,0,0,7,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,6,7,0,0,0,0,0,7,0,0,0,0,0,0,0,0,7,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,6],
-        [1,1,1,1,1,0,0,2,2,2,2,2,2,2,0,0,2,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,0,0,2,2,2,2,2,2,2,0,0,2,0,0,0,0,0,3,0,0,0,6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1],
       ],
       [
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -41,9 +41,9 @@ class LevelFactory {
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,1,0,0,0,0,2,0,0,1,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,9],
+        [0,8,0,0,0,0,0,6,2,0,0,0,5,0,0,0,2,4,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,9],
         [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
       ],
       [ 
@@ -72,6 +72,91 @@ class LevelFactory {
     for (let y = 0; y < levelDesign.length; y++) {
       for (let x = 0; x < levelDesign[y].length; x++) {
         const siffra = levelDesign[y][x]; // Hämta siffran från nivådesignen på´dens aktuella positionen
+
+        // PLATFORM TOP
+        if (siffra === 1) {
+          entities.push(
+            new Platform(
+              x * blockSize,
+              y * blockSize,
+              blockSize,
+              blockSize,
+              entityImages.platformTopImg
+            )
+          );
+        }
+        // PLATFORM BOTTOM
+        if (siffra === 2) {
+          entities.push(
+            new Platform(
+              x * blockSize,
+              y * blockSize,
+              blockSize,
+              blockSize,
+              entityImages.platformBottomImg
+            )
+          );
+        }
+        // CACTUS - LOW
+        if (siffra === 3) {
+          entities.push(
+            new Obstacle(
+              x * blockSize,
+              y * blockSize,
+              blockSize,
+              blockSize,
+              entityImages.obstacleImgCactusLow
+            )
+          );
+        }
+        // OBSTACLE - CACTUS MEDIUM
+        if (siffra === 4) {
+          entities.push(
+            new Obstacle(
+              x * blockSize,
+              y * blockSize,
+              blockSize,
+              blockSize,
+              entityImages.obstacleImgCactusMedium
+            )
+          );
+        }
+        // OBSTACLE CACTUS HIGH
+        if (siffra === 5) {
+          entities.push(
+            new Obstacle(
+              x * blockSize,
+              y * blockSize,
+              blockSize,
+              blockSize,
+              entityImages.obstacleImgCactusHigh
+            )
+          );
+        }
+        // OBSTACLE - ROOTS LOW
+        if (siffra === 6) {
+          entities.push(
+            new Obstacle(
+              x * blockSize,
+              y * blockSize,
+              blockSize,
+              blockSize,
+              entityImages.obstacleImgRoot
+            )
+          );
+        }
+        // OBSTACLE - BOX
+        if (siffra === 7) {
+          entities.push(
+            new Obstacle(
+              x * blockSize,
+              y * blockSize,
+              blockSize,
+              blockSize,
+              entityImages.obstacleImgBox
+            )
+          );
+        }
         //PLAYER
         if (siffra === 8) {
           const ratio = 2;
@@ -89,55 +174,6 @@ class LevelFactory {
             )
           );
         }
-        // PLATFORM TOP
-        if (siffra === 1) {
-          entities.push(
-            new PlatformTop(
-              x * blockSize,
-              y * blockSize,
-              blockSize,
-              blockSize,
-              null as any
-            )
-          );
-        }
-        // PLATFORM BOTTOM
-        if (siffra === 2) {
-          entities.push(
-            new PlatformBottom(
-              x * blockSize,
-              y * blockSize,
-              blockSize,
-              blockSize,
-              null as any
-            )
-          );
-        }
-        // OBSTACLE
-        if (siffra === 7) {
-          entities.push(
-            new Obstacle(
-              x * blockSize,
-              y * blockSize,
-              blockSize,
-              blockSize,
-              null as any
-            )
-          );
-        }
-        //jumping platform
-
-        // if (siffra === 3) {
-        //   entities.push(
-        //     new Platform(
-        //       x * blockSize,
-        //       y * blockSize,
-        //       blockSize * 3,
-        //       blockSize,
-        //       null as any
-        //     )
-        //   );
-        // }
         // GOAL
         if (siffra === 9) {
           entities.push(
