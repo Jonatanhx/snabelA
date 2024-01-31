@@ -27,7 +27,7 @@ class PauseMenu implements IMenu {
       width * 0.065,
       color("white"),
       color("black"),
-      0
+      3
     );
     this.restartButton = new Button(
       menuImage.buttonImg,
@@ -39,7 +39,7 @@ class PauseMenu implements IMenu {
       width * 0.065,
       color("white"),
       color("black"),
-      0
+      3
     );
     this.exitButton = new Button(
       menuImage.buttonImg,
@@ -49,9 +49,9 @@ class PauseMenu implements IMenu {
       height * 0.55,
       width * 0.15,
       width * 0.065,
+      color("white"),
       color("black"),
-      color("black"),
-      0
+      3
     );
   }
 
@@ -82,11 +82,10 @@ class PauseMenu implements IMenu {
     textSize(this.headingFontSize);
     stroke("black");
     strokeWeight(3);
-    fill("orange");
+    fill("white");
     textAlign(CENTER, CENTER);
     textFont(font.gameFont);
     text("PAUSED", width * 0.5, height * 0.3);
-
     pop();
   }
 

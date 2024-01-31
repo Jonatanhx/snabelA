@@ -22,6 +22,7 @@ class GameOverMenu implements IMenu {
   private drawGameOverHeading() {
     push();
     textSize(this.headingFontSize);
+    textFont(font.gameFont);
     stroke("black");
     strokeWeight(3);
     fill("white");
@@ -54,6 +55,7 @@ class GameOverMenu implements IMenu {
     fill("white");
     stroke("black");
     strokeWeight(3);
+    // textFont(font.gameFont);
     text("Restarting", width * 0.47, height * 0.5 + 50);
     if (this.countdown === 3) {
       fill(255, 0, 0);
@@ -83,12 +85,12 @@ class GameOverMenu implements IMenu {
       if (this.countdown > 1) {
         this.countdown--;
       } else if (this.countdown === 1) {
-        /* setTimeout(() => { */    // tas bort för att skipa fördröjningen
-          // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
-          this.game.restartLevel();
-          this.game.setActiveMenu(undefined);
-          console.log("restarting elvel");
-      /*   }, 1000); */
+        /* setTimeout(() => { */ // tas bort för att skipa fördröjningen
+        // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
+        this.game.restartLevel();
+        this.game.setActiveMenu(undefined);
+        console.log("restarting elvel");
+        /*   }, 1000); */
       }
     }
   }

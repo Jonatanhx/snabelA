@@ -43,7 +43,7 @@ let goalImage: {
  */
 function preload() {
   font = {
-    gameFont: loadFont("/assets/font/Mexicana.ttf"),
+    gameFont: loadFont("/assets/font/Super_Potato.ttf"),
   };
   playerAnimation = {
     playerAnimation: [

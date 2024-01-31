@@ -104,7 +104,7 @@ class Button {
     pop();
 
     push();
-    textFont(font.gameFont);
+    // textFont(font.gameFont);
 
     textSize(this.textSize);
     textAlign(CENTER, CENTER);
