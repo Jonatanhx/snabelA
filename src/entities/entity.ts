@@ -13,7 +13,6 @@ class Entity {
     width: number,
     height: number,
     image: p5.Image,
-    velocityX: number,
     velocityY: number
   ) {
     this.positionX = positionX;
@@ -27,7 +26,5 @@ class Entity {
 
   public draw(): void {}
 
-  public update(): void {
-    this.positionX -= 5;
-  }
+  public update(): void {}
 }

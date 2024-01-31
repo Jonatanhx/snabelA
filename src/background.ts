@@ -1,4 +1,3 @@
-/// <reference path="entity.ts"/>
 class Background {
   /* private imageLoop: number; // Width of the portion of the image to be added back */
   private images: p5.Image[];
@@ -22,7 +21,7 @@ class Background {
 
       // Check if the background has moved completely off the left side
       if (this.positionX[i] <= -width) {
-        // Reset the positi on to the initial leftmost position
+        // Reset the position to the initial leftmost position
         //this.positionX = 0;
 
         // Move the layer to the right of the last layer
@@ -32,14 +31,11 @@ class Background {
   }
   public draw(): void {
     push();
-
-    // Draw the background layers based on parallax speeds
     for (let i = 0; i < this.images.length; i++) {
-      // mainback.png layer - full screen with a slight overlap
       const x = this.positionX[i];
       const y = this.positionY[i];
       image(this.images[i], x, y, width, this.heights[i]);
-      image(this.images[i], x + width, y, width, this.heights[i]);
+      image(this.images[i], x + width - 1, y, width, this.heights[i]); //-1 in X param for overlapp, remove gap when loop.
     }
 
     pop();
