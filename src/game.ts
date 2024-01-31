@@ -76,5 +76,10 @@ class Game implements CurrentActiveMenu {
     } else {
       this.level.draw();
     }
+    this.drawFps();
+  }
+
+  private drawFps() {
+    text("FPS" + frameRate(), 10, 10);
   }
 }

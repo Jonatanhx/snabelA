@@ -1,39 +1,52 @@
-/// <reference path="entity.ts"/>
-class ProgressBar extends Entity {
+class ProgressBar {
+  private readonly x: number;
+  private readonly y: number;
+  private readonly width: number;
+  private readonly height: number;
+  private readonly borderRadius: number;
   private fillWidth: number;
+  private levelLength: number;
+  private velocityX: number;
 
-  public constructor(
-    positionX: number,
-    positionY: number,
-    width: number,
-    height: number,
-    image: p5.Image
-  ) {
-    super(positionX, positionY, width, height, image, 0);
+  /**
+   * @param levelLength Banans längd i antal block * blockstorlek
+   */
+  public constructor(levelLength: number, velocityX: number) {
     this.fillWidth = 0;
-  }
-
-  public draw(): void {
-    this.drawStroke();
-    this.drawProgressBarFill();
-    image(progressBar.progressbar, this.positionX, this.positionY, 350, 95);
-  }
-  private drawStroke() {
-    push();
-    stroke("transparent");
-    rect(this.positionX, this.positionY, 350, 90);
-    pop();
-  }
-  private drawProgressBarFill() {
-    push();
-    fill("Orange");
-    rect(this.positionX, this.positionY, this.fillWidth, this.height);
-    pop();
+    this.x = 20;
+    this.y = 20;
+    this.width = 350;
+    this.height = 95;
+    this.levelLength = levelLength;
+    this.velocityX = velocityX;
+    this.borderRadius = 25;
   }
 
   public update(): void {
-    if (this.fillWidth < this.width) {
-      this.fillWidth += 0.755;
-    }
+    // Ration mellan banans längd och progressbarens längd
+    const ratio = this.width / this.levelLength;
+    this.fillWidth += this.velocityX * ratio;
+  }
+
+  public draw(): void {
+    this.drawProgressBarFill();
+    image(progressBar.progressbar, this.x, this.y, this.width, this.height);
+  }
+
+  private drawProgressBarFill() {
+    push();
+    noStroke();
+    fill("Orange");
+    rect(
+      this.x + 1,
+      this.y + 2,
+      this.fillWidth,
+      this.height - 4,
+      this.borderRadius,
+      this.borderRadius,
+      this.borderRadius,
+      this.borderRadius
+    );
+    pop();
   }
 }
