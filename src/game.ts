@@ -1,27 +1,26 @@
+/**
+ * Interface for changing menu and restarting level (wierd name)
+ */
 interface CurrentActiveMenu {
   setActiveMenu(menu?: IMenu, levelId?: number): void;
   restartLevel(): void;
 }
 
 class Game implements CurrentActiveMenu {
-  //Lokala variabel och typ definitioner. Game ska innehålla en meny, en level och en fabrik för att skapa nya levlar.
-  private activeMenu?: IMenu; //Polymorfism
+  private activeMenu?: IMenu;
   private level: Level;
   private levelFactory: LevelFactory;
   private sound: Sound;
   private background: Background;
-  // private backgroundLayers: Background[];
 
-  // Här skapar vi instanserna av det vi har definierat.
   constructor() {
-    //Vad ska finnas i början?
     this.sound = new Sound();
-    this.levelFactory = new LevelFactory(); // Contstuctor Dependecy injection
-    this.level = this.levelFactory.generateLevel(1, this); // Method Depenecy injection
+    this.levelFactory = new LevelFactory();
+    this.level = this.levelFactory.generateLevel(1, this);
     this.activeMenu = new StartMenu(this);
     this.background = new Background();
   }
-
+  /*** Uses Sound class to play sounds from Sketch (preloaded)*/
   public playExplosion() {
     this.sound.playExplodeSound();
   }
@@ -36,11 +35,15 @@ class Game implements CurrentActiveMenu {
   }
 
   public nextLevel() {}
-
   private muteMain() {}
-
   private muteSfx() {}
+  // DO WE NEED THESE????
 
+  /**
+   * Sets active menu for the application, if no menu the desired level is rendered
+   * @param menu StartMenu / PauseMenu / LevelPickedMenu / GameOverMenu / undefined
+   * @param levelId Which level to render 1,2,3... (see levelFactory for level details)
+   */
   public setActiveMenu(menu: IMenu, levelId?: number) {
     this.activeMenu = menu;
     if (levelId) {
@@ -48,20 +51,18 @@ class Game implements CurrentActiveMenu {
     }
   }
 
+  /** Regenerates running level, appears as restarting  */
   public restartLevel() {
     this.level = this.levelFactory.generateLevel(this.level.id, this);
   }
 
   public update() {
     this.background.update();
-
     if (this.activeMenu) {
       this.activeMenu.update();
     } else {
       this.level.update();
-      // Game is running
       if (keyIsDown(ESCAPE)) {
-        // Pressed Escape key, pause the game
         this.setActiveMenu(new PauseMenu(game));
       }
       this.playBgLoop();
@@ -70,11 +71,10 @@ class Game implements CurrentActiveMenu {
 
   public draw() {
     this.background.draw();
-
     if (this.activeMenu) {
       this.activeMenu.draw();
     } else {
-      this.level.draw(); // Rita ut level
+      this.level.draw();
     }
   }
 }

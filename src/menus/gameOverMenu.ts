@@ -8,7 +8,7 @@ class GameOverMenu implements IMenu {
   }
   private drawHeading() {
     push();
-    let redColor = color(191, 32, 38, 127); // Red color with 50% opacity (127 out of 255)
+    let redColor = color(191, 32, 38, 127);
     background(redColor);
     pop();
   }
@@ -32,15 +32,11 @@ class GameOverMenu implements IMenu {
   }
 
   private tickCountDown() {
-    // For simplicity, decrement countdown for demonstration purposes
-    //is checking whether the current frame count is a multiple of 60
     if (frameCount % 60 === 0 && this.countdown > 0) {
       this.countdown--;
       setTimeout(() => {
-        // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
         this.game.restartLevel();
         this.game.setActiveMenu(undefined);
-        console.log("restarting elvel");
       }, 1000);
     }
   }

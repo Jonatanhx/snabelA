@@ -1,5 +1,4 @@
-// Player ärver innehållet i Entity.
-class Obstacle extends Entity {
+class Goal extends Entity {
   public constructor(
     positionX: number,
     positionY: number,
@@ -7,7 +6,7 @@ class Obstacle extends Entity {
     height: number,
     image: p5.Image
   ) {
-    super(positionX, positionY, width, height, image, 0, 0);
+    super(positionX, positionY, width, height, image, 0);
   }
   public update(): void {
     this.positionX -= this.velocityX;
@@ -15,14 +14,12 @@ class Obstacle extends Entity {
   public draw(): void {
     push();
     image(
-      entityImages.obstacleImg,
+      goalImage.goal,
       this.positionX,
       this.positionY,
       this.width,
       this.height
     );
-    // fill("yellow");
-    // rect(this.positionX, this.positionY, this.width, this.height);
     pop();
   }
 }

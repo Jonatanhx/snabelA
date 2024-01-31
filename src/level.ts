@@ -27,15 +27,16 @@ class Level {
       entity.draw();
     }
   }
-
+  // BEHÖVER VI DENNA???//
   private moveWorld(): void {} //Olika hastigheter på bakgrund = parallax; flygande objekt = ny hastighet?
+  // BEHÖVER VI DENNA???//
+
   private checkCollision(): void {
     for (const entity1 of this.entities) {
       if (entity1 instanceof Player) {
         if (entity1.positionY > height) {
-          // ÄNDRA DETTA, VI SKALL INTE ANVÄNDA GLOBALA VARIABLER
-          // RAMLAR AV BANAN
           this.game.setActiveMenu(new GameOverMenu(this.game));
+          this.sound.playExplodeSound();
         }
         for (const entity2 of this.entities) {
           if (entity2 instanceof Player) continue; //Player ska inte kunna krocka med Player
@@ -66,6 +67,7 @@ class Level {
               if (deltaX < deltaY) {
                 console.log("SLOG I VÄNSTER ELLER UNDER");
                 this.game.setActiveMenu(new GameOverMenu(this.game));
+                this.sound.playExplodeSound();
               } else {
                 // Stå på platform
                 entity1.positionY = entity2.positionY - entity1.height;
