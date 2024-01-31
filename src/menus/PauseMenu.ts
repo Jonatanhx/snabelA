@@ -16,30 +16,42 @@ class PauseMenu implements IMenu {
     this.game = game;
     this.headingWidth = width * 0.5;
     this.headingHeight = height * 0.6;
-    this.headingFontSize = width * 0.06;
+    this.headingFontSize = width * 0.04;
     this.resumeButton = new Button(
+      menuImage.buttonImg,
       "RESUME",
       width * 0.02,
       width * 0.345,
-      height * 0.457,
+      height * 0.4,
       width * 0.15,
-      width * 0.065
+      width * 0.065,
+      color("white"),
+      color("black"),
+      3
     );
     this.restartButton = new Button(
+      menuImage.buttonImg,
       "RESTART",
       width * 0.02,
       width * 0.505,
-      height * 0.457,
+      height * 0.4,
       width * 0.15,
-      width * 0.065
+      width * 0.065,
+      color("white"),
+      color("black"),
+      3
     );
     this.exitButton = new Button(
+      menuImage.buttonImg,
       "EXIT",
       width * 0.02,
       width * 0.425,
-      height * 0.607,
+      height * 0.55,
       width * 0.15,
-      width * 0.065
+      width * 0.065,
+      color("white"),
+      color("black"),
+      3
     );
   }
 
@@ -47,7 +59,8 @@ class PauseMenu implements IMenu {
     push();
     fill("#D9D9D9");
     rectMode(CENTER);
-    rect(width * 0.5, height * 0.5, this.headingWidth, this.headingHeight);
+    image(menuImage.menuBackground, width * 0.25, height * 0.2, this.headingWidth, this.headingHeight);
+    /* rect(width * 0.5, height * 0.5, this.headingWidth, this.headingHeight );*/
     pop();
   }
 
@@ -55,14 +68,18 @@ class PauseMenu implements IMenu {
     push();
     fill(224, 224, 224, 50);
     rect(0, 0, width, height);
+    
     pop();
   }
   private drawHeading() {
     push();
     textSize(this.headingFontSize);
+    stroke("black");
+    strokeWeight(3);
+    fill("white");
     textAlign(CENTER, CENTER);
-    text("PAUSED", width * 0.5, height * 0.35);
-    fill("black");
+    text("PAUSED", width * 0.5, height * 0.3);
+    
     pop();
   }
 
@@ -73,6 +90,12 @@ class PauseMenu implements IMenu {
     this.resumeButton.draw();
     this.restartButton.draw();
     this.exitButton.draw();
+    // when hover over button, appears hand 
+    if (this.resumeButton.contains(mouseX, mouseY) || this.restartButton.contains(mouseX, mouseY) || this.exitButton.contains(mouseX, mouseY)) {
+      cursor(HAND);
+    } else {
+      cursor(ARROW);
+    }
   }
   public update(): void {
     if (this.resumeButton.update()) {
