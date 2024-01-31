@@ -20,7 +20,7 @@ class Entity {
     this.width = width;
     this.height = height;
     this.image = image;
-    this.velocityX = 7; //speed of all entities = speed of game
+    this.velocityX = 10;
     this.velocityY = velocityY;
   }
 
