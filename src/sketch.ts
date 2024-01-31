@@ -3,8 +3,13 @@ let game: Game;
 let entity: Entity;
 let backgroundImages: p5.Image[];
 let entityImages: {
-  platformImg: p5.Image;
-  obstacleImg: p5.Image;
+  platformTopImg: p5.Image;
+  platformBottomImg: p5.Image;
+  obstacleImgBox: p5.Image;
+  obstacleImgCactusLow: p5.Image;
+  obstacleImgCactusMedium: p5.Image;
+  obstacleImgCactusHigh: p5.Image;
+  obstacleImgRoot: p5.Image;
 };
 let music: {
   backgroundLoop: p5.SoundFile;
@@ -36,7 +41,7 @@ let goalImage: {
 function preload() {
   playerAnimation = {
     playerAnimation: [
-      loadImage("/assets/images/character/jalapeno_1.svg"), //removed the first image here because of a "jump" in design, i will leave it in folder in case
+      loadImage("/assets/images/character/jalapeno_2.svg"), //removed the first image here because of a "jump" in design, i will leave it in folder in case
       loadImage("/assets/images/character/jalapeno_2.svg"),
       loadImage("/assets/images/character/jalapeno_3.svg"),
       loadImage("/assets/images/character/jalapeno_3.svg"),
@@ -64,8 +69,15 @@ function preload() {
   };
 
   entityImages = {
-    platformImg: loadImage("/assets/images/platform/platform_block1.png"),
-    obstacleImg: loadImage("/assets/images/obstacle/obstacle_box1.png"),
+    platformTopImg: loadImage("/assets/images/platform/platform_block1.png"),
+    platformBottomImg: loadImage("/assets/images/platform/platform_block2.png"),
+    obstacleImgCactusLow: loadImage("/assets/images/obstacle/cactuslow.png"),
+    obstacleImgCactusMedium: loadImage(
+      "/assets/images/obstacle/cactusmedium.png"
+    ),
+    obstacleImgCactusHigh: loadImage("/assets/images/obstacle/cactushigh.png"),
+    obstacleImgBox: loadImage("/assets/images/obstacle/obstacle_box1.png"),
+    obstacleImgRoot: loadImage("/assets/images/obstacle/rootLow.png"),
   };
 
   sfx = {
@@ -79,15 +91,16 @@ function preload() {
   ];
 
   progressBar = {
-    progressbar: loadImage("assets/images/progressbar.svg"),
-  }
+    progressbar: loadImage("assets/images/progressBar/progressBar.png"),
+  };
+
   menuImage = {
     playerPreview: loadImage("/assets/images/menuImg/playerImg.png"),
     buttonImg: loadImage("/assets/images/menuImg/button.png"),
-    menuBackground: loadImage("/assets/images/menuImg/menuBackground.png")
+    menuBackground: loadImage("/assets/images/menuImg/menuBackground.png"),
   };
   goalImage = {
-    goal: loadImage("/assets/images/pinata.png"),
+    goal: loadImage("/assets/images/goal/pinata.png"),
   };
 }
 
