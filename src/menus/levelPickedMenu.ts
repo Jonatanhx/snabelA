@@ -20,7 +20,10 @@ class LevelPickedMenu implements IMenu {
       width * 0.36,
       height * 0.4,
       width * 0.07,
-      width * 0.06
+      width * 0.06,
+      color("white"),
+      color("black"),
+      3
     );
     this.levelButton2 = new Button(
       menuImage.buttonImg,
@@ -29,7 +32,10 @@ class LevelPickedMenu implements IMenu {
       width * 0.46,
       height * 0.4,
       width * 0.07,
-      width * 0.06
+      width * 0.06,
+      color("white"),
+      color("black"),
+      3
     );
     this.levelButton3 = new Button(
       menuImage.buttonImg,
@@ -38,7 +44,10 @@ class LevelPickedMenu implements IMenu {
       width * 0.56,
       height * 0.4,
       width * 0.07,
-      width * 0.06
+      width * 0.06,
+      color("white"),
+      color("black"),
+      3
     );
   }
 
@@ -60,6 +69,9 @@ class LevelPickedMenu implements IMenu {
   private drawHeading() {
     push();
     textSize(this.headingFontSize);
+    stroke("black");
+    strokeWeight(3);
+    fill("white");
     textAlign(CENTER, CENTER);
     text("Level Picker", width * 0.5, height * 0.3);
     fill("black");

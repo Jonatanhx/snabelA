@@ -25,7 +25,10 @@ class GoalMenu implements IMenu {
       width * 0.345,
       height * 0.457,
       width * 0.15,
-      width * 0.065
+      width * 0.065,
+      color("white"),
+      color("black"),
+      2
     );
     this.exitButton = new Button(
       menuImage.buttonImg,
@@ -34,7 +37,10 @@ class GoalMenu implements IMenu {
       width * 0.505,
       height * 0.457,
       width * 0.15,
-      width * 0.065
+      width * 0.065,
+      color("white"),
+      color("black"),
+      2
     );
   }
 
@@ -56,6 +62,9 @@ class GoalMenu implements IMenu {
   private drawHeading() {
     push();
     textSize(this.headingFontSize);
+    stroke("black");
+    strokeWeight(3);
+    fill("white");
     textAlign(CENTER, CENTER);
     text(`YOU COMPLETED LEVEL ${this.level}`, width * 0.5, height * 0.35);
     fill("black");

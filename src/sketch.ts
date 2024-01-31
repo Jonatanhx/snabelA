@@ -63,10 +63,6 @@ function preload() {
     backgroundLoop: loadSound("/assets/music/MariachiAltFaster.mp3"),
   };
 
-  startImage = {
-    playerPreview: loadImage("/assets/images/character/jalapenodemo.png"),
-  };
-
   entityImages = {
     platformImg: loadImage("/assets/images/platform/platform_block1.png"),
     obstacleImg: loadImage("/assets/images/obstacle/obstacle_box1.png"),

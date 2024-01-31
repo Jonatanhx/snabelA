@@ -24,6 +24,9 @@ class StartMenu implements IMenu {
       height * 0.4,
       width * 0.15,
       width * 0.065,
+      color("white"),
+      color("black"),
+      3
     );
     this.game = game;
   }

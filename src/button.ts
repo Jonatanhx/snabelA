@@ -6,6 +6,9 @@ class Button {
   private y: number;
   private w: number;
   private h: number;
+  private textColor: p5.Color;
+  private strokeColor: p5.Color;
+  private strokeWeightValue: number; 
   private prevMouseIsPressed: boolean;
 
   /**
@@ -18,6 +21,9 @@ class Button {
    * @param y Y position of button
    * @param w Width of button
    * @param h Height of button
+   * @param textColor color of text over button
+   * @param strokeColor Stroke color
+   * @param strokeWeightValue Stroke weight
    */
   constructor(
     buttonImg: p5.Image,
@@ -26,7 +32,10 @@ class Button {
     x: number,
     y: number,
     w: number,
-    h: number
+    h: number,
+    textColor: p5.Color,
+    strokeColor: p5.Color,
+    strokeWeightValue: number
   ) {
     this.buttonImg = buttonImg;
     this.buttonText = buttonText;
@@ -35,9 +44,10 @@ class Button {
     this.y = y;
     this.w = w;
     this.h = h;
+    this.textColor = textColor;
+    this.strokeColor = strokeColor;
+    this.strokeWeightValue = strokeWeightValue;
     this.prevMouseIsPressed = false;
-    /* this.fill = "#D9D9D9"; */
-    /* this.conrnerRadius = 5; */
   }
 
   /**
@@ -66,7 +76,7 @@ class Button {
    * Method to check if mouse is hovering over instance of button and adds hover-color.
    * combination with contains function
    */
-  /* public hover() {   //Denna används inte längre och finns inuti menyerna istället
+  /* public hover() {              //Denna används inte längre och finns inuti menyerna istället
     if (this.contains(mouseX, mouseY)) {
       this.fill = "#D9D9D9";
     } else {
@@ -90,17 +100,16 @@ class Button {
 
   public draw() {
     push();
-    /* fill(this.fill); */
-    /* rect(this.x, this.y, this.w, this.h, this.conrnerRadius); */
     image(this.buttonImg, this.x, this.y, this.w, this.h);
     pop();
     
     push();
     textSize(this.textSize);
     textAlign(CENTER, CENTER);
-    fill("black");
+    fill(this.textColor);
+    stroke(this.strokeColor);
+    strokeWeight(this.strokeWeightValue);
     text(this.buttonText, this.x + this.w / 2, this.y + this.h / 2);
-    /* text(this.text, this.x + this.w / 2, this.y + this.h / 2); */
     pop();
   }
 }
