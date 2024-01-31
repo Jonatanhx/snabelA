@@ -20,7 +20,7 @@ class Entity {
     this.width = width;
     this.height = height;
     this.image = image;
-    this.velocityX = 10;
+    this.velocityX = 10; //10 tidigare ändrar temporärt
     this.velocityY = velocityY;
   }
 
