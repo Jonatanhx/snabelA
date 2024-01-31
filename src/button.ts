@@ -8,7 +8,7 @@ class Button {
   private h: number;
   private textColor: p5.Color;
   private strokeColor: p5.Color;
-  private strokeWeightValue: number; 
+  private strokeWeightValue: number;
   private prevMouseIsPressed: boolean;
 
   /**
@@ -102,8 +102,10 @@ class Button {
     push();
     image(this.buttonImg, this.x, this.y, this.w, this.h);
     pop();
-    
+
     push();
+    textFont(font.gameFont);
+
     textSize(this.textSize);
     textAlign(CENTER, CENTER);
     fill(this.textColor);

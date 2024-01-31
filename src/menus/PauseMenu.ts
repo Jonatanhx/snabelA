@@ -27,7 +27,7 @@ class PauseMenu implements IMenu {
       width * 0.065,
       color("white"),
       color("black"),
-      3
+      0
     );
     this.restartButton = new Button(
       menuImage.buttonImg,
@@ -39,7 +39,7 @@ class PauseMenu implements IMenu {
       width * 0.065,
       color("white"),
       color("black"),
-      3
+      0
     );
     this.exitButton = new Button(
       menuImage.buttonImg,
@@ -49,9 +49,9 @@ class PauseMenu implements IMenu {
       height * 0.55,
       width * 0.15,
       width * 0.065,
-      color("white"),
       color("black"),
-      3
+      color("black"),
+      0
     );
   }
 
@@ -59,7 +59,13 @@ class PauseMenu implements IMenu {
     push();
     fill("#D9D9D9");
     rectMode(CENTER);
-    image(menuImage.menuBackground, width * 0.25, height * 0.2, this.headingWidth, this.headingHeight);
+    image(
+      menuImage.menuBackground,
+      width * 0.25,
+      height * 0.2,
+      this.headingWidth,
+      this.headingHeight
+    );
     /* rect(width * 0.5, height * 0.5, this.headingWidth, this.headingHeight );*/
     pop();
   }
@@ -68,7 +74,7 @@ class PauseMenu implements IMenu {
     push();
     fill(224, 224, 224, 50);
     rect(0, 0, width, height);
-    
+
     pop();
   }
   private drawHeading() {
@@ -76,10 +82,11 @@ class PauseMenu implements IMenu {
     textSize(this.headingFontSize);
     stroke("black");
     strokeWeight(3);
-    fill("white");
+    fill("orange");
     textAlign(CENTER, CENTER);
+    textFont(font.gameFont);
     text("PAUSED", width * 0.5, height * 0.3);
-    
+
     pop();
   }
 
@@ -90,8 +97,12 @@ class PauseMenu implements IMenu {
     this.resumeButton.draw();
     this.restartButton.draw();
     this.exitButton.draw();
-    // when hover over button, appears hand 
-    if (this.resumeButton.contains(mouseX, mouseY) || this.restartButton.contains(mouseX, mouseY) || this.exitButton.contains(mouseX, mouseY)) {
+    // when hover over button, appears hand
+    if (
+      this.resumeButton.contains(mouseX, mouseY) ||
+      this.restartButton.contains(mouseX, mouseY) ||
+      this.exitButton.contains(mouseX, mouseY)
+    ) {
       cursor(HAND);
     } else {
       cursor(ARROW);

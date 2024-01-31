@@ -1,6 +1,9 @@
 //---- GLOBAL VARIABLES ----//
 let game: Game;
 let entity: Entity;
+let font: {
+  gameFont: p5.Font;
+};
 let backgroundImages: p5.Image[];
 let entityImages: {
   platformTopImg: p5.Image;
@@ -39,6 +42,9 @@ let goalImage: {
  * sound files, images etc...
  */
 function preload() {
+  font = {
+    gameFont: loadFont("/assets/font/Mexicana.ttf"),
+  };
   playerAnimation = {
     playerAnimation: [
       loadImage("/assets/images/character/jalapeno_2.svg"), //removed the first image here because of a "jump" in design, i will leave it in folder in case
