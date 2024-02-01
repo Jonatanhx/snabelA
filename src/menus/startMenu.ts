@@ -71,7 +71,7 @@ class StartMenu implements IMenu {
   private drawTitle() {
     push();
     textFont(font.gameFont2);
-    textSize(150);
+    textSize(130);
     textAlign(CENTER, CENTER);
     text("El Jalapeno", width * 0.5, height * 0.18);
     pop();
