@@ -9,7 +9,7 @@ class ProgressBar {
   private velocityX: number;
 
   /**
-   * @param levelLength Banans längd i antal block * blockstorlek
+   * @param levelLength Total lengt of levevl in number of blocks  * blocksize
    */
   public constructor(levelLength: number, velocityX: number) {
     this.fillWidth = 0;
@@ -23,7 +23,7 @@ class ProgressBar {
   }
 
   public update(): void {
-    // Ration mellan banans längd och progressbarens längd
+    // Update method to adjust the filled width of the progress bar based on the velocity
     const ratio = this.width / this.levelLength;
     this.fillWidth += this.velocityX * ratio;
   }
@@ -32,7 +32,10 @@ class ProgressBar {
     this.drawProgressBarFill();
     image(progressBar.progressbar, this.x, this.y, this.width, this.height);
   }
-
+  
+/**
+   * Helper method to draw the filled portion of the progress bar
+   */
   private drawProgressBarFill() {
     push();
     noStroke();
