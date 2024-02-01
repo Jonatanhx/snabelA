@@ -108,8 +108,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(60);
 
-  sfx.explodeSound.setVolume(0.1);
-  music.backgroundLoop.setVolume(0.1);
+  sfx.explodeSound.setVolume(0.0);
+  music.backgroundLoop.setVolume(0.0);
 
   game = new Game();
 }
