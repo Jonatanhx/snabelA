@@ -15,11 +15,11 @@ class StartMenu implements IMenu {
     this.controlDescTitle = "CONTROLS";
     this.controlDesc = "SPACE - JUMP \n ESC -  PAUSE";
     this.playerPreview = menuImage.playerPreview;
-    this.playerPreviewWidth = 175; 
+    this.playerPreviewWidth = 175;
     this.playButton = new Button(
       menuImage.buttonImg,
       "PLAY",
-      22,
+      30,
       width * 0.4,
       height * 0.4,
       width * 0.15,
@@ -34,6 +34,7 @@ class StartMenu implements IMenu {
   public drawPlayDesc() {
     push();
     textStyle(BOLD);
+    textFont(font.gameFont);
     textSize(height * 0.03);
     text(this.descriptionTitle, (2 * width) / 3, height * 0.4);
     textSize(height * 0.02);
@@ -43,9 +44,9 @@ class StartMenu implements IMenu {
       (2 * width) / 3,
       height * 0.42,
       width * 0.25,
-      height *0.2
+      height * 0.2
     );
-    // when hover over button, appears hand 
+    // when hover over button, appears hand
     if (this.playButton.contains(mouseX, mouseY)) {
       cursor(HAND);
     } else {
@@ -57,12 +58,22 @@ class StartMenu implements IMenu {
   public drawControlDesc() {
     push();
     textStyle(BOLD);
+    textFont(font.gameFont);
     textSize(height * 0.03);
     textAlign(CENTER);
-    text(this.controlDescTitle, width * 0.47, (2 * height) * 0.35);
+    text(this.controlDescTitle, width * 0.47, 2 * height * 0.35);
     textStyle(NORMAL);
-    textSize(height * 0.02);
-    text(this.controlDesc, width * 0.47, (2 * height) * 0.37);
+    textSize(height * 0.03);
+    text(this.controlDesc, width * 0.47, 2 * height * 0.37);
+    pop();
+  }
+
+  private drawTitle() {
+    push();
+    textFont(font.gameFont2);
+    textSize(130);
+    textAlign(CENTER, CENTER);
+    text("El Jalapeno", width * 0.5, height * 0.18);
     pop();
   }
 
@@ -74,8 +85,18 @@ class StartMenu implements IMenu {
     const playerPreviewHeight = this.playerPreviewWidth / aspectRatio;
     this.playerPreview.resize(this.playerPreviewWidth, playerPreviewHeight);
 
-    // Draw the player image 
-    image(this.playerPreview, width * 0.2, height * 0.5 - this.playerPreview.height / 2);
+    // Draw the player image
+    image(
+      this.playerPreview,
+      width * 0.2,
+      height * 0.5 - this.playerPreview.height / 2
+    );
+    pop();
+  }
+
+  private drawAvoidImg() {
+    push();
+    image(menuImage.avoidImg, width * 0.6, height * 0.7);
     pop();
   }
 
@@ -83,6 +104,8 @@ class StartMenu implements IMenu {
     this.drawPlayDesc();
     this.drawControlDesc();
     this.drawPlayerPreview();
+    this.drawTitle();
+    this.drawAvoidImg();
     this.playButton.draw();
   }
 

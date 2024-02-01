@@ -1,6 +1,10 @@
 //---- GLOBAL VARIABLES ----//
 let game: Game;
 let entity: Entity;
+let font: {
+  gameFont: p5.Font;
+  gameFont2: p5.Font;
+};
 let backgroundImages: p5.Image[];
 let entityImages: {
   platformTopImg: p5.Image;
@@ -25,6 +29,7 @@ let menuImage: {
   playerPreview: p5.Image;
   buttonImg: p5.Image;
   menuBackground: p5.Image;
+  avoidImg: p5.Image;
 };
 let sfx: {
   explodeSound: p5.SoundFile;
@@ -39,6 +44,10 @@ let goalImage: {
  * sound files, images etc...
  */
 function preload() {
+  font = {
+    gameFont: loadFont("/assets/font/Super_Potato.ttf"),
+    gameFont2: loadFont("/assets/font/Mexicana.ttf"),
+  };
   playerAnimation = {
     playerAnimation: [
       loadImage("/assets/images/character/jalapeno_2.svg"), //removed the first image here because of a "jump" in design, i will leave it in folder in case
@@ -98,6 +107,7 @@ function preload() {
     playerPreview: loadImage("/assets/images/menuImg/playerImg.png"),
     buttonImg: loadImage("/assets/images/menuImg/button.png"),
     menuBackground: loadImage("/assets/images/menuImg/menuBackground.png"),
+    avoidImg: loadImage("/assets/images/menuImg/avoid_img.png"),
   };
   goalImage = {
     goal: loadImage("/assets/images/goal/pinata.png"),
