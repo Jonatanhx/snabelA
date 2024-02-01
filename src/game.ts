@@ -12,6 +12,7 @@ class Game implements CurrentActiveMenu {
   private levelFactory: LevelFactory;
   private sound: Sound;
   private background: Background;
+  private fpsCounter: FpsCounter;
 
   constructor() {
     this.sound = new Sound();
@@ -19,6 +20,7 @@ class Game implements CurrentActiveMenu {
     this.level = this.levelFactory.generateLevel(1, this);
     this.activeMenu = new StartMenu(this);
     this.background = new Background();
+    this.fpsCounter = new FpsCounter();
   }
   /*** Uses Sound class to play sounds from Sketch (preloaded)*/
   public playExplosion() {
@@ -58,6 +60,8 @@ class Game implements CurrentActiveMenu {
 
   public update() {
     this.background.update();
+    this.fpsCounter.update();
+    this.sound.update();
     if (this.activeMenu) {
       this.activeMenu.update();
     } else {
@@ -76,10 +80,7 @@ class Game implements CurrentActiveMenu {
     } else {
       this.level.draw();
     }
-    this.drawFps();
-  }
-
-  private drawFps() {
-    text("FPS  " + Math.round(frameRate()), 10, 10);
+    this.fpsCounter.draw();
+    this.sound.draw();
   }
 }
