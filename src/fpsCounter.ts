@@ -38,8 +38,6 @@ class FpsCounter {
       } else {
         this.fpsCounterToggle = true;
       }
-
-      console.log("klickat");
       this.drawFps();
     }
   }

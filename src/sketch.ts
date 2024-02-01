@@ -31,6 +31,7 @@ let menuImage: {
   menuBackground: p5.Image;
   avoidImg: p5.Image;
   transparenImg: p5.Image;
+  muteImg: p5.Image;
 };
 let sfx: {
   explodeSound: p5.SoundFile;
@@ -110,6 +111,7 @@ function preload() {
     menuBackground: loadImage("/assets/images/menuImg/menuBackground.png"),
     avoidImg: loadImage("/assets/images/menuImg/avoid_img.png"),
     transparenImg: loadImage("/assets/images/menuImg/transparentImg.png"),
+    muteImg: loadImage("/assets/images/menuImg/Mute_icon.png"),
   };
   goalImage = {
     goal: loadImage("/assets/images/goal/pinata.png"),

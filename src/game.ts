@@ -61,6 +61,7 @@ class Game implements CurrentActiveMenu {
   public update() {
     this.background.update();
     this.fpsCounter.update();
+    this.sound.update();
     if (this.activeMenu) {
       this.activeMenu.update();
     } else {
@@ -75,6 +76,7 @@ class Game implements CurrentActiveMenu {
   public draw() {
     this.background.draw();
     this.fpsCounter.draw();
+    this.sound.draw();
     if (this.activeMenu) {
       this.activeMenu.draw();
     } else {
