@@ -15,8 +15,8 @@ class Player extends Entity {
     image: p5.Image
   ) {
     super(positionX, positionY, width, height, image, 0);
-    this.gravity = 0.65;
-    this.jumpStrength = -19;
+    this.gravity = height * 0.005;
+    this.jumpStrength = height * -0.14;
     this.isJumping = false;
 
     this.currentImageIndex = 0;
