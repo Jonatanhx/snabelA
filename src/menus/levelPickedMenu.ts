@@ -55,7 +55,13 @@ class LevelPickedMenu implements IMenu {
     push();
     fill("#D9D9D9");
     rectMode(CENTER);
-    image(menuImage.menuBackground, width * 0.25, height * 0.2, this.headingWidth, this.headingHeight);
+    image(
+      menuImage.menuBackground,
+      width * 0.25,
+      height * 0.2,
+      this.headingWidth,
+      this.headingHeight
+    );
     /* rect(width * 0.5, height * 0.5, this.headingWidth, this.headingHeight); */
     pop();
   }
@@ -72,6 +78,7 @@ class LevelPickedMenu implements IMenu {
     stroke("black");
     strokeWeight(3);
     fill("white");
+    textFont(font.gameFont);
     textAlign(CENTER, CENTER);
     text("Level Picker", width * 0.5, height * 0.3);
     fill("black");
@@ -85,8 +92,12 @@ class LevelPickedMenu implements IMenu {
     this.levelButton1.draw();
     this.levelButton2.draw();
     this.levelButton3.draw();
-    // when hover over button, appears hand 
-    if (this.levelButton1.contains(mouseX, mouseY) || this.levelButton2.contains(mouseX, mouseY) || this.levelButton3.contains(mouseX, mouseY)) {
+    // when hover over button, appears hand
+    if (
+      this.levelButton1.contains(mouseX, mouseY) ||
+      this.levelButton2.contains(mouseX, mouseY) ||
+      this.levelButton3.contains(mouseX, mouseY)
+    ) {
       cursor(HAND);
     } else {
       cursor(ARROW);
