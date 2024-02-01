@@ -75,12 +75,12 @@ class Game implements CurrentActiveMenu {
 
   public draw() {
     this.background.draw();
-    this.fpsCounter.draw();
-    this.sound.draw();
     if (this.activeMenu) {
       this.activeMenu.draw();
     } else {
       this.level.draw();
     }
+    this.fpsCounter.draw();
+    this.sound.draw();
   }
 }
