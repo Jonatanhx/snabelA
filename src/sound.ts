@@ -16,7 +16,7 @@ class Sound implements Isound {
     this.backgroundLoop.play();
   }
 
-  draw() {}
+  draw() { }
 
-  update() {}
+  update() { }
 }
