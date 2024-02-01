@@ -182,7 +182,19 @@ class LevelFactory {
               y * blockSize,
               blockSize,
               blockSize,
-              null as any
+              goalImage.goal
+            )
+          );
+        }
+        // invisble GOAL
+        if (siffra === 10) {
+          entities.push(
+            new Goal(
+              x * blockSize,
+              y * blockSize,
+              blockSize,
+              blockSize,
+              goalImage.transparenGoal
             )
           );
         }

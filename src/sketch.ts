@@ -31,6 +31,7 @@ let sfx: {
 };
 let goalImage: {
   goal: p5.Image;
+  transparenGoal: p5.Image;
 };
 
 /**
@@ -101,6 +102,7 @@ function preload() {
   };
   goalImage = {
     goal: loadImage("/assets/images/goal/pinata.png"),
+    transparenGoal: loadImage("/assets/images/goal/transparentImg.png"),
   };
 }
 
