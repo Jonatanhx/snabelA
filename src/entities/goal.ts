@@ -11,11 +11,11 @@ class Goal extends Entity {
     height: number,
     image: p5.Image
   ) {
-    super(positionX, 0, width / 2, windowHeight, image, 0);
-    this.imageHeight = height,
-    this.imagewidth = width,
-    this.imagePositionX = positionX,
-    this.imagePositionY = positionY
+    super(positionX + width / 2, 0, width, windowHeight, image, 0);
+    this.imageHeight = height;
+    this.imagewidth = width;
+    this.imagePositionX = positionX;
+    this.imagePositionY = positionY;
   }
   public update(): void {
     this.imagePositionX-= this.velocityX;
