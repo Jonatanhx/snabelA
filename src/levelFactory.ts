@@ -18,7 +18,7 @@ class LevelFactory {
     // 8 = Player - 1w 2h
     // 9 = Goal (hela y värdet som höjd)
     // prettier-ignore
-    this.levelDesigns = [
+    this.levelDesigns = [ //Nivådefinitioner
      [  //LEVEL 1
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -63,15 +63,16 @@ class LevelFactory {
   }
 
   public generateLevel(id: number, game: CurrentActiveMenu): Level {
-    const levelDesign = this.levelDesigns[id - 1];
+    const levelDesign = this.levelDesigns[id - 1];  //Retrieve level based on provided id
     const entities: Entity[] = [];
     const blockSize = height / levelDesign.length;
     const velocityX = 10;
 
-    for (let y = 0; y < levelDesign.length; y++) {
-      for (let x = 0; x < levelDesign[y].length; x++) {
-        const siffra = levelDesign[y][x]; // Hämta siffran från nivådesignen på´dens aktuella positionen
-
+    for (let y = 0; y < levelDesign.length; y++) { //Loop through rows of the level design 
+      for (let x = 0; x < levelDesign[y].length; x++) { //Loop through the columns of the current row
+        const siffra = levelDesign[y][x]; // Get the numerical value from the level design at the current position
+       
+        // Check Value and create corresponding entities 
         // PLATFORM TOP
         if (siffra === 1) {
           entities.push(
@@ -158,12 +159,11 @@ class LevelFactory {
         }
         //PLAYER
         if (siffra === 8) {
-          const ratio = 2;
-          //STYRA HUR STOR JALAMAN ÄR
+          const ratio = 2; //Player dimension ratio
           const width = blockSize * 0.81;
-          const height = width * ratio;
+          const height = width * ratio; //Calculates additional height to adjust player´s position
           const additionalHeigth = height - blockSize;
-          entities.push(
+          entities.push( //Create a new Player entity and add it to the entities array 
             new Player(
               x * blockSize,
               y * blockSize - additionalHeigth,
@@ -176,7 +176,7 @@ class LevelFactory {
         // GOAL
         if (siffra === 9) {
           entities.push(
-            new Goal(
+            new Goal( //Create a new goal and add it to the entities array 
               x * blockSize,
               y * blockSize,
               blockSize,

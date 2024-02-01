@@ -1,4 +1,4 @@
-// Level ansvarar för att rita ut alla entiteterna och förflytta dem, deussotm kollar den kollision.
+// Level class is responsible for rendering all entities and moving them and also check for collisions
 class Level {
   public id: number;
   public entities: Entity[];
@@ -28,8 +28,7 @@ class Level {
     this.checkCollision();
   }
 
-  // gå igenom alla entiteter i arrayen och rita ut dem
-  //functions
+  // Draws level and its entities
   public draw(): void {
     this.progressBar.draw();
     for (const entity of this.entities) {
@@ -42,15 +41,15 @@ class Level {
 
   private checkCollision(): void {
     for (const entity1 of this.entities) {
-      if (entity1 instanceof Player) {
+      if (entity1 instanceof Player) { //Checks if Player is out of bounds (height)
         if (entity1.positionY > height) {
           this.game.setActiveMenu(new GameOverMenu(this.game));
           this.sound.playExplodeSound();
         }
         for (const entity2 of this.entities) {
-          if (entity2 instanceof Player) continue; //Player ska inte kunna krocka med Player
+          if (entity2 instanceof Player) continue; //Player should not collide with player
 
-          //Entity 2 är allt annat utom Player
+          //Entity 2 is everything but Player
           const left1 = entity1.positionX;
           const left2 = entity2.positionX;
           const right1 = entity1.positionX + entity1.width;
@@ -61,8 +60,8 @@ class Level {
           const bottom1 = entity1.positionY + entity1.height;
           const bottom2 = entity2.positionY + entity2.height;
 
-          // 1. Kontrollera ifall entiteterna överlappar
-          // 2. Reagera sedan på kollisionen
+          // 1. Checks if entities overlap
+          // 2. React to collision
           if (
             right1 > left2 &&
             left1 < right2 &&
@@ -70,7 +69,7 @@ class Level {
             top1 < bottom2
           ) {
             if (entity2 instanceof Platform) {
-              // Vänster sida check PIXEL PERFEKT FEL??????
+              // Collision on the left or below
               const deltaX = right1 - left2;
               const deltaY = bottom1 - top2;
               if (deltaX < deltaY) {
@@ -78,18 +77,18 @@ class Level {
                 this.game.setActiveMenu(new GameOverMenu(this.game));
                 this.sound.playExplodeSound();
               } else {
-                // Stå på platform
+                // Standing on the platform
                 entity1.positionY = entity2.positionY - entity1.height;
                 entity1.velocityY = 0;
               }
             }
             if (entity2 instanceof Obstacle) {
-              // REAKTION - FÖRLUST
+              // Reaction to collision wih obstacle - LOSS
               this.game.setActiveMenu(new GameOverMenu(this.game));
               this.sound.playExplodeSound();
             }
             if (entity2 instanceof Goal) {
-              // REAKTION - VINST
+              // Reaction to collision with Goal - WIN
               this.game.setActiveMenu(new GoalMenu(this.game, 1));
             }
             if (entity2 instanceof ProgressBar) continue;
