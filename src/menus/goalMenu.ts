@@ -48,7 +48,13 @@ class GoalMenu implements IMenu {
     push();
     fill("#D9D9D9");
     rectMode(CENTER);
-    image(menuImage.menuBackground, width * 0.25, height * 0.22, this.headingWidth, this.headingHeight);
+    image(
+      menuImage.menuBackground,
+      width * 0.25,
+      height * 0.22,
+      this.headingWidth,
+      this.headingHeight
+    );
     /* rect(width * 0.5, height * 0.5, this.headingWidth, this.headingHeight); */
     pop();
   }
@@ -66,6 +72,7 @@ class GoalMenu implements IMenu {
     strokeWeight(3);
     fill("white");
     textAlign(CENTER, CENTER);
+    textFont(font.gameFont);
     text(`YOU COMPLETED LEVEL ${this.level}`, width * 0.5, height * 0.35);
     fill("black");
     pop();
@@ -87,8 +94,11 @@ class GoalMenu implements IMenu {
     this.drawHeading();
     this.restartButton.draw();
     this.exitButton.draw();
-    // when hover over button, appears hand 
-    if (this.restartButton.contains(mouseX, mouseY) || this.exitButton.contains(mouseX, mouseY) ) {
+    // when hover over button, appears hand
+    if (
+      this.restartButton.contains(mouseX, mouseY) ||
+      this.exitButton.contains(mouseX, mouseY)
+    ) {
       cursor(HAND);
     } else {
       cursor(ARROW);
