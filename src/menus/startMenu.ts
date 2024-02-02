@@ -4,7 +4,7 @@ class StartMenu implements IMenu {
   private controlDescTitle: string;
   private controlDesc: string;
   private playerPreview: p5.Image;
-  private playerPreviewWidth: number; // to set the desired image width
+  private playerPreviewWidth: number;
   private playButton: Button;
   private game: CurrentActiveMenu;
 

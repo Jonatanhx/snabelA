@@ -1,4 +1,3 @@
-// Player ärver innehållet i Entity.
 class Obstacle extends Entity {
   public constructor(
     positionX: number,

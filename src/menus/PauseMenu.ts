@@ -66,7 +66,6 @@ class PauseMenu implements IMenu {
       this.headingWidth,
       this.headingHeight
     );
-    /* rect(width * 0.5, height * 0.5, this.headingWidth, this.headingHeight );*/
     pop();
   }
 

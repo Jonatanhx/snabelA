@@ -55,7 +55,6 @@ class GameOverMenu implements IMenu {
     fill("white");
     stroke("black");
     strokeWeight(3);
-    // textFont(font.gameFont);
     text("Restarting", width * 0.47, height * 0.5 + 50);
     if (this.countdown === 3) {
       fill(255, 0, 0);

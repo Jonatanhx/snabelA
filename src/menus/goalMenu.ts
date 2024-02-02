@@ -2,7 +2,6 @@ class GoalMenu implements IMenu {
   private headingWidth: number;
   private headingHeight: number;
   private headingFontSize: number;
-  private level: number;
   private game: CurrentActiveMenu;
   private restartButton: Button;
   private exitButton: Button;
@@ -11,13 +10,12 @@ class GoalMenu implements IMenu {
    * @param level What level is completed, 1,2,3 etc....
    */
 
-  constructor(game: CurrentActiveMenu, level: number) {
+  constructor(game: CurrentActiveMenu) {
     this.game = game;
     this.headingWidth = width * 0.5;
     this.headingHeight = height * 0.6;
     this.headingFontSize = width * 0.03;
 
-    this.level = level;
     this.restartButton = new Button(
       menuImage.buttonImg,
       "RESTART",
@@ -55,7 +53,6 @@ class GoalMenu implements IMenu {
       this.headingWidth,
       this.headingHeight
     );
-    /* rect(width * 0.5, height * 0.5, this.headingWidth, this.headingHeight); */
     pop();
   }
 
@@ -73,7 +70,7 @@ class GoalMenu implements IMenu {
     fill("white");
     textAlign(CENTER, CENTER);
     textFont(font.gameFont);
-    text(`YOU COMPLETED LEVEL ${this.level}`, width * 0.5, height * 0.35);
+    text(`LEVEL COMPLETE`, width * 0.5, height * 0.35);
     fill("black");
     pop();
   }

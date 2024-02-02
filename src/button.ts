@@ -68,13 +68,13 @@ class Button {
    */
   public clicked() {
     const mouseWasReleased = this.prevMouseIsPressed && !mouseIsPressed;
-    // const mouseWasPressed = !this.prevMouseIsPressed && mouseIsPressed;
     return this.contains(mouseX, mouseY) && mouseWasReleased;
   }
 
   /**
    * Method to check if mouse is hovering over instance of button and adds hover-color.
-   * combination with contains function
+   * combination with contains function.
+   * Not used at the moment, save if needed.
    */
   /* public hover() {              //Denna används inte längre och finns inuti menyerna istället
     if (this.contains(mouseX, mouseY)) {
@@ -88,9 +88,6 @@ class Button {
     // Eftersom p5 har uppdaterat mouseIsPressed inför den nya framen
     // Så kan vi nu jämföra dessa två värden för att veta
     // om man precis trycke eller släppte knappen.
-    // console.log(this.prevMouseIsPressed);
-    // console.log(mouseIsPressed);
-    // this.hover();
     const wasClicked = this.clicked();
 
     // spara nuvarande tillstånd

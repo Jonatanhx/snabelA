@@ -17,9 +17,7 @@ class FpsCounter {
       0
     );
   }
-
-  private renderButtons() {}
-
+  /** Uses the built in p5.js framerate method within a text method */
   private drawFps() {
     this.fpsCounterButton.draw();
     if (this.fpsCounterToggle) {
