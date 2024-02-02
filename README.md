@@ -4,7 +4,7 @@
 
 Detta är ett skolprojekt i javascript kurs på Medieinstitutet Göteborg. Syftet med detta spelprojekt är att vi ska få chansen att väva samman allt vi har lärt oss under utbildningens gång och använda oss av P5 och fördjupa vår kunskap i OOP.
 
-Spelprojektet har utfört av Eleni, Jonatan, Michaela, Nathalie, Oscar och Sara som är FED23G studenter.
+Spelprojektet har utfört av @Eleni001, [Jonatan](https://github.com/Jonatanhx), Michaela, Nathalie, Oscar och Sara som är FED23G studenter.
 
 # Beskrivning av spelet
 
