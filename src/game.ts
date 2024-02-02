@@ -1,7 +1,8 @@
 /**
  * Interface for changing menu and restarting level (wierd name)
  */
-interface CurrentActiveMenu { //Method to set active meny and optionally a level ID
+interface CurrentActiveMenu {
+  //Method to set active meny and optionally a level ID
   setActiveMenu(menu?: IMenu, levelId?: number): void;
   restartLevel(): void;
 }
@@ -35,11 +36,6 @@ class Game implements CurrentActiveMenu {
       this.sound.backgroundLoop.stop();
     }
   }
-  // DO WE NEED THESE????
-  public nextLevel() {}
-  private muteMain() {}
-  private muteSfx() {}
-  // DO WE NEED THESE????
 
   /**
    * Sets active menu for the application, if no menu the desired level is rendered
@@ -58,13 +54,15 @@ class Game implements CurrentActiveMenu {
     this.level = this.levelFactory.generateLevel(this.level.id, this);
   }
 
-  public update() { 
+  public update() {
     this.background.update();
     this.fpsCounter.update();
     this.sound.update();
-    if (this.activeMenu) { //Check if active menu exists
+    if (this.activeMenu) {
+      //Check if active menu exists
       this.activeMenu.update();
-    } else { //If no active menu then update the level and handle the Escape-key 
+    } else {
+      //If no active menu then update the level and handle the Escape-key
       this.level.update();
       if (keyIsDown(ESCAPE)) {
         this.setActiveMenu(new PauseMenu(game));
@@ -73,7 +71,8 @@ class Game implements CurrentActiveMenu {
     }
   }
 
-  public draw() { //Draw either active menu or the level based on the game state
+  public draw() {
+    //Draw either active menu or the level based on the game state
     this.background.draw();
     if (this.activeMenu) {
       this.activeMenu.draw();

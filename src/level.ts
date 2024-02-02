@@ -35,13 +35,11 @@ class Level {
       entity.draw();
     }
   }
-  // BEHÖVER VI DENNA???//
-  private moveWorld(): void {} //Olika hastigheter på bakgrund = parallax; flygande objekt = ny hastighet?
-  // BEHÖVER VI DENNA???//
 
   private checkCollision(): void {
     for (const entity1 of this.entities) {
-      if (entity1 instanceof Player) { //Checks if Player is out of bounds (height)
+      if (entity1 instanceof Player) {
+        //Checks if Player is out of bounds (height)
         if (entity1.positionY > height) {
           this.game.setActiveMenu(new GameOverMenu(this.game));
           this.sound.playExplodeSound();
@@ -89,7 +87,7 @@ class Level {
             }
             if (entity2 instanceof Goal) {
               // Reaction to collision with Goal - WIN
-              this.game.setActiveMenu(new GoalMenu(this.game, 1));
+              this.game.setActiveMenu(new GoalMenu(this.game));
             }
             if (entity2 instanceof ProgressBar) continue;
           }
